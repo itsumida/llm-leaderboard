@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+*.egg-info/
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Output directories
+setup/rag_output/
+setup/judge_output*/
+setup/elo_output/
+setup/results_output*/
+
+# Large data (optional)
+# datasets/
+# embed-rerank/
