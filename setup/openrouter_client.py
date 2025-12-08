@@ -60,8 +60,8 @@ def call_openrouter(
         "max_tokens": max_tokens,
     }
 
-    # Enable reasoning mode for Gemini 3 models
-    if "gemini-3" in model.lower():
+    # Enable reasoning mode for models that support it
+    if any(x in model.lower() for x in ["gemini-3", "gemini-2.5", "gpt-oss", "gpt-5", "qwen3-30b-a3b-thinking", "grok-code", "glm-4"]):
         payload["reasoning"] = {"enabled": True}
 
     try:

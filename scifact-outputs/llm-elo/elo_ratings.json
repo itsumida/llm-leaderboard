@@ -1,0 +1,65 @@
+{
+  "ratings": {
+    "x-ai-grok-4-fast": 1559.06,
+    "google-gemini-3-pro-preview": 1540.53,
+    "deepseek-deepseek-r1": 1488.37,
+    "openai-gpt-5.1": 1641.13,
+    "openai-gpt-oss-120b": 1309.54,
+    "google-gemini-2.5-pro": 1349.6,
+    "qwen-qwen3-30b-a3b-thinking-2507": 1472.51,
+    "anthropic-claude-opus-4.5": 1614.15,
+    "z-ai-glm-4.6": 1525.12
+  },
+  "win_loss_tie": {
+    "x-ai-grok-4-fast": {
+      "wins": 95,
+      "losses": 68,
+      "ties": 77
+    },
+    "google-gemini-3-pro-preview": {
+      "wins": 89,
+      "losses": 72,
+      "ties": 79
+    },
+    "deepseek-deepseek-r1": {
+      "wins": 53,
+      "losses": 107,
+      "ties": 80
+    },
+    "openai-gpt-5.1": {
+      "wins": 143,
+      "losses": 14,
+      "ties": 83
+    },
+    "openai-gpt-oss-120b": {
+      "wins": 18,
+      "losses": 159,
+      "ties": 63
+    },
+    "google-gemini-2.5-pro": {
+      "wins": 48,
+      "losses": 119,
+      "ties": 73
+    },
+    "qwen-qwen3-30b-a3b-thinking-2507": {
+      "wins": 84,
+      "losses": 68,
+      "ties": 88
+    },
+    "anthropic-claude-opus-4.5": {
+      "wins": 132,
+      "losses": 27,
+      "ties": 81
+    },
+    "z-ai-glm-4.6": {
+      "wins": 66,
+      "losses": 94,
+      "ties": 80
+    }
+  },
+  "config": {
+    "initial_rating": 1500,
+    "k_factor": 32,
+    "num_judgments": 1080
+  }
+}

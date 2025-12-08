@@ -67,8 +67,18 @@ Simply answer as if the information is naturally known to you.
     # Measure latency
     start_time = time.time()
 
-    # Gemini 3 with reasoning mode needs more tokens (reasoning can use 500-1500 tokens, then outputs answer)
-    max_tokens = 2000 if "gemini-3" in model_id.lower() else 500
+    # Many models need more tokens to produce output
+    # Start with higher baseline to avoid empty responses
+    max_tokens = 3000
+
+    # Reasoning models need even more tokens
+    reasoning_models = ["gemini-3", "gemini-2.5", "gpt-oss", "gpt-5", "qwen3-30b-a3b-thinking", "grok-code", "glm-4", "deepseek", "z-ai"]
+    if any(x in model_id.lower() for x in reasoning_models):
+        max_tokens = 5000
+
+    # These specific models have shown empty response issues
+    if any(x in model_id.lower() for x in ["gpt-5-nano", "glm-4", "deepseek-r1"]):
+        max_tokens = 6000
 
     try:
         result = call_openrouter(

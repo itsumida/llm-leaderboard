@@ -1,0 +1,194 @@
+[
+  {
+    "name": "anthropic-claude-opus-4.5",
+    "display_name": "Claude Opus 4.5",
+    "provider": "Anthropic",
+    "license": "Proprietary",
+    "cost_per_1m_input_tokens": 5.00,
+    "cost_per_1m_output_tokens": 25.00,
+    "release_date": "2025-11-24",
+    "context_window": 200000,
+    "max_output_tokens": 32000,
+    "model_identifier": "claude-opus-4-5-20251101",
+    "about_model": "The best model in the world for coding, agents, and computer use. Achieves 80.9% on SWE-bench Verified and 66.3% on OSWorld for computer use tasks. Features prompt caching with up to 90% cost savings and batch processing with 50% savings. Positioned as Anthropic's most capable flagship model. Supports multimodal input (text, image, file) with advanced tool use and extended context management.",
+    "key_features": [
+      "Superior coding capabilities with 80.9% on SWE-bench Verified",
+      "Advanced agentic workflows and computer use with 66.3% on OSWorld",
+      "200K context window with 32K output limit",
+      "Prompt caching (90% savings) and batch processing (50% savings)",
+      "Multimodal support (text, image, file) with verbosity parameter for token efficiency"
+    ]
+  },
+  {
+    "name": "deepseek-deepseek-r1",
+    "display_name": "DeepSeek R1",
+    "provider": "DeepSeek",
+    "license": "MIT",
+    "cost_per_1m_input_tokens": 0.30,
+    "cost_per_1m_output_tokens": 1.20,
+    "release_date": "2025-01-20",
+    "context_window": 163840,
+    "max_output_tokens": 163840,
+    "model_identifier": "deepseek-r1",
+    "parameters": "671B total (37B activated per forward pass)",
+    "architecture": "Mixture of Experts (MoE)",
+    "about_model": "Open-source reasoning model employing reinforcement learning to enhance reasoning capabilities. Built on DeepSeek-V3 base, it achieves performance comparable to OpenAI-o1 across math, code, and reasoning tasks. Updated version R1-0528 increased accuracy from 70% to 87.5% on AIME 2025 test. Fully open-weight with MIT license allowing commercial use, distillation, and modifications. Features fully open reasoning tokens with <think> and </think> delimiters.",
+    "key_features": [
+      "671B parameters with MoE architecture (37B active per pass)",
+      "MIT license with full commercial use rights, distillation, and modification freedom",
+      "163,840 token context window for long-form reasoning",
+      "Reinforcement learning-based training approach with open reasoning tokens",
+      "Comparable performance to OpenAI-o1 on math, code, and reasoning benchmarks"
+    ]
+  },
+  {
+    "name": "google-gemini-2.5-pro",
+    "display_name": "Gemini 2.5 Pro",
+    "provider": "Google",
+    "license": "Proprietary",
+    "cost_per_1m_input_tokens": 1.25,
+    "cost_per_1m_output_tokens": 10.00,
+    "release_date": "2025-05-20",
+    "context_window": 1048576,
+    "max_output_tokens": 65536,
+    "model_identifier": "gemini-2.5-pro",
+    "about_model": "Advanced multimodal reasoning model with 1M token context window. Ships with thinking capabilities where the model reasons through thoughts before responding. Leads in math and science benchmarks like GPQA and AIME 2025 without expensive test-time techniques. Supports up to 3,000 images per prompt, 45-60 minutes of video, and 8.4 hours of audio. Achieves top-tier performance on LMArena leaderboard with superior human-preference alignment.",
+    "key_features": [
+      "1,048,576 token context window with 65,536 max output",
+      "Native thinking/reasoning capabilities built-in",
+      "Advanced multimodal support: text, image, file, audio, video (3,000 images, 60 min video, 8.4 hrs audio)",
+      "Leading performance on GPQA and AIME 2025 math/science benchmarks",
+      "Prompt caching support with tiered pricing for cost optimization"
+    ]
+  },
+  {
+    "name": "google-gemini-3-pro-preview",
+    "display_name": "Gemini 3 Pro Preview",
+    "provider": "Google",
+    "license": "Proprietary",
+    "cost_per_1m_input_tokens": 2.00,
+    "cost_per_1m_output_tokens": 12.00,
+    "release_date": "2025-11-18",
+    "context_window": 1048576,
+    "max_output_tokens": 65536,
+    
+    "model_identifier": "gemini-3-pro-preview",
+    "about_model": "First model to surpass 1500 Elo on LMArena Leaderboard (1501 Elo). Demonstrates PhD-level reasoning with 37.5% on Humanity's Last Exam (no tools) and 91.9% on GPQA Diamond. Sets new state-of-the-art of 23.4% on MathArena Apex. Features autonomous workflow execution rather than just answering questions. Google's flagship frontier model for high-precision multimodal reasoning excelling in STEM problem solving, code generation (SWE-Bench verified), and agentic workflows.",
+    "key_features": [
+      "First model to exceed 1500 Elo (1501) on LMArena Leaderboard",
+      "PhD-level reasoning: 37.5% on Humanity's Last Exam, 91.9% on GPQA Diamond, 23.4% on MathArena Apex",
+      "1M context window with 65K output; multimodal (text, image, file, audio, video)",
+      "Autonomous workflow execution capabilities with robust tool-calling",
+      "Mandatory reasoning mode with state-of-the-art benchmark performance"
+    ]
+  },
+  {
+    "name": "openai-gpt-5.1",
+    "display_name": "GPT-5.1",
+    "provider": "OpenAI",
+    "license": "Proprietary",
+    "cost_per_1m_input_tokens": 1.25,
+    "cost_per_1m_output_tokens": 10.00,
+    "release_date": "2025-11-12",
+    "context_window": 400000,
+    "max_output_tokens": 128000,
+    
+    "model_identifier": "gpt-5.1",
+    "about_model": "Major upgrade released 3 months after GPT-5. Features adaptive reasoning that dynamically allocates computation, responding quickly to simple queries while spending more depth on complex tasks. GPT-5.1 Instant is warmer, more intelligent, better at following instructions. GPT-5.1 Thinking is the advanced reasoning variant, easier to understand and faster on simple tasks, more persistent on complex ones. Significant improvements on math and coding (AIME 2025, Codeforces). 25% better adherence to constraints, reducing hallucinations.",
+    "key_features": [
+      "Adaptive reasoning dynamically adjusts thinking time by task complexity",
+      "Two variants: Instant (general) and Thinking (advanced reasoning)",
+      "400K context with 128K output; multimodal (image, text, file) with native web search",
+      "Significant improvements on AIME 2025 and Codeforces; 25% better constraint adherence",
+      "Extended prompt caching with 24-hour retention, 90% savings on cached portions"
+    ]
+  },
+  {
+    "name": "openai-gpt-oss-120b",
+    "display_name": "GPT-OSS 120B",
+    "provider": "OpenAI",
+    "license": "Apache 2.0",
+    "cost_per_1m_input_tokens": 0.039,
+    "cost_per_1m_output_tokens": 0.19,
+    "release_date": "2025-08-05",
+    "context_window": 131072,
+    "max_output_tokens": 131072,
+    "model_identifier": "gpt-oss-120b",
+    "parameters": "116.8B total (5.1B activated per token)",
+    "architecture": "Mixture of Experts (MoE)",
+    "about_model": "State-of-the-art open-weight model under Apache 2.0 license for unrestricted commercial use. Uses MoE architecture with 116.8B parameters, activating 5.1B per token. Employs alternating dense and locally banded sparse attention with grouped multi-query attention. Trained on mostly English, text-only STEM/coding/general knowledge dataset using RL and techniques from o3 and frontier systems. Post-trained with MXFP4 quantization (4.25 bits/param) enabling deployment on single 80GB GPU. Outperforms o3-mini and matches o4-mini on Codeforces, MMLU, HLE, TauBench, HealthBench, AIME 2024/2025.",
+    "key_features": [
+      "Apache 2.0 license with unrestricted commercial deployment and modification rights",
+      "116.8B parameters with MoE (5.1B active), optimized for single 80GB GPU deployment",
+      "131,072 token context with RoPE positional encoding and MXFP4 quantization",
+      "Configurable reasoning depth with <think> tags and full chain-of-thought access",
+      "Outperforms o3-mini, matches o4-mini on coding, problem-solving, tool-calling benchmarks"
+    ]
+  },
+  {
+    "name": "qwen-qwen3-30b-a3b-thinking-2507",
+    "display_name": "Qwen3 30B A3B Thinking",
+    "provider": "Alibaba/Qwen",
+    "license": "Apache 2.0",
+    "cost_per_1m_input_tokens": 0.051,
+    "cost_per_1m_output_tokens": 0.34,
+    "release_date": "2025-07-01",
+    "context_window": 131072,
+    "max_output_tokens": 131072,
+    
+    "model_identifier": "qwen3-30b-a3b-thinking-2507",
+    "parameters": "30.5B total (3.3B activated)",
+    "architecture": "Mixture of Experts (MoE) - 128 experts, 8 active",
+    "about_model": "Advanced MoE reasoning model with 30.5B parameters and 3.3B activated during inference. Features thinking mode with separated reasoning traces using <think> blocks for step-by-step analysis. Pre-trained on 36 trillion tokens across 119 languages. Uses 48 layers with Grouped Query Attention (32 query heads, 4 key/value heads). Demonstrates improvements in logical reasoning, mathematics, science, coding, and multilingual benchmarks with stronger instruction following and tool use alignment. Designed for advanced research, competitive problem-solving, and agentic applications requiring structured long-context reasoning.",
+    "key_features": [
+      "Thinking mode with separated reasoning traces and <think> blocks for transparency",
+      "30.5B params, 3.3B active with 128 experts (8 active) MoE architecture",
+      "131,072 token context window; pre-trained on 36 trillion tokens across 119 languages",
+      "Enhanced logical reasoning, mathematics, science, coding, and multilingual capabilities",
+      "Strong instruction following and tool use alignment for agentic applications"
+    ]
+  },
+  {
+    "name": "x-ai-grok-4-fast",
+    "display_name": "Grok 4 Fast",
+    "provider": "xAI",
+    "license": "Proprietary",
+    "cost_per_1m_input_tokens": 0.20,
+    "cost_per_1m_output_tokens": 0.50,
+    "release_date": "2025-09-19",
+    "context_window": 2000000,
+    "max_output_tokens": 30000,
+    
+    "model_identifier": "grok-4-fast",
+    "about_model": "Unified architecture blending reasoning and non-reasoning modes in one model with same weights, reducing latency and token costs. Features massive 2M token context window for both reasoning and non-reasoning variants. Achieves comparable performance to Grok 4 while using 40% fewer thinking tokens on average. Outperforms Grok 3 Mini across reasoning benchmarks while slashing token costs. Includes cutting-edge web and X (Twitter) search capabilities. Available to all users including free tier, democratizing access to advanced AI. Reasoning can be toggled via API parameter with multimodal support (text, image).",
+    "key_features": [
+      "Unified architecture for reasoning/non-reasoning in single model (reduces latency and costs)",
+      "2 million token context window with 30K max output for extensive information processing",
+      "40% fewer thinking tokens vs Grok 4 with comparable performance",
+      "Cutting-edge web and X (Twitter) search integration with multimodal support",
+      "Free tier availability across web, Android, and iOS applications"
+    ]
+  },
+  {
+    "name": "z-ai-glm-4.6",
+    "display_name": "GLM 4.6",
+    "provider": "Zhipu AI",
+    "license": "MIT",
+    "cost_per_1m_input_tokens": 0.60,
+    "cost_per_1m_output_tokens": 2.00,
+    "release_date": "2025-09-30",
+    "context_window": 200000,
+    "max_output_tokens": 128000,
+    "model_identifier": "glm-4.6",
+    "parameters": "355B total (32B activated)",
+    "architecture": "Mixture of Experts (MoE)",
+    "about_model": "355 billion-parameter MoE model with MIT license for unrestricted commercial use. Features 200K input context window with 128K maximum output tokens. On CC-Bench achieved near parity with Claude Sonnet 4 (48.6% win rate) using ~15% fewer tokens vs GLM-4.5, resulting in 90% cost reduction vs Claude Sonnet 4.5. Clear gains over GLM-4.5 across eight public benchmarks. Enhanced capabilities in coding, long-context processing, reasoning, and agentic AI workflows. Native bilingual support for English and Chinese. Supports local inference with vLLM and SGLang.",
+    "key_features": [
+      "355B parameters MoE (32B active) with MIT license (unrestricted commercial use)",
+      "200K input context, 128K max output tokens",
+      "Near parity with Claude Sonnet 4 (48.6% win rate), 15% fewer tokens vs GLM-4.5, 90% cost reduction vs Claude 4.5",
+      "Enhanced coding, long-context processing, reasoning, and agentic AI capabilities",
+      "Native bilingual (English/Chinese), integrates with Claude Code, Cline, Roo Code, Kilo Code"
+    ]
+  }
+]

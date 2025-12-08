@@ -1,0 +1,616 @@
+{
+  "models": [
+    {
+      "name": "openai-gpt-5.1",
+      "elo": 1845.77,
+      "metrics": {
+        "correctness": 5.0,
+        "faithfulness": 5.0,
+        "grounding": 5.0,
+        "relevance": 5.0,
+        "completeness": 4.8,
+        "overall": 4.96
+      },
+      "performance": {
+        "avg_latency_ms": 29008,
+        "min_latency_ms": 4393,
+        "max_latency_ms": 43887,
+        "total_input_tokens": 147104,
+        "total_output_tokens": 46620,
+        "total_tokens": 193724
+      },
+      "win_loss_tie": {
+        "wins": 210,
+        "losses": 20,
+        "ties": 10
+      },
+      "comparisons": {
+        "anthropic-claude-opus-4.5": {
+          "wins": 26,
+          "losses": 3,
+          "ties": 1
+        },
+        "deepseek-deepseek-r1": {
+          "wins": 27,
+          "losses": 1,
+          "ties": 2
+        },
+        "google-gemini-2.5-pro": {
+          "wins": 28,
+          "losses": 2,
+          "ties": 0
+        },
+        "google-gemini-3-pro-preview": {
+          "wins": 28,
+          "losses": 2,
+          "ties": 0
+        },
+        "openai-gpt-oss-120b": {
+          "wins": 28,
+          "losses": 2,
+          "ties": 0
+        },
+        "qwen-qwen3-30b-a3b-thinking-2507": {
+          "wins": 29,
+          "losses": 1,
+          "ties": 0
+        },
+        "x-ai-grok-4-fast": {
+          "wins": 18,
+          "losses": 6,
+          "ties": 6
+        },
+        "z-ai-glm-4.6": {
+          "wins": 26,
+          "losses": 3,
+          "ties": 1
+        }
+      },
+      "rank": 1
+    },
+    {
+      "name": "x-ai-grok-4-fast",
+      "elo": 1839.81,
+      "metrics": {
+        "correctness": 5.0,
+        "faithfulness": 5.0,
+        "grounding": 5.0,
+        "relevance": 5.0,
+        "completeness": 4.97,
+        "overall": 4.99
+      },
+      "performance": {
+        "avg_latency_ms": 9142,
+        "min_latency_ms": 4767,
+        "max_latency_ms": 17055,
+        "total_input_tokens": 152864,
+        "total_output_tokens": 20853,
+        "total_tokens": 173717
+      },
+      "win_loss_tie": {
+        "wins": 175,
+        "losses": 38,
+        "ties": 27
+      },
+      "comparisons": {
+        "anthropic-claude-opus-4.5": {
+          "wins": 22,
+          "losses": 4,
+          "ties": 4
+        },
+        "deepseek-deepseek-r1": {
+          "wins": 26,
+          "losses": 0,
+          "ties": 4
+        },
+        "google-gemini-2.5-pro": {
+          "wins": 24,
+          "losses": 3,
+          "ties": 3
+        },
+        "google-gemini-3-pro-preview": {
+          "wins": 21,
+          "losses": 6,
+          "ties": 3
+        },
+        "openai-gpt-5.1": {
+          "wins": 6,
+          "losses": 18,
+          "ties": 6
+        },
+        "openai-gpt-oss-120b": {
+          "wins": 29,
+          "losses": 1,
+          "ties": 0
+        },
+        "qwen-qwen3-30b-a3b-thinking-2507": {
+          "wins": 28,
+          "losses": 1,
+          "ties": 1
+        },
+        "z-ai-glm-4.6": {
+          "wins": 19,
+          "losses": 5,
+          "ties": 6
+        }
+      },
+      "rank": 2
+    },
+    {
+      "name": "anthropic-claude-opus-4.5",
+      "elo": 1544.71,
+      "metrics": {
+        "correctness": 5.0,
+        "faithfulness": 5.0,
+        "grounding": 5.0,
+        "relevance": 5.0,
+        "completeness": 4.83,
+        "overall": 4.97
+      },
+      "performance": {
+        "avg_latency_ms": 11489,
+        "min_latency_ms": 7945,
+        "max_latency_ms": 15934,
+        "total_input_tokens": 159158,
+        "total_output_tokens": 12155,
+        "total_tokens": 171313
+      },
+      "win_loss_tie": {
+        "wins": 98,
+        "losses": 112,
+        "ties": 30
+      },
+      "comparisons": {
+        "deepseek-deepseek-r1": {
+          "wins": 18,
+          "losses": 6,
+          "ties": 6
+        },
+        "google-gemini-2.5-pro": {
+          "wins": 7,
+          "losses": 18,
+          "ties": 5
+        },
+        "google-gemini-3-pro-preview": {
+          "wins": 9,
+          "losses": 15,
+          "ties": 6
+        },
+        "openai-gpt-5.1": {
+          "wins": 3,
+          "losses": 26,
+          "ties": 1
+        },
+        "openai-gpt-oss-120b": {
+          "wins": 19,
+          "losses": 9,
+          "ties": 2
+        },
+        "qwen-qwen3-30b-a3b-thinking-2507": {
+          "wins": 23,
+          "losses": 4,
+          "ties": 3
+        },
+        "x-ai-grok-4-fast": {
+          "wins": 4,
+          "losses": 22,
+          "ties": 4
+        },
+        "z-ai-glm-4.6": {
+          "wins": 15,
+          "losses": 12,
+          "ties": 3
+        }
+      },
+      "rank": 3
+    },
+    {
+      "name": "google-gemini-3-pro-preview",
+      "elo": 1517.71,
+      "metrics": {
+        "correctness": 4.93,
+        "faithfulness": 4.93,
+        "grounding": 4.93,
+        "relevance": 5.0,
+        "completeness": 4.77,
+        "overall": 4.91
+      },
+      "performance": {
+        "avg_latency_ms": 25137,
+        "min_latency_ms": 13317,
+        "max_latency_ms": 62299,
+        "total_input_tokens": 155532,
+        "total_output_tokens": 51696,
+        "total_tokens": 207228
+      },
+      "win_loss_tie": {
+        "wins": 113,
+        "losses": 95,
+        "ties": 32
+      },
+      "comparisons": {
+        "anthropic-claude-opus-4.5": {
+          "wins": 15,
+          "losses": 9,
+          "ties": 6
+        },
+        "deepseek-deepseek-r1": {
+          "wins": 22,
+          "losses": 4,
+          "ties": 4
+        },
+        "google-gemini-2.5-pro": {
+          "wins": 18,
+          "losses": 5,
+          "ties": 7
+        },
+        "openai-gpt-5.1": {
+          "wins": 2,
+          "losses": 28,
+          "ties": 0
+        },
+        "openai-gpt-oss-120b": {
+          "wins": 18,
+          "losses": 9,
+          "ties": 3
+        },
+        "qwen-qwen3-30b-a3b-thinking-2507": {
+          "wins": 20,
+          "losses": 9,
+          "ties": 1
+        },
+        "x-ai-grok-4-fast": {
+          "wins": 6,
+          "losses": 21,
+          "ties": 3
+        },
+        "z-ai-glm-4.6": {
+          "wins": 12,
+          "losses": 10,
+          "ties": 8
+        }
+      },
+      "rank": 4
+    },
+    {
+      "name": "google-gemini-2.5-pro",
+      "elo": 1473.25,
+      "metrics": {
+        "correctness": 5.0,
+        "faithfulness": 5.0,
+        "grounding": 5.0,
+        "relevance": 5.0,
+        "completeness": 5.0,
+        "overall": 5.0
+      },
+      "performance": {
+        "avg_latency_ms": 17834,
+        "min_latency_ms": 11067,
+        "max_latency_ms": 49308,
+        "total_input_tokens": 155752,
+        "total_output_tokens": 37172,
+        "total_tokens": 192924
+      },
+      "win_loss_tie": {
+        "wins": 104,
+        "losses": 104,
+        "ties": 32
+      },
+      "comparisons": {
+        "anthropic-claude-opus-4.5": {
+          "wins": 18,
+          "losses": 7,
+          "ties": 5
+        },
+        "deepseek-deepseek-r1": {
+          "wins": 22,
+          "losses": 2,
+          "ties": 6
+        },
+        "google-gemini-3-pro-preview": {
+          "wins": 5,
+          "losses": 18,
+          "ties": 7
+        },
+        "openai-gpt-5.1": {
+          "wins": 2,
+          "losses": 28,
+          "ties": 0
+        },
+        "openai-gpt-oss-120b": {
+          "wins": 19,
+          "losses": 9,
+          "ties": 2
+        },
+        "qwen-qwen3-30b-a3b-thinking-2507": {
+          "wins": 22,
+          "losses": 5,
+          "ties": 3
+        },
+        "x-ai-grok-4-fast": {
+          "wins": 3,
+          "losses": 24,
+          "ties": 3
+        },
+        "z-ai-glm-4.6": {
+          "wins": 13,
+          "losses": 11,
+          "ties": 6
+        }
+      },
+      "rank": 5
+    },
+    {
+      "name": "z-ai-glm-4.6",
+      "elo": 1413.24,
+      "metrics": {
+        "correctness": 4.9,
+        "faithfulness": 4.9,
+        "grounding": 4.9,
+        "relevance": 4.97,
+        "completeness": 4.6,
+        "overall": 4.85
+      },
+      "performance": {
+        "avg_latency_ms": 36774,
+        "min_latency_ms": 9584,
+        "max_latency_ms": 104257,
+        "total_input_tokens": 150892,
+        "total_output_tokens": 50083,
+        "total_tokens": 200975
+      },
+      "win_loss_tie": {
+        "wins": 110,
+        "losses": 104,
+        "ties": 26
+      },
+      "comparisons": {
+        "anthropic-claude-opus-4.5": {
+          "wins": 12,
+          "losses": 15,
+          "ties": 3
+        },
+        "deepseek-deepseek-r1": {
+          "wins": 21,
+          "losses": 8,
+          "ties": 1
+        },
+        "google-gemini-2.5-pro": {
+          "wins": 11,
+          "losses": 13,
+          "ties": 6
+        },
+        "google-gemini-3-pro-preview": {
+          "wins": 10,
+          "losses": 12,
+          "ties": 8
+        },
+        "openai-gpt-5.1": {
+          "wins": 3,
+          "losses": 26,
+          "ties": 1
+        },
+        "openai-gpt-oss-120b": {
+          "wins": 23,
+          "losses": 6,
+          "ties": 1
+        },
+        "qwen-qwen3-30b-a3b-thinking-2507": {
+          "wins": 25,
+          "losses": 5,
+          "ties": 0
+        },
+        "x-ai-grok-4-fast": {
+          "wins": 5,
+          "losses": 19,
+          "ties": 6
+        }
+      },
+      "rank": 6
+    },
+    {
+      "name": "deepseek-deepseek-r1",
+      "elo": 1333.58,
+      "metrics": {
+        "correctness": 4.9,
+        "faithfulness": 4.9,
+        "grounding": 4.87,
+        "relevance": 4.93,
+        "completeness": 4.6,
+        "overall": 4.84
+      },
+      "performance": {
+        "avg_latency_ms": 23334,
+        "min_latency_ms": 12280,
+        "max_latency_ms": 85633,
+        "total_input_tokens": 151209,
+        "total_output_tokens": 18199,
+        "total_tokens": 169408
+      },
+      "win_loss_tie": {
+        "wins": 46,
+        "losses": 162,
+        "ties": 32
+      },
+      "comparisons": {
+        "anthropic-claude-opus-4.5": {
+          "wins": 6,
+          "losses": 18,
+          "ties": 6
+        },
+        "google-gemini-2.5-pro": {
+          "wins": 2,
+          "losses": 22,
+          "ties": 6
+        },
+        "google-gemini-3-pro-preview": {
+          "wins": 4,
+          "losses": 22,
+          "ties": 4
+        },
+        "openai-gpt-5.1": {
+          "wins": 1,
+          "losses": 27,
+          "ties": 2
+        },
+        "openai-gpt-oss-120b": {
+          "wins": 12,
+          "losses": 13,
+          "ties": 5
+        },
+        "qwen-qwen3-30b-a3b-thinking-2507": {
+          "wins": 13,
+          "losses": 13,
+          "ties": 4
+        },
+        "x-ai-grok-4-fast": {
+          "wins": 0,
+          "losses": 26,
+          "ties": 4
+        },
+        "z-ai-glm-4.6": {
+          "wins": 8,
+          "losses": 21,
+          "ties": 1
+        }
+      },
+      "rank": 7
+    },
+    {
+      "name": "openai-gpt-oss-120b",
+      "elo": 1303.76,
+      "metrics": {
+        "correctness": 4.87,
+        "faithfulness": 4.87,
+        "grounding": 4.87,
+        "relevance": 4.9,
+        "completeness": 4.8,
+        "overall": 4.86
+      },
+      "performance": {
+        "avg_latency_ms": 19128,
+        "min_latency_ms": 1317,
+        "max_latency_ms": 69491,
+        "total_input_tokens": 148964,
+        "total_output_tokens": 13875,
+        "total_tokens": 162839
+      },
+      "win_loss_tie": {
+        "wins": 60,
+        "losses": 163,
+        "ties": 17
+      },
+      "comparisons": {
+        "anthropic-claude-opus-4.5": {
+          "wins": 9,
+          "losses": 19,
+          "ties": 2
+        },
+        "deepseek-deepseek-r1": {
+          "wins": 13,
+          "losses": 12,
+          "ties": 5
+        },
+        "google-gemini-2.5-pro": {
+          "wins": 9,
+          "losses": 19,
+          "ties": 2
+        },
+        "google-gemini-3-pro-preview": {
+          "wins": 9,
+          "losses": 18,
+          "ties": 3
+        },
+        "openai-gpt-5.1": {
+          "wins": 2,
+          "losses": 28,
+          "ties": 0
+        },
+        "qwen-qwen3-30b-a3b-thinking-2507": {
+          "wins": 11,
+          "losses": 15,
+          "ties": 4
+        },
+        "x-ai-grok-4-fast": {
+          "wins": 1,
+          "losses": 29,
+          "ties": 0
+        },
+        "z-ai-glm-4.6": {
+          "wins": 6,
+          "losses": 23,
+          "ties": 1
+        }
+      },
+      "rank": 8
+    },
+    {
+      "name": "qwen-qwen3-30b-a3b-thinking-2507",
+      "elo": 1228.17,
+      "metrics": {
+        "correctness": 4.87,
+        "faithfulness": 4.83,
+        "grounding": 4.83,
+        "relevance": 4.93,
+        "completeness": 4.67,
+        "overall": 4.83
+      },
+      "performance": {
+        "avg_latency_ms": 16030,
+        "min_latency_ms": 3483,
+        "max_latency_ms": 44237,
+        "total_input_tokens": 152053,
+        "total_output_tokens": 34776,
+        "total_tokens": 186829
+      },
+      "win_loss_tie": {
+        "wins": 53,
+        "losses": 171,
+        "ties": 16
+      },
+      "comparisons": {
+        "anthropic-claude-opus-4.5": {
+          "wins": 4,
+          "losses": 23,
+          "ties": 3
+        },
+        "deepseek-deepseek-r1": {
+          "wins": 13,
+          "losses": 13,
+          "ties": 4
+        },
+        "google-gemini-2.5-pro": {
+          "wins": 5,
+          "losses": 22,
+          "ties": 3
+        },
+        "google-gemini-3-pro-preview": {
+          "wins": 9,
+          "losses": 20,
+          "ties": 1
+        },
+        "openai-gpt-5.1": {
+          "wins": 1,
+          "losses": 29,
+          "ties": 0
+        },
+        "openai-gpt-oss-120b": {
+          "wins": 15,
+          "losses": 11,
+          "ties": 4
+        },
+        "x-ai-grok-4-fast": {
+          "wins": 1,
+          "losses": 28,
+          "ties": 1
+        },
+        "z-ai-glm-4.6": {
+          "wins": 5,
+          "losses": 25,
+          "ties": 0
+        }
+      },
+      "rank": 9
+    }
+  ]
+}

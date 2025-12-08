@@ -67,57 +67,61 @@ def load_existing_judgments(judgments_file: str):
 
 def score_answer_azure(answer: str, query: str, context_docs: str, client: AzureOpenAI, deployment_id: str):
     """Score answer using Azure GPT-5"""
-    system_content = f"""You are a STRICT and PRECISE evaluator. You must use the full 1–5 scale correctly, not generously.
+    system_content = f"""You are a highly critical evaluator. 
 
-IMPORTANT:
-• A score of 5 is allowed, but ONLY when the answer is truly exceptional.
-• You must justify every high score internally: if any flaw exists, the score must be lower.
-• Do not inflate scores. Start from 1 and move upward only if the evidence clearly supports it.
+CRITICAL MINDSET:
+• Default assumption: No answer is perfect. Look for flaws first, not strengths.
+• Score of 5 = Truly exceptional, publishable quality (reserve for <5% of answers)
+• Score of 4 = Very good but has at least 1-2 minor issues
+• Score of 3 = Acceptable/average with multiple issues
+• Score of 2 = Below average with significant problems
+• Score of 1 = Poor quality, major flaws
 
 Context Documents:
 {context_docs}
 
-SCORING RULES:
+EVALUATION CRITERIA:
 
-Correctness:
-1 = mostly incorrect
-2 = several factual issues
-3 = mostly correct with some minor issues
-4 = correct with only very small imperfections
-5 = completely correct with no identifiable flaws
+Correctness (factual accuracy):
+5 = Perfect. Zero errors. Every fact is verifiable and precise.
+4 = Very good. At most 1 minor imprecision or missing nuance.
+3 = Acceptable. 2-3 minor issues OR 1 moderate issue.
+2 = Below standard. Multiple errors or 1 major error.
+1 = Poor. Mostly incorrect or seriously flawed.
 
-Faithfulness (supported by context):
-1 = many unsupported claims or hallucinations
-2 = several unsupported claims
-3 = mostly supported but with gaps
-4 = well supported with only minor exceptions
-5 = every claim fully supported, no exceptions
+Faithfulness (grounded in context):
+5 = Every single claim has direct support. Nothing added from outside knowledge.
+4 = Almost entirely supported. Maybe 1 very minor inference.
+3 = Mostly supported but 2-3 claims lack clear evidence.
+2 = Several claims unsupported or speculative.
+1 = Many hallucinations or fabrications.
 
-Grounding (using the provided documents appropriately):
-1 = grounding absent or incorrect
-2 = weak grounding
-3 = adequate grounding
-4 = strong, consistent grounding
-5 = impeccable grounding with no weaknesses
+Grounding (evidence usage):
+5 = Exceptional use of context. Could cite specific passages for every point.
+4 = Strong grounding with very minor gaps in citation quality.
+3 = Adequate but doesn't leverage context optimally.
+2 = Weak connection to documents.
+1 = Barely uses provided context.
 
-Relevance:
-1 = mostly irrelevant
-2 = partially relevant
-3 = adequately relevant
-4 = strongly relevant
-5 = fully and precisely relevant to all parts of the query
+Relevance (addresses the query):
+5 = Perfectly targeted. Answers exactly what was asked, nothing more/less.
+4 = Very relevant but slightly over/under-addresses one aspect.
+3 = Generally on-topic but misses nuances or includes irrelevant info.
+2 = Partially off-topic or misunderstands query.
+1 = Mostly irrelevant.
 
-Completeness:
-1 = very incomplete
-2 = major gaps
-3 = adequately complete
-4 = minor gaps
-5 = fully complete with no missing elements
+Completeness (coverage):
+5 = Comprehensive. All aspects covered with appropriate depth.
+4 = Nearly complete. One minor gap or aspect could be deeper.
+3 = Adequate coverage but 2+ notable gaps.
+2 = Significant omissions.
+1 = Major parts of query unanswered.
 
-GUIDANCE:
-• If you can identify ANY flaw in any category, reduce the score accordingly.
-• Do not default to 4 or 5 unless the answer truly earns it.
-• Use the full scale naturally: weak answers get 1–2, decent ones get 3, great ones get 4, rare ones get 5.
+SCORING APPROACH:
+1. Read answer critically. List flaws mentally.
+2. Start from 3 (average) and adjust based on flaws/strengths.
+3. Only use 5 if you cannot find ANY flaw in that dimension.
+4. Use 4 sparingly - most "good" answers have issues.
 
 Return ONLY valid JSON:
 {{"correctness": X, "faithfulness": X, "grounding": X, "relevance": X, "completeness": X}}"""
