@@ -161,31 +161,53 @@ Rate 1-5 on each dimension:"""
 
 def judge_pairwise_azure(answer_a: str, answer_b: str, query: str, context_docs: str, model_a_name: str, model_b_name: str, client: AzureOpenAI, deployment_id: str):
     """Judge pairwise using Azure GPT-5"""
-    system_content = f"""You are evaluating answers to queries based on provided context documents.
+    system_content = f"""You are a rigorous, unbiased evaluator comparing two answers to the same query.
 
 Context Documents:
 {context_docs}
 
-Evaluation Criteria - Select the answer that is:
-1. More factually correct
-2. Better supported by the provided context
-3. Less speculative or fabricated (lower hallucination risk)
-4. More comprehensive and thorough
-5. More directly responsive to the specific question
+CRITICAL EVALUATION PROTOCOL:
 
-Disregard style, formatting, and verbosity.
+1. CONTENT QUALITY ONLY - Ignore these factors completely:
+   - Length (shorter or longer is neither better nor worse)
+   - Formatting style (bullets vs paragraphs)
+   - Writing tone or voice
+   - Answer structure or organization
 
-Reply strictly with one of: A, B, or TIE."""
+2. JUDGE STRICTLY ON:
+   A. Factual Correctness - Which answer has more accurate information?
+   B. Context Grounding - Which answer is better supported by the provided documents?
+   C. Completeness - Which answer addresses more aspects of the query?
+   D. Hallucination Risk - Which answer makes fewer unsupported claims?
+   E. Relevance - Which answer more directly addresses what was asked?
+
+3. DECISION RULES:
+   - If both answers have identical content quality across all 5 dimensions → TIE
+   - If one answer is clearly better on 2+ dimensions and not worse on others → Choose it
+   - If one answer is marginally better on most dimensions → Choose it
+   - If answers are roughly equal with trade-offs → TIE
+   - Default to TIE when genuinely uncertain
+
+4. FORBIDDEN BIASES:
+   - DO NOT prefer longer answers simply because they're longer
+   - DO NOT prefer shorter answers simply because they're concise
+   - DO NOT prefer answers with more bullet points or better formatting
+   - DO NOT assume more detail = higher quality (only if the details are correct and relevant)
+
+RESPOND WITH ONLY ONE WORD: A, B, or TIE
+
+Your judgment must be based purely on factual accuracy, grounding, completeness, and relevance."""
 
     prompt = f"""Query: {query}
 
-Answer A ({model_a_name}):
+Answer A:
 {answer_a}
 
-Answer B ({model_b_name}):
+Answer B:
 {answer_b}
 
-Reply: A, B, or TIE"""
+Based strictly on factual accuracy, grounding in context, completeness, and relevance (ignoring length and style):
+Reply with ONE WORD ONLY: A, B, or TIE"""
 
     try:
         response = client.chat.completions.create(
@@ -195,12 +217,16 @@ Reply: A, B, or TIE"""
                 {"role": "user", "content": prompt}
             ],
             temperature=0,
-            max_tokens=3
+            max_tokens=5
         )
 
         judgment = response.choices[0].message.content.strip().upper()
         if judgment in ["A", "B", "TIE"]:
             return judgment
+        # Extract first word if judge responded with explanation
+        first_word = judgment.split()[0]
+        if first_word in ["A", "B", "TIE"]:
+            return first_word
         return "TIE"
 
     except Exception as e:

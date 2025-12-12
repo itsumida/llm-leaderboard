@@ -1,0 +1,1412 @@
+[
+  {
+    "name": "gpt-5.1",
+    "overall": {
+      "elo": 1710.6,
+      "elo_std": 95.82,
+      "wins": 561,
+      "losses": 117,
+      "ties": 132,
+      "win_rate": 0.6926,
+      "total_judgments": 810,
+      "avg_latency_ms": 16191.0,
+      "avg_metric_overall": 4.98
+    },
+    "by_dataset": {
+      "MSMARCO": {
+        "elo": 1688.29,
+        "wins": 150,
+        "losses": 63,
+        "ties": 57,
+        "win_rate": 0.5556,
+        "metrics": {
+          "correctness": 5.0,
+          "faithfulness": 5.0,
+          "grounding": 5.0,
+          "relevance": 5.0,
+          "completeness": 4.93,
+          "overall": 4.99
+        },
+        "latency": {
+          "mean_ms": 9111,
+          "min_ms": 3841,
+          "max_ms": 34731
+        }
+      },
+      "PG": {
+        "elo": 1867.14,
+        "wins": 235,
+        "losses": 29,
+        "ties": 6,
+        "win_rate": 0.8704,
+        "metrics": {
+          "correctness": 5.0,
+          "faithfulness": 5.0,
+          "grounding": 5.0,
+          "relevance": 5.0,
+          "completeness": 4.73,
+          "overall": 4.95
+        },
+        "latency": {
+          "mean_ms": 29008,
+          "min_ms": 4393,
+          "max_ms": 43887
+        }
+      },
+      "SciFact": {
+        "elo": 1646.07,
+        "wins": 176,
+        "losses": 25,
+        "ties": 69,
+        "win_rate": 0.6519,
+        "metrics": {
+          "correctness": 5.0,
+          "faithfulness": 5.0,
+          "grounding": 5.0,
+          "relevance": 5.0,
+          "completeness": 4.97,
+          "overall": 4.99
+        },
+        "latency": {
+          "mean_ms": 10454,
+          "min_ms": 4700,
+          "max_ms": 21205
+        }
+      }
+    },
+    "comparisons": {
+      "claude-opus-4-5-20251101": {
+        "wins": 44,
+        "losses": 22,
+        "ties": 24,
+        "total": 90,
+        "win_rate": 0.4889
+      },
+      "deepseek-r1": {
+        "wins": 73,
+        "losses": 5,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.8111
+      },
+      "gemini-2.5-pro": {
+        "wins": 75,
+        "losses": 10,
+        "ties": 5,
+        "total": 90,
+        "win_rate": 0.8333
+      },
+      "gemini-3-pro-preview": {
+        "wins": 71,
+        "losses": 7,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.7889
+      },
+      "gpt-5.2": {
+        "wins": 53,
+        "losses": 16,
+        "ties": 21,
+        "total": 90,
+        "win_rate": 0.5889
+      },
+      "gpt-oss-120b": {
+        "wins": 76,
+        "losses": 2,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.8444
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 63,
+        "losses": 12,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.7
+      },
+      "grok-4-fast": {
+        "wins": 48,
+        "losses": 24,
+        "ties": 18,
+        "total": 90,
+        "win_rate": 0.5333
+      },
+      "glm-4.6": {
+        "wins": 58,
+        "losses": 19,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.6444
+      }
+    }
+  },
+  {
+    "name": "grok-4-fast",
+    "overall": {
+      "elo": 1657.3,
+      "elo_std": 128.39,
+      "wins": 487,
+      "losses": 210,
+      "ties": 113,
+      "win_rate": 0.6012,
+      "total_judgments": 810,
+      "avg_latency_ms": 5850.67,
+      "avg_metric_overall": 4.96
+    },
+    "by_dataset": {
+      "MSMARCO": {
+        "elo": 1584.93,
+        "wins": 165,
+        "losses": 70,
+        "ties": 35,
+        "win_rate": 0.6111,
+        "metrics": {
+          "correctness": 4.9,
+          "faithfulness": 4.9,
+          "grounding": 4.9,
+          "relevance": 5.0,
+          "completeness": 4.83,
+          "overall": 4.91
+        },
+        "latency": {
+          "mean_ms": 3894,
+          "min_ms": 1742,
+          "max_ms": 6649
+        }
+      },
+      "PG": {
+        "elo": 1836.32,
+        "wins": 207,
+        "losses": 50,
+        "ties": 13,
+        "win_rate": 0.7667,
+        "metrics": {
+          "correctness": 5.0,
+          "faithfulness": 5.0,
+          "grounding": 5.0,
+          "relevance": 5.0,
+          "completeness": 4.93,
+          "overall": 4.99
+        },
+        "latency": {
+          "mean_ms": 9142,
+          "min_ms": 4767,
+          "max_ms": 17055
+        }
+      },
+      "SciFact": {
+        "elo": 1546.99,
+        "wins": 115,
+        "losses": 90,
+        "ties": 65,
+        "win_rate": 0.4259,
+        "metrics": {
+          "correctness": 5.0,
+          "faithfulness": 5.0,
+          "grounding": 5.0,
+          "relevance": 5.0,
+          "completeness": 4.83,
+          "overall": 4.97
+        },
+        "latency": {
+          "mean_ms": 4516,
+          "min_ms": 2358,
+          "max_ms": 14942
+        }
+      }
+    },
+    "comparisons": {
+      "claude-opus-4-5-20251101": {
+        "wins": 36,
+        "losses": 42,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.4
+      },
+      "deepseek-r1": {
+        "wins": 72,
+        "losses": 11,
+        "ties": 7,
+        "total": 90,
+        "win_rate": 0.8
+      },
+      "gemini-2.5-pro": {
+        "wins": 60,
+        "losses": 19,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.6667
+      },
+      "gemini-3-pro-preview": {
+        "wins": 50,
+        "losses": 27,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.5556
+      },
+      "gpt-5.1": {
+        "wins": 24,
+        "losses": 48,
+        "ties": 18,
+        "total": 90,
+        "win_rate": 0.2667
+      },
+      "gpt-5.2": {
+        "wins": 52,
+        "losses": 22,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.5778
+      },
+      "gpt-oss-120b": {
+        "wins": 79,
+        "losses": 3,
+        "ties": 8,
+        "total": 90,
+        "win_rate": 0.8778
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 69,
+        "losses": 11,
+        "ties": 10,
+        "total": 90,
+        "win_rate": 0.7667
+      },
+      "glm-4.6": {
+        "wins": 45,
+        "losses": 27,
+        "ties": 18,
+        "total": 90,
+        "win_rate": 0.5
+      }
+    }
+  },
+  {
+    "name": "claude-opus-4-5-20251101",
+    "overall": {
+      "elo": 1618.84,
+      "elo_std": 90.0,
+      "wins": 454,
+      "losses": 243,
+      "ties": 113,
+      "win_rate": 0.5605,
+      "total_judgments": 810,
+      "avg_latency_ms": 8252.33,
+      "avg_metric_overall": 4.91
+    },
+    "by_dataset": {
+      "MSMARCO": {
+        "elo": 1696.19,
+        "wins": 199,
+        "losses": 40,
+        "ties": 31,
+        "win_rate": 0.737,
+        "metrics": {
+          "correctness": 4.97,
+          "faithfulness": 4.97,
+          "grounding": 4.97,
+          "relevance": 4.97,
+          "completeness": 4.97,
+          "overall": 4.97
+        },
+        "latency": {
+          "mean_ms": 5992,
+          "min_ms": 2590,
+          "max_ms": 8072
+        }
+      },
+      "PG": {
+        "elo": 1476.85,
+        "wins": 95,
+        "losses": 165,
+        "ties": 10,
+        "win_rate": 0.3519,
+        "metrics": {
+          "correctness": 4.93,
+          "faithfulness": 4.93,
+          "grounding": 4.93,
+          "relevance": 4.93,
+          "completeness": 4.8,
+          "overall": 4.91
+        },
+        "latency": {
+          "mean_ms": 11489,
+          "min_ms": 7945,
+          "max_ms": 15934
+        }
+      },
+      "SciFact": {
+        "elo": 1605.77,
+        "wins": 160,
+        "losses": 38,
+        "ties": 72,
+        "win_rate": 0.5926,
+        "metrics": {
+          "correctness": 4.73,
+          "faithfulness": 4.8,
+          "grounding": 4.8,
+          "relevance": 4.97,
+          "completeness": 4.7,
+          "overall": 4.8
+        },
+        "latency": {
+          "mean_ms": 7276,
+          "min_ms": 4210,
+          "max_ms": 10496
+        }
+      }
+    },
+    "comparisons": {
+      "deepseek-r1": {
+        "wins": 62,
+        "losses": 20,
+        "ties": 8,
+        "total": 90,
+        "win_rate": 0.6889
+      },
+      "gemini-2.5-pro": {
+        "wins": 44,
+        "losses": 31,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.4889
+      },
+      "gemini-3-pro-preview": {
+        "wins": 42,
+        "losses": 32,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.4667
+      },
+      "gpt-5.1": {
+        "wins": 22,
+        "losses": 44,
+        "ties": 24,
+        "total": 90,
+        "win_rate": 0.2444
+      },
+      "gpt-5.2": {
+        "wins": 43,
+        "losses": 31,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.4778
+      },
+      "gpt-oss-120b": {
+        "wins": 67,
+        "losses": 17,
+        "ties": 6,
+        "total": 90,
+        "win_rate": 0.7444
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 72,
+        "losses": 8,
+        "ties": 10,
+        "total": 90,
+        "win_rate": 0.8
+      },
+      "grok-4-fast": {
+        "wins": 42,
+        "losses": 36,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.4667
+      },
+      "glm-4.6": {
+        "wins": 60,
+        "losses": 24,
+        "ties": 6,
+        "total": 90,
+        "win_rate": 0.6667
+      }
+    }
+  },
+  {
+    "name": "gpt-5.2",
+    "overall": {
+      "elo": 1587.9,
+      "elo_std": 32.7,
+      "wins": 370,
+      "losses": 282,
+      "ties": 158,
+      "win_rate": 0.4568,
+      "total_judgments": 810,
+      "avg_latency_ms": 5379.67,
+      "avg_metric_overall": 4.97
+    },
+    "by_dataset": {
+      "MSMARCO": {
+        "elo": 1551.43,
+        "wins": 80,
+        "losses": 144,
+        "ties": 46,
+        "win_rate": 0.2963,
+        "metrics": {
+          "correctness": 5.0,
+          "faithfulness": 5.0,
+          "grounding": 5.0,
+          "relevance": 4.97,
+          "completeness": 4.87,
+          "overall": 4.97
+        },
+        "latency": {
+          "mean_ms": 2652,
+          "min_ms": 796,
+          "max_ms": 5810
+        }
+      },
+      "PG": {
+        "elo": 1586.61,
+        "wins": 175,
+        "losses": 77,
+        "ties": 18,
+        "win_rate": 0.6481,
+        "metrics": {
+          "correctness": 5.0,
+          "faithfulness": 5.0,
+          "grounding": 5.0,
+          "relevance": 5.0,
+          "completeness": 4.97,
+          "overall": 4.99
+        },
+        "latency": {
+          "mean_ms": 8702,
+          "min_ms": 2755,
+          "max_ms": 14361
+        }
+      },
+      "SciFact": {
+        "elo": 1631.35,
+        "wins": 115,
+        "losses": 61,
+        "ties": 94,
+        "win_rate": 0.4259,
+        "metrics": {
+          "correctness": 4.87,
+          "faithfulness": 5.0,
+          "grounding": 4.97,
+          "relevance": 4.97,
+          "completeness": 4.73,
+          "overall": 4.91
+        },
+        "latency": {
+          "mean_ms": 4785,
+          "min_ms": 1318,
+          "max_ms": 10172
+        }
+      }
+    },
+    "comparisons": {
+      "claude-opus-4-5-20251101": {
+        "wins": 31,
+        "losses": 43,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.3444
+      },
+      "deepseek-r1": {
+        "wins": 64,
+        "losses": 13,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.7111
+      },
+      "gemini-2.5-pro": {
+        "wins": 51,
+        "losses": 20,
+        "ties": 19,
+        "total": 90,
+        "win_rate": 0.5667
+      },
+      "gemini-3-pro-preview": {
+        "wins": 45,
+        "losses": 27,
+        "ties": 18,
+        "total": 90,
+        "win_rate": 0.5
+      },
+      "gpt-5.1": {
+        "wins": 16,
+        "losses": 53,
+        "ties": 21,
+        "total": 90,
+        "win_rate": 0.1778
+      },
+      "gpt-oss-120b": {
+        "wins": 63,
+        "losses": 12,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.7
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 43,
+        "losses": 28,
+        "ties": 19,
+        "total": 90,
+        "win_rate": 0.4778
+      },
+      "grok-4-fast": {
+        "wins": 22,
+        "losses": 52,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.2444
+      },
+      "glm-4.6": {
+        "wins": 35,
+        "losses": 34,
+        "ties": 21,
+        "total": 90,
+        "win_rate": 0.3889
+      }
+    }
+  },
+  {
+    "name": "gemini-3-pro-preview",
+    "overall": {
+      "elo": 1521.76,
+      "elo_std": 19.55,
+      "wins": 364,
+      "losses": 317,
+      "ties": 129,
+      "win_rate": 0.4494,
+      "total_judgments": 810,
+      "avg_latency_ms": 17903.33,
+      "avg_metric_overall": 4.9
+    },
+    "by_dataset": {
+      "MSMARCO": {
+        "elo": 1487.64,
+        "wins": 124,
+        "losses": 99,
+        "ties": 47,
+        "win_rate": 0.4593,
+        "metrics": {
+          "correctness": 4.8,
+          "faithfulness": 4.8,
+          "grounding": 4.8,
+          "relevance": 5.0,
+          "completeness": 4.87,
+          "overall": 4.85
+        },
+        "latency": {
+          "mean_ms": 13990,
+          "min_ms": 7461,
+          "max_ms": 26343
+        }
+      },
+      "PG": {
+        "elo": 1535.53,
+        "wins": 134,
+        "losses": 122,
+        "ties": 14,
+        "win_rate": 0.4963,
+        "metrics": {
+          "correctness": 4.97,
+          "faithfulness": 4.97,
+          "grounding": 4.97,
+          "relevance": 5.0,
+          "completeness": 4.8,
+          "overall": 4.94
+        },
+        "latency": {
+          "mean_ms": 25137,
+          "min_ms": 13317,
+          "max_ms": 62299
+        }
+      },
+      "SciFact": {
+        "elo": 1511.61,
+        "wins": 106,
+        "losses": 96,
+        "ties": 68,
+        "win_rate": 0.3926,
+        "metrics": {
+          "correctness": 4.93,
+          "faithfulness": 4.97,
+          "grounding": 4.93,
+          "relevance": 4.93,
+          "completeness": 4.77,
+          "overall": 4.91
+        },
+        "latency": {
+          "mean_ms": 14583,
+          "min_ms": 10135,
+          "max_ms": 21489
+        }
+      }
+    },
+    "comparisons": {
+      "claude-opus-4-5-20251101": {
+        "wins": 32,
+        "losses": 42,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.3556
+      },
+      "deepseek-r1": {
+        "wins": 65,
+        "losses": 12,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.7222
+      },
+      "gemini-2.5-pro": {
+        "wins": 59,
+        "losses": 18,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.6556
+      },
+      "gpt-5.1": {
+        "wins": 7,
+        "losses": 71,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.0778
+      },
+      "gpt-5.2": {
+        "wins": 27,
+        "losses": 45,
+        "ties": 18,
+        "total": 90,
+        "win_rate": 0.3
+      },
+      "gpt-oss-120b": {
+        "wins": 60,
+        "losses": 17,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.6667
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 46,
+        "losses": 32,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.5111
+      },
+      "grok-4-fast": {
+        "wins": 27,
+        "losses": 50,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.3
+      },
+      "glm-4.6": {
+        "wins": 41,
+        "losses": 30,
+        "ties": 19,
+        "total": 90,
+        "win_rate": 0.4556
+      }
+    }
+  },
+  {
+    "name": "glm-4.6",
+    "overall": {
+      "elo": 1489.44,
+      "elo_std": 73.49,
+      "wins": 346,
+      "losses": 337,
+      "ties": 127,
+      "win_rate": 0.4272,
+      "total_judgments": 810,
+      "avg_latency_ms": 33116.0,
+      "avg_metric_overall": 4.81
+    },
+    "by_dataset": {
+      "MSMARCO": {
+        "elo": 1550.96,
+        "wins": 119,
+        "losses": 106,
+        "ties": 45,
+        "win_rate": 0.4407,
+        "metrics": {
+          "correctness": 4.8,
+          "faithfulness": 4.77,
+          "grounding": 4.77,
+          "relevance": 4.83,
+          "completeness": 4.7,
+          "overall": 4.77
+        },
+        "latency": {
+          "mean_ms": 34694,
+          "min_ms": 9198,
+          "max_ms": 69527
+        }
+      },
+      "PG": {
+        "elo": 1411.61,
+        "wins": 140,
+        "losses": 114,
+        "ties": 16,
+        "win_rate": 0.5185,
+        "metrics": {
+          "correctness": 4.87,
+          "faithfulness": 4.87,
+          "grounding": 4.83,
+          "relevance": 4.9,
+          "completeness": 4.57,
+          "overall": 4.81
+        },
+        "latency": {
+          "mean_ms": 36774,
+          "min_ms": 9584,
+          "max_ms": 104257
+        }
+      },
+      "SciFact": {
+        "elo": 1579.98,
+        "wins": 87,
+        "losses": 117,
+        "ties": 66,
+        "win_rate": 0.3222,
+        "metrics": {
+          "correctness": 4.63,
+          "faithfulness": 4.87,
+          "grounding": 4.87,
+          "relevance": 4.9,
+          "completeness": 4.57,
+          "overall": 4.77
+        },
+        "latency": {
+          "mean_ms": 27880,
+          "min_ms": 3248,
+          "max_ms": 68513
+        }
+      }
+    },
+    "comparisons": {
+      "claude-opus-4-5-20251101": {
+        "wins": 24,
+        "losses": 60,
+        "ties": 6,
+        "total": 90,
+        "win_rate": 0.2667
+      },
+      "deepseek-r1": {
+        "wins": 54,
+        "losses": 24,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.6
+      },
+      "gemini-2.5-pro": {
+        "wins": 36,
+        "losses": 35,
+        "ties": 19,
+        "total": 90,
+        "win_rate": 0.4
+      },
+      "gemini-3-pro-preview": {
+        "wins": 30,
+        "losses": 41,
+        "ties": 19,
+        "total": 90,
+        "win_rate": 0.3333
+      },
+      "gpt-5.1": {
+        "wins": 19,
+        "losses": 58,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.2111
+      },
+      "gpt-5.2": {
+        "wins": 34,
+        "losses": 35,
+        "ties": 21,
+        "total": 90,
+        "win_rate": 0.3778
+      },
+      "gpt-oss-120b": {
+        "wins": 64,
+        "losses": 15,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.7111
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 58,
+        "losses": 24,
+        "ties": 8,
+        "total": 90,
+        "win_rate": 0.6444
+      },
+      "grok-4-fast": {
+        "wins": 27,
+        "losses": 45,
+        "ties": 18,
+        "total": 90,
+        "win_rate": 0.3
+      }
+    }
+  },
+  {
+    "name": "gemini-2.5-pro",
+    "overall": {
+      "elo": 1428.88,
+      "elo_std": 78.89,
+      "wins": 287,
+      "losses": 402,
+      "ties": 121,
+      "win_rate": 0.3543,
+      "total_judgments": 810,
+      "avg_latency_ms": 15199.0,
+      "avg_metric_overall": 4.88
+    },
+    "by_dataset": {
+      "MSMARCO": {
+        "elo": 1476.76,
+        "wins": 124,
+        "losses": 101,
+        "ties": 45,
+        "win_rate": 0.4593,
+        "metrics": {
+          "correctness": 4.9,
+          "faithfulness": 4.93,
+          "grounding": 4.93,
+          "relevance": 5.0,
+          "completeness": 4.9,
+          "overall": 4.93
+        },
+        "latency": {
+          "mean_ms": 12449,
+          "min_ms": 7629,
+          "max_ms": 23066
+        }
+      },
+      "PG": {
+        "elo": 1478.42,
+        "wins": 109,
+        "losses": 146,
+        "ties": 15,
+        "win_rate": 0.4037,
+        "metrics": {
+          "correctness": 5.0,
+          "faithfulness": 5.0,
+          "grounding": 5.0,
+          "relevance": 5.0,
+          "completeness": 5.0,
+          "overall": 5.0
+        },
+        "latency": {
+          "mean_ms": 17834,
+          "min_ms": 11067,
+          "max_ms": 49308
+        }
+      },
+      "SciFact": {
+        "elo": 1310.25,
+        "wins": 54,
+        "losses": 155,
+        "ties": 61,
+        "win_rate": 0.2,
+        "metrics": {
+          "correctness": 4.73,
+          "faithfulness": 4.8,
+          "grounding": 4.8,
+          "relevance": 4.73,
+          "completeness": 4.57,
+          "overall": 4.73
+        },
+        "latency": {
+          "mean_ms": 15314,
+          "min_ms": 8817,
+          "max_ms": 35365
+        }
+      }
+    },
+    "comparisons": {
+      "claude-opus-4-5-20251101": {
+        "wins": 31,
+        "losses": 44,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.3444
+      },
+      "deepseek-r1": {
+        "wins": 60,
+        "losses": 16,
+        "ties": 14,
+        "total": 90,
+        "win_rate": 0.6667
+      },
+      "gemini-3-pro-preview": {
+        "wins": 18,
+        "losses": 59,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.2
+      },
+      "gpt-5.1": {
+        "wins": 10,
+        "losses": 75,
+        "ties": 5,
+        "total": 90,
+        "win_rate": 0.1111
+      },
+      "gpt-5.2": {
+        "wins": 20,
+        "losses": 51,
+        "ties": 19,
+        "total": 90,
+        "win_rate": 0.2222
+      },
+      "gpt-oss-120b": {
+        "wins": 49,
+        "losses": 29,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.5444
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 45,
+        "losses": 32,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.5
+      },
+      "grok-4-fast": {
+        "wins": 19,
+        "losses": 60,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.2111
+      },
+      "glm-4.6": {
+        "wins": 35,
+        "losses": 36,
+        "ties": 19,
+        "total": 90,
+        "win_rate": 0.3889
+      }
+    }
+  },
+  {
+    "name": "deepseek-r1",
+    "overall": {
+      "elo": 1338.1,
+      "elo_std": 101.72,
+      "wins": 164,
+      "losses": 540,
+      "ties": 106,
+      "win_rate": 0.2025,
+      "total_judgments": 810,
+      "avg_latency_ms": 18271.33,
+      "avg_metric_overall": 4.86
+    },
+    "by_dataset": {
+      "MSMARCO": {
+        "elo": 1179.23,
+        "wins": 44,
+        "losses": 191,
+        "ties": 35,
+        "win_rate": 0.163,
+        "metrics": {
+          "correctness": 4.73,
+          "faithfulness": 4.77,
+          "grounding": 4.77,
+          "relevance": 4.87,
+          "completeness": 4.37,
+          "overall": 4.7
+        },
+        "latency": {
+          "mean_ms": 16654,
+          "min_ms": 9675,
+          "max_ms": 31255
+        }
+      },
+      "PG": {
+        "elo": 1312.27,
+        "wins": 51,
+        "losses": 210,
+        "ties": 9,
+        "win_rate": 0.1889,
+        "metrics": {
+          "correctness": 4.93,
+          "faithfulness": 4.93,
+          "grounding": 4.9,
+          "relevance": 4.97,
+          "completeness": 4.6,
+          "overall": 4.87
+        },
+        "latency": {
+          "mean_ms": 23334,
+          "min_ms": 12280,
+          "max_ms": 85633
+        }
+      },
+      "SciFact": {
+        "elo": 1428.19,
+        "wins": 69,
+        "losses": 139,
+        "ties": 62,
+        "win_rate": 0.2556,
+        "metrics": {
+          "correctness": 4.93,
+          "faithfulness": 4.97,
+          "grounding": 4.93,
+          "relevance": 5.0,
+          "completeness": 4.83,
+          "overall": 4.93
+        },
+        "latency": {
+          "mean_ms": 14826,
+          "min_ms": 7765,
+          "max_ms": 33129
+        }
+      }
+    },
+    "comparisons": {
+      "claude-opus-4-5-20251101": {
+        "wins": 20,
+        "losses": 62,
+        "ties": 8,
+        "total": 90,
+        "win_rate": 0.2222
+      },
+      "gemini-2.5-pro": {
+        "wins": 16,
+        "losses": 60,
+        "ties": 14,
+        "total": 90,
+        "win_rate": 0.1778
+      },
+      "gemini-3-pro-preview": {
+        "wins": 12,
+        "losses": 65,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.1333
+      },
+      "gpt-5.1": {
+        "wins": 5,
+        "losses": 73,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.0556
+      },
+      "gpt-5.2": {
+        "wins": 13,
+        "losses": 64,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.1444
+      },
+      "gpt-oss-120b": {
+        "wins": 36,
+        "losses": 38,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.4
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 27,
+        "losses": 52,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.3
+      },
+      "grok-4-fast": {
+        "wins": 11,
+        "losses": 72,
+        "ties": 7,
+        "total": 90,
+        "win_rate": 0.1222
+      },
+      "glm-4.6": {
+        "wins": 24,
+        "losses": 54,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.2667
+      }
+    }
+  },
+  {
+    "name": "qwen3-30b-a3b-thinking-2507",
+    "overall": {
+      "elo": 1331.1,
+      "elo_std": 134.83,
+      "wins": 258,
+      "losses": 443,
+      "ties": 109,
+      "win_rate": 0.3185,
+      "total_judgments": 810,
+      "avg_latency_ms": 12312.0,
+      "avg_metric_overall": 4.9
+    },
+    "by_dataset": {
+      "MSMARCO": {
+        "elo": 1446.93,
+        "wins": 91,
+        "losses": 138,
+        "ties": 41,
+        "win_rate": 0.337,
+        "metrics": {
+          "correctness": 4.9,
+          "faithfulness": 4.9,
+          "grounding": 4.9,
+          "relevance": 5.0,
+          "completeness": 4.8,
+          "overall": 4.9
+        },
+        "latency": {
+          "mean_ms": 12522,
+          "min_ms": 1541,
+          "max_ms": 49799
+        }
+      },
+      "PG": {
+        "elo": 1165.71,
+        "wins": 61,
+        "losses": 205,
+        "ties": 4,
+        "win_rate": 0.2259,
+        "metrics": {
+          "correctness": 4.9,
+          "faithfulness": 4.87,
+          "grounding": 4.87,
+          "relevance": 4.93,
+          "completeness": 4.77,
+          "overall": 4.87
+        },
+        "latency": {
+          "mean_ms": 16030,
+          "min_ms": 3483,
+          "max_ms": 44237
+        }
+      },
+      "SciFact": {
+        "elo": 1456.3,
+        "wins": 106,
+        "losses": 100,
+        "ties": 64,
+        "win_rate": 0.3926,
+        "metrics": {
+          "correctness": 4.97,
+          "faithfulness": 4.97,
+          "grounding": 4.93,
+          "relevance": 5.0,
+          "completeness": 4.83,
+          "overall": 4.94
+        },
+        "latency": {
+          "mean_ms": 8384,
+          "min_ms": 2185,
+          "max_ms": 19414
+        }
+      }
+    },
+    "comparisons": {
+      "claude-opus-4-5-20251101": {
+        "wins": 8,
+        "losses": 72,
+        "ties": 10,
+        "total": 90,
+        "win_rate": 0.0889
+      },
+      "deepseek-r1": {
+        "wins": 52,
+        "losses": 27,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.5778
+      },
+      "gemini-2.5-pro": {
+        "wins": 32,
+        "losses": 45,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.3556
+      },
+      "gemini-3-pro-preview": {
+        "wins": 32,
+        "losses": 46,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.3556
+      },
+      "gpt-5.1": {
+        "wins": 12,
+        "losses": 63,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.1333
+      },
+      "gpt-5.2": {
+        "wins": 28,
+        "losses": 43,
+        "ties": 19,
+        "total": 90,
+        "win_rate": 0.3111
+      },
+      "gpt-oss-120b": {
+        "wins": 59,
+        "losses": 20,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.6556
+      },
+      "grok-4-fast": {
+        "wins": 11,
+        "losses": 69,
+        "ties": 10,
+        "total": 90,
+        "win_rate": 0.1222
+      },
+      "glm-4.6": {
+        "wins": 24,
+        "losses": 58,
+        "ties": 8,
+        "total": 90,
+        "win_rate": 0.2667
+      }
+    }
+  },
+  {
+    "name": "gpt-oss-120b",
+    "overall": {
+      "elo": 1316.06,
+      "elo_std": 23.86,
+      "wins": 153,
+      "losses": 553,
+      "ties": 104,
+      "win_rate": 0.1889,
+      "total_judgments": 810,
+      "avg_latency_ms": 11199.33,
+      "avg_metric_overall": 4.85
+    },
+    "by_dataset": {
+      "MSMARCO": {
+        "elo": 1337.64,
+        "wins": 42,
+        "losses": 186,
+        "ties": 42,
+        "win_rate": 0.1556,
+        "metrics": {
+          "correctness": 4.93,
+          "faithfulness": 4.9,
+          "grounding": 4.9,
+          "relevance": 4.97,
+          "completeness": 4.87,
+          "overall": 4.91
+        },
+        "latency": {
+          "mean_ms": 5616,
+          "min_ms": 1255,
+          "max_ms": 20330
+        }
+      },
+      "PG": {
+        "elo": 1329.56,
+        "wins": 87,
+        "losses": 176,
+        "ties": 7,
+        "win_rate": 0.3222,
+        "metrics": {
+          "correctness": 4.8,
+          "faithfulness": 4.8,
+          "grounding": 4.8,
+          "relevance": 4.83,
+          "completeness": 4.73,
+          "overall": 4.79
+        },
+        "latency": {
+          "mean_ms": 19128,
+          "min_ms": 1317,
+          "max_ms": 69491
+        }
+      },
+      "SciFact": {
+        "elo": 1283.48,
+        "wins": 24,
+        "losses": 191,
+        "ties": 55,
+        "win_rate": 0.0889,
+        "metrics": {
+          "correctness": 4.87,
+          "faithfulness": 4.87,
+          "grounding": 4.87,
+          "relevance": 4.8,
+          "completeness": 4.7,
+          "overall": 4.82
+        },
+        "latency": {
+          "mean_ms": 8854,
+          "min_ms": 0,
+          "max_ms": 35709
+        }
+      }
+    },
+    "comparisons": {
+      "claude-opus-4-5-20251101": {
+        "wins": 17,
+        "losses": 67,
+        "ties": 6,
+        "total": 90,
+        "win_rate": 0.1889
+      },
+      "deepseek-r1": {
+        "wins": 38,
+        "losses": 36,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.4222
+      },
+      "gemini-2.5-pro": {
+        "wins": 29,
+        "losses": 49,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.3222
+      },
+      "gemini-3-pro-preview": {
+        "wins": 17,
+        "losses": 60,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.1889
+      },
+      "gpt-5.1": {
+        "wins": 2,
+        "losses": 76,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.0222
+      },
+      "gpt-5.2": {
+        "wins": 12,
+        "losses": 63,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.1333
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 20,
+        "losses": 59,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.2222
+      },
+      "grok-4-fast": {
+        "wins": 3,
+        "losses": 79,
+        "ties": 8,
+        "total": 90,
+        "win_rate": 0.0333
+      },
+      "glm-4.6": {
+        "wins": 15,
+        "losses": 64,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.1667
+      }
+    }
+  }
+]
