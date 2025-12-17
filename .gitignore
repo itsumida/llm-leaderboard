@@ -13,11 +13,6 @@ venv/
 .idea/
 .DS_Store
 
-# Output directories
-setup/rag_output/
-setup/judge_output*/
-setup/elo_output/
-setup/results_output*/
 
 # Large data (optional)
 # datasets/
