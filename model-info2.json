@@ -119,5 +119,16 @@
     "release_date": "2025-09-30",
     "context_window": 203000,
     "about_model": "Native bilingual English/Chinese support for cross-lingual RAG without translation overhead. MIT license enables fine-tuning on proprietary knowledge bases with self-hosting via vLLM/SGLang."
+  },
+  {
+    "name": "claude-opus-4-6",
+    "display_name": "Claude Opus 4.6",
+    "provider": "Anthropic",
+    "license": "Proprietary",
+    "cost_per_1m_input_tokens": 5.00,
+    "cost_per_1m_output_tokens": 25.00,
+    "release_date": "2026-02-05",
+    "context_window": 1000000,
+    "about_model": "1M token context window (beta) with state-of-the-art coding and agentic capabilities. Highest score on Terminal-Bench 2.0 and Humanity's Last Exam. Improved planning, longer task persistence, and better debugging skills. Context compaction and adaptive thinking enable longer-running tasks."
   }
 ]

@@ -18,6 +18,68 @@ logger = logging.getLogger(__name__)
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1/chat/completions"
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+OPENAI_BASE_URL = "https://api.openai.com/v1/chat/completions"
+
+# Models that should use OpenAI API directly (not available on OpenRouter yet)
+DIRECT_OPENAI_MODELS = ["gpt-5.3-codex"]
+
+
+def call_openai_direct(
+    model: str,
+    messages: List[Dict[str, str]],
+    temperature: float = 0.0,
+    max_tokens: int = 500
+) -> Dict:
+    """
+    Call OpenAI API directly (for models not on OpenRouter yet)
+
+    Args:
+        model: Model ID (e.g., 'gpt-5.3-codex')
+        messages: List of message dicts with 'role' and 'content'
+        temperature: Temperature for generation
+        max_tokens: Maximum tokens to generate
+
+    Returns:
+        Dict with 'content', 'input_tokens', 'output_tokens'
+    """
+    headers = {
+        "Authorization": f"Bearer {OPENAI_API_KEY}",
+        "Content-Type": "application/json",
+    }
+
+    payload = {
+        "model": model,
+        "messages": messages,
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+    }
+
+    try:
+        response = requests.post(
+            OPENAI_BASE_URL,
+            headers=headers,
+            json=payload,
+            timeout=120
+        )
+        response.raise_for_status()
+
+        data = response.json()
+
+        # Extract content and usage
+        message = data["choices"][0]["message"]
+        content = message.get("content", "")
+        usage = data.get("usage", {})
+
+        return {
+            "content": content,
+            "input_tokens": usage.get("prompt_tokens", 0),
+            "output_tokens": usage.get("completion_tokens", 0)
+        }
+
+    except requests.exceptions.RequestException as e:
+        logger.error(f"OpenAI API error for {model}: {e}")
+        raise
 
 
 def call_openrouter(
@@ -29,10 +91,10 @@ def call_openrouter(
     app_name: str = "llm-leaderboard"
 ) -> Dict:
     """
-    Call OpenRouter API with any model
+    Call OpenRouter API with any model (or route to OpenAI directly if needed)
 
     Args:
-        model: Model ID (e.g., 'openai/gpt-5', 'anthropic/claude-opus-4.5')
+        model: Model ID (e.g., 'openai/gpt-5', 'anthropic/claude-opus-4.5', 'gpt-5.3-codex')
         messages: List of message dicts with 'role' and 'content'
         temperature: Temperature for generation
         max_tokens: Maximum tokens to generate
@@ -42,6 +104,12 @@ def call_openrouter(
     Returns:
         Dict with 'content', 'input_tokens', 'output_tokens'
     """
+    # Check if we should use OpenAI API directly
+    model_name = model.split('/')[-1] if '/' in model else model
+    if any(direct_model in model_name for direct_model in DIRECT_OPENAI_MODELS):
+        logger.info(f"Routing {model} to OpenAI API directly")
+        return call_openai_direct(model_name, messages, temperature, max_tokens)
+
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json",
