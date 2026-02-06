@@ -1,71 +1,77 @@
 {
   "ratings": {
-    "z-ai-glm-4.6": 1579.98,
-    "google-gemini-3-pro-preview": 1511.61,
-    "deepseek-deepseek-r1": 1428.19,
-    "x-ai-grok-4-fast": 1546.99,
-    "google-gemini-2.5-pro": 1310.25,
-    "openai-gpt-5.1": 1646.07,
-    "anthropic-claude-opus-4.5": 1605.77,
-    "openai-gpt-5.2": 1631.35,
-    "qwen-qwen3-30b-a3b-thinking-2507": 1456.3,
-    "openai-gpt-oss-120b": 1283.48
+    "openai-gpt-5.1": 1663.67,
+    "openai-gpt-5.2": 1640.0,
+    "anthropic-claude-opus-4.5": 1579.69,
+    "qwen-qwen3-30b-a3b-thinking-2507": 1466.25,
+    "google-gemini-2.5-pro": 1308.49,
+    "x-ai-grok-4-fast": 1544.73,
+    "google-gemini-3-flash-preview": 1454.02,
+    "openai-gpt-oss-120b": 1295.15,
+    "deepseek-deepseek-r1": 1433.71,
+    "google-gemini-3-pro-preview": 1523.82,
+    "z-ai-glm-4.6": 1590.47
   },
   "win_loss_tie": {
-    "z-ai-glm-4.6": {
-      "wins": 87,
-      "losses": 117,
-      "ties": 66
+    "openai-gpt-5.1": {
+      "wins": 195,
+      "losses": 26,
+      "ties": 79
     },
-    "google-gemini-3-pro-preview": {
-      "wins": 106,
-      "losses": 96,
-      "ties": 68
+    "openai-gpt-5.2": {
+      "wins": 123,
+      "losses": 70,
+      "ties": 107
     },
-    "deepseek-deepseek-r1": {
-      "wins": 69,
-      "losses": 139,
-      "ties": 62
+    "anthropic-claude-opus-4.5": {
+      "wins": 166,
+      "losses": 48,
+      "ties": 86
     },
-    "x-ai-grok-4-fast": {
-      "wins": 115,
-      "losses": 90,
-      "ties": 65
+    "qwen-qwen3-30b-a3b-thinking-2507": {
+      "wins": 112,
+      "losses": 114,
+      "ties": 74
     },
     "google-gemini-2.5-pro": {
       "wins": 54,
-      "losses": 155,
-      "ties": 61
+      "losses": 179,
+      "ties": 67
     },
-    "openai-gpt-5.1": {
-      "wins": 176,
-      "losses": 25,
-      "ties": 69
+    "x-ai-grok-4-fast": {
+      "wins": 120,
+      "losses": 109,
+      "ties": 71
     },
-    "anthropic-claude-opus-4.5": {
-      "wins": 160,
-      "losses": 38,
-      "ties": 72
-    },
-    "openai-gpt-5.2": {
-      "wins": 115,
+    "google-gemini-3-flash-preview": {
+      "wins": 153,
       "losses": 61,
-      "ties": 94
-    },
-    "qwen-qwen3-30b-a3b-thinking-2507": {
-      "wins": 106,
-      "losses": 100,
-      "ties": 64
+      "ties": 86
     },
     "openai-gpt-oss-120b": {
-      "wins": 24,
-      "losses": 191,
-      "ties": 55
+      "wins": 26,
+      "losses": 215,
+      "ties": 59
+    },
+    "deepseek-deepseek-r1": {
+      "wins": 72,
+      "losses": 161,
+      "ties": 67
+    },
+    "google-gemini-3-pro-preview": {
+      "wins": 113,
+      "losses": 108,
+      "ties": 79
+    },
+    "z-ai-glm-4.6": {
+      "wins": 92,
+      "losses": 135,
+      "ties": 73
     }
   },
   "config": {
     "initial_rating": 1500,
     "k_factor": 32,
-    "num_judgments": 1350
+    "num_judgments": 1650
   }
 }

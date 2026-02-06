@@ -124,6 +124,109 @@ def generate_answer(model: str, query: str, system_prompt: str = "", temperature
     }
 
 
+def generate_answer_with_challenge(
+    model: str,
+    query: str,
+    system_prompt: str = "",
+    temperature: float = 0.0,
+    max_tokens: int = 500,
+    challenge_prompt: str = "Are you sure? Think carefully."
+) -> Dict:
+    """
+    Generate answer with multi-turn reasoning - preserving reasoning_details across turns
+
+    Args:
+        model: Model ID
+        query: User query
+        system_prompt: Optional system prompt with context
+        temperature: Temperature
+        max_tokens: Max tokens
+        challenge_prompt: Follow-up challenge to make model reconsider
+
+    Returns:
+        Dict with 'answer' (final), 'initial_answer', 'reasoning_preserved',
+        'input_tokens', 'output_tokens'
+    """
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json",
+    }
+
+    # First API call with reasoning
+    messages = []
+    if system_prompt:
+        messages.append({"role": "system", "content": system_prompt})
+    messages.append({"role": "user", "content": query})
+
+    payload = {
+        "model": model,
+        "messages": messages,
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+    }
+
+    # Enable reasoning mode for models that support it
+    if any(x in model.lower() for x in ["gemini-3", "gemini-2.5", "gpt-oss", "gpt-5", "qwen3-30b-a3b-thinking", "grok-code", "glm-4", "deepseek"]):
+        payload["reasoning"] = {"enabled": True}
+
+    try:
+        # First turn
+        response = requests.post(
+            OPENROUTER_BASE_URL,
+            headers=headers,
+            json=payload,
+            timeout=120
+        )
+        response.raise_for_status()
+        data = response.json()
+
+        # Extract the assistant message with reasoning_details
+        assistant_message = data["choices"][0]["message"]
+        initial_answer = assistant_message.get("content", "")
+        reasoning_details = assistant_message.get("reasoning_details")
+
+        # Track token usage
+        usage1 = data.get("usage", {})
+        input_tokens = usage1.get("prompt_tokens", 0)
+        output_tokens = usage1.get("completion_tokens", 0)
+
+        # Preserve the assistant message with reasoning_details for second turn
+        messages.append({
+            "role": "assistant",
+            "content": assistant_message.get("content"),
+            "reasoning_details": reasoning_details  # Pass back unmodified
+        })
+        messages.append({"role": "user", "content": challenge_prompt})
+
+        # Second API call - model continues reasoning from where it left off
+        payload["messages"] = messages
+        response2 = requests.post(
+            OPENROUTER_BASE_URL,
+            headers=headers,
+            json=payload,
+            timeout=120
+        )
+        response2.raise_for_status()
+        data2 = response2.json()
+
+        final_answer = data2["choices"][0]["message"].get("content", "")
+        usage2 = data2.get("usage", {})
+        input_tokens += usage2.get("prompt_tokens", 0)
+        output_tokens += usage2.get("completion_tokens", 0)
+
+        return {
+            "answer": final_answer,  # Final answer after challenge
+            "initial_answer": initial_answer,  # Original answer before challenge
+            "reasoning_preserved": reasoning_details is not None,
+            "input_tokens": input_tokens,
+            "output_tokens": output_tokens
+        }
+
+    except requests.exceptions.RequestException as e:
+        logger.error(f"OpenRouter API error for {model}: {e}")
+        raise
+
+
 def judge_pairwise(
     answer_a: str,
     answer_b: str,

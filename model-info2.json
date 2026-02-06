@@ -33,6 +33,17 @@
     "about_model": "1M token context window accommodates extensive retrieved document sets without chunking. Multimodal RAG processes up to 3,000 images, 60 minutes of video, and 8.4 hours of audio alongside text."
   },
   {
+    "name": "gemini-3-flash-preview",
+    "display_name": "Gemini 3 Flash",
+    "provider": "Google",
+    "license": "Proprietary",
+    "cost_per_1m_input_tokens": 0.50,
+    "cost_per_1m_output_tokens": 3.00,
+    "release_date": "2025-12-17",
+    "context_window": 1048576,
+    "about_model": "Frontier intelligence built for speed at a fraction of the cost. Achieves 90.4% on GPQA Diamond and 81.2% on MMMU Pro with Pro-grade reasoning at Flash-level latency. 3x faster than 2.5 Pro while using 30% fewer tokens on average. Ideal for agentic workflows, coding (78% on SWE-bench Verified), and multimodal reasoning with 1M token context."
+  },
+  {
     "name": "gemini-3-pro-preview",
     "display_name": "Gemini 3 Pro Preview",
     "provider": "Google",

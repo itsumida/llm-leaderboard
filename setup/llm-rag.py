@@ -18,13 +18,13 @@ from dotenv import load_dotenv
 # Load environment variables from .env file BEFORE importing openrouter_client
 load_dotenv()
 
-from openrouter_client import call_openrouter
+from openrouter_client import call_openrouter, generate_answer_with_challenge
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 
-def generate_answer_for_query(query_id: str, query: str, top_docs: list, model_id: str) -> dict:
+def generate_answer_for_query(query_id: str, query: str, top_docs: list, model_id: str, enable_challenge: bool = False) -> dict:
     """Generate answer for a single query using a specific model"""
 
     # Build context from top documents
@@ -81,22 +81,37 @@ Simply answer as if the information is naturally known to you.
         max_tokens = 6000
 
     try:
-        result = call_openrouter(
-            model=model_id,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": query}
-            ],
-            temperature=0.0,
-            max_tokens=max_tokens
-        )
+        # Use multi-turn reasoning if enabled
+        if enable_challenge:
+            result = generate_answer_with_challenge(
+                model=model_id,
+                query=query,
+                system_prompt=system_prompt,
+                temperature=0.0,
+                max_tokens=max_tokens,
+                challenge_prompt="Are you sure? Think carefully."
+            )
+            answer = result["answer"]  # Final answer after challenge
+            initial_answer = result.get("initial_answer", "")
+        else:
+            result = call_openrouter(
+                model=model_id,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": query}
+                ],
+                temperature=0.0,
+                max_tokens=max_tokens
+            )
+            answer = result["content"]
+            initial_answer = None
 
         latency_ms = int((time.time() - start_time) * 1000)
 
-        return {
+        output = {
             "query_id": query_id,
             "question": query,
-            "answer": result["content"],
+            "answer": answer,
             "documents_used": [
                 {
                     "doc_id": doc.get("doc_id", f"doc_{i}"),
@@ -112,6 +127,13 @@ Simply answer as if the information is naturally known to you.
                 "output_tokens": result["output_tokens"]
             }
         }
+
+        # Include initial answer if challenge mode was used
+        if enable_challenge and initial_answer:
+            output["initial_answer"] = initial_answer
+            output["reasoning_mode"] = "multi-turn-challenge"
+
+        return output
 
     except Exception as e:
         logger.error(f"Error generating answer for {query_id} with {model_id}: {e}")
@@ -131,6 +153,7 @@ def main():
     parser.add_argument('--input', required=True, help='Input file with top-15 docs per query')
     parser.add_argument('--output-dir', default='rag_output/answers', help='Output directory')
     parser.add_argument('--models', required=True, help='Comma-separated list of OpenRouter model IDs')
+    parser.add_argument('--enable-challenge', action='store_true', help='Enable multi-turn reasoning with challenge prompt')
     args = parser.parse_args()
 
     # Parse models
@@ -149,6 +172,8 @@ def main():
 
     logger.info(f"Loaded {len(queries)} queries")
     logger.info(f"Models: {', '.join(model_ids)}")
+    if args.enable_challenge:
+        logger.info("🧠 Multi-turn reasoning with challenge enabled")
 
     # Create output directory
     output_dir = Path(args.output_dir)
@@ -169,7 +194,7 @@ def main():
             query_id = query_data['query_id']
             query_text = query_data['query']
             top_docs = query_data.get('top15_docs', query_data.get('top_docs', []))
-            tasks.append((query_id, query_text, top_docs, model_id))
+            tasks.append((query_id, query_text, top_docs, model_id, args.enable_challenge))
 
         # Execute in parallel
         results = []
