@@ -13,7 +13,7 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import itertools
 from dotenv import load_dotenv
-from openai import AzureOpenAI
+from openai import OpenAI
 
 # Load environment variables from .env file
 load_dotenv()
@@ -65,7 +65,7 @@ def load_existing_judgments(judgments_file: str):
     return existing
 
 
-def score_answer_azure(answer: str, query: str, context_docs: str, client: AzureOpenAI, deployment_id: str):
+def score_answer_azure(answer: str, query: str, context_docs: str, client: OpenAI, deployment_id: str):
     """Score answer using Azure GPT-5"""
     system_content = f"""You are a highly critical evaluator. 
 
@@ -159,7 +159,7 @@ Rate 1-5 on each dimension:"""
         return {"correctness": 3, "faithfulness": 3, "grounding": 3, "relevance": 3, "completeness": 3}
 
 
-def judge_pairwise_azure(answer_a: str, answer_b: str, query: str, context_docs: str, model_a_name: str, model_b_name: str, client: AzureOpenAI, deployment_id: str):
+def judge_pairwise_azure(answer_a: str, answer_b: str, query: str, context_docs: str, model_a_name: str, model_b_name: str, client: OpenAI, deployment_id: str):
     """Judge pairwise using Azure GPT-5"""
     system_content = f"""You are a rigorous, unbiased evaluator comparing two answers to the same query.
 
@@ -305,18 +305,17 @@ def main():
 
     # Check Azure API key
     azure_api_key = os.getenv('AZURE_API_KEY')
-    azure_resource_name = os.getenv('AZURE_RESOURCE_NAME')
-    azure_deployment = os.getenv('AZURE_DEPLOYMENT_ID', 'gpt-5')
+    azure_endpoint = os.getenv('AZURE_ENDPOINT')
+    azure_deployment = os.getenv('AZURE_DEPLOYMENT_ID', 'gpt-5-chat')
 
-    if not azure_api_key or not azure_resource_name:
-        print("❌ Error: AZURE_API_KEY and AZURE_RESOURCE_NAME must be set in .env!")
+    if not azure_api_key or not azure_endpoint:
+        print("❌ Error: AZURE_API_KEY and AZURE_ENDPOINT must be set in .env!")
         return 1
 
-    # Initialize Azure OpenAI client
-    azure_client = AzureOpenAI(
-        api_key=azure_api_key,
-        api_version="2024-02-15-preview",
-        azure_endpoint=f"https://{azure_resource_name}.openai.azure.com"
+    # Initialize Azure OpenAI client (new format)
+    azure_client = OpenAI(
+        base_url=azure_endpoint,
+        api_key=azure_api_key
     )
 
     logger.info(f"Using Azure GPT-5: {azure_deployment}")
@@ -383,8 +382,17 @@ def main():
             key = (query_id, frozenset([model_x, model_y]))
 
             if key in existing_judgments:
-                reused_judgments.append(existing_judgments[key])
+                existing_j = existing_judgments[key]
+                reused_judgments.append(existing_j)
                 reused_count += 1
+
+                # Add scores from existing judgment to cache for metrics generation
+                cache_key_x = (model_x, query_id)
+                cache_key_y = (model_y, query_id)
+                if 'scores_x' in existing_j:
+                    score_cache[cache_key_x] = existing_j['scores_x']
+                if 'scores_y' in existing_j:
+                    score_cache[cache_key_y] = existing_j['scores_y']
             else:
                 all_tasks.append((query_id, model_x, model_y, query_text, answers_data, azure_client, azure_deployment, score_cache))
                 new_count += 1
@@ -456,7 +464,8 @@ def main():
     logger.info(f"\nAPI calls:")
     logger.info(f"  With caching: {total_api_calls}")
     logger.info(f"  Without caching: {without_caching}")
-    logger.info(f"  Savings: {without_caching - total_api_calls} calls ({(without_caching - total_api_calls) / without_caching * 100:.1f}%)")
+    if without_caching > 0:
+        logger.info(f"  Savings: {without_caching - total_api_calls} calls ({(without_caching - total_api_calls) / without_caching * 100:.1f}%)")
 
     return 0
 

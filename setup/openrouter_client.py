@@ -129,7 +129,7 @@ def call_openrouter(
     }
 
     # Enable reasoning mode for models that support it
-    if any(x in model.lower() for x in ["gemini-3", "gemini-2.5", "gpt-oss", "gpt-5", "qwen3-30b-a3b-thinking", "grok-code", "glm-4"]):
+    if any(x in model.lower() for x in ["gemini-3", "gemini-2.5", "gpt-oss", "gpt-5", "qwen3-30b-a3b-thinking", "grok-code", "glm-4", "claude-sonnet-4.6"]):
         payload["reasoning"] = {"enabled": True}
 
     try:
@@ -234,7 +234,7 @@ def generate_answer_with_challenge(
     }
 
     # Enable reasoning mode for models that support it
-    if any(x in model.lower() for x in ["gemini-3", "gemini-2.5", "gpt-oss", "gpt-5", "qwen3-30b-a3b-thinking", "grok-code", "glm-4", "deepseek"]):
+    if any(x in model.lower() for x in ["gemini-3", "gemini-2.5", "gpt-oss", "gpt-5", "qwen3-30b-a3b-thinking", "grok-code", "glm-4", "deepseek", "claude-sonnet-4.6"]):
         payload["reasoning"] = {"enabled": True}
 
     try:

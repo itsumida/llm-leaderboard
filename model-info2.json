@@ -130,5 +130,27 @@
     "release_date": "2026-02-05",
     "context_window": 1000000,
     "about_model": "1M token context window (beta) with state-of-the-art coding and agentic capabilities. Highest score on Terminal-Bench 2.0 and Humanity's Last Exam. Improved planning, longer task persistence, and better debugging skills. Context compaction and adaptive thinking enable longer-running tasks."
+  },
+  {
+    "name": "claude-sonnet-4.6",
+    "display_name": "Claude Sonnet 4.6",
+    "provider": "Anthropic",
+    "license": "Proprietary",
+    "cost_per_1m_input_tokens": 3.00,
+    "cost_per_1m_output_tokens": 15.00,
+    "release_date": "2026-02-17",
+    "context_window": 200000,
+    "about_model": "Latest Sonnet model with extended reasoning capabilities. Features reasoning mode for deeper analysis of retrieved documents before responding. Balanced performance and cost for RAG applications with strong grounding and faithfulness."
+  },
+  {
+    "name": "claude-sonnet-4.5",
+    "display_name": "Claude Sonnet 4.5",
+    "provider": "Anthropic",
+    "license": "Proprietary",
+    "cost_per_1m_input_tokens": 1.00,
+    "cost_per_1m_output_tokens": 5.00,
+    "release_date": "2025-10-22",
+    "context_window": 200000,
+    "about_model": "Previous generation Sonnet (Claude 3.5) with strong coding and analysis capabilities. 200K context window with prompt caching for efficient RAG workflows. Balanced performance for production applications."
   }
 ]

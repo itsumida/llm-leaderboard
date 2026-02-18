@@ -20,25 +20,33 @@ COLORS = {
 }
 
 plt.rcParams['font.family'] = 'sans-serif'
-plt.rcParams['font.sans-serif'] = ['Inter', 'Arial', 'Helvetica']
-plt.rcParams['font.size'] = 11
+plt.rcParams['font.sans-serif'] = ['SF Pro Display', 'Inter', 'Helvetica Neue', 'Arial']
+plt.rcParams['font.size'] = 12
+plt.rcParams['axes.labelsize'] = 13
+plt.rcParams['xtick.labelsize'] = 11
+plt.rcParams['ytick.labelsize'] = 11
+plt.rcParams['legend.fontsize'] = 11
+plt.rcParams['legend.framealpha'] = 1.0
+plt.rcParams['axes.linewidth'] = 1.5
+plt.rcParams['figure.dpi'] = 150
 
-def style_plot(ax, title, xlabel=None, ylabel=None):
-    """Apply consistent styling."""
-    ax.set_facecolor(COLORS['background'])
+def style_plot(ax, title=None, xlabel=None, ylabel=None):
+    """Apply consistent styling - ultra clean, professional."""
+    ax.set_facecolor('white')
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
-    ax.spines['left'].set_color(COLORS['grid'])
-    ax.spines['bottom'].set_color(COLORS['grid'])
-    ax.tick_params(colors=COLORS['text'])
-    ax.grid(True, alpha=0.3, linestyle='-', linewidth=0.5, color=COLORS['grid'])
+    ax.spines['left'].set_color('#e0e0e0')
+    ax.spines['bottom'].set_color('#e0e0e0')
+    ax.spines['left'].set_linewidth(1.5)
+    ax.spines['bottom'].set_linewidth(1.5)
+    ax.tick_params(colors=COLORS['text'], length=6, width=1.5)
+    ax.grid(True, alpha=0.2, linestyle='-', linewidth=1, color='#e8e8e8', axis='x')
     ax.set_axisbelow(True)
-    if title:
-        ax.set_title(title, fontsize=14, fontweight='600', color=COLORS['text'], pad=15)
+    # No title - user requested removal
     if xlabel:
-        ax.set_xlabel(xlabel, fontsize=11, color=COLORS['text'])
+        ax.set_xlabel(xlabel, fontsize=12, color=COLORS['text'], fontweight='500', labelpad=10)
     if ylabel:
-        ax.set_ylabel(ylabel, fontsize=11, color=COLORS['text'])
+        ax.set_ylabel(ylabel, fontsize=12, color=COLORS['text'], fontweight='500', labelpad=10)
 
 def load_data():
     data_path = Path(__file__).parent.parent / 'final-benchmarks.json'
@@ -82,8 +90,8 @@ def plot_46_vs_45_upgrade(data, output_dir):
     ax.set_xticks(x)
     ax.set_xticklabels(datasets)
 
-    style_plot(ax, 'Opus 4.6 vs 4.5: Clear Upgrade Across All Datasets', ylabel='ELO Rating')
-    ax.legend(loc='upper right', frameon=True, framealpha=0.95, edgecolor=COLORS['grid'])
+    style_plot(ax, ylabel='ELO Rating')
+    ax.legend(loc='upper right', frameon=True, framealpha=1.0, edgecolor='#e0e0e0', shadow=False)
     ax.set_ylim(1100, 1900)
 
     plt.tight_layout()
@@ -124,14 +132,7 @@ def plot_latency_by_complexity(data, output_dir):
     ax.set_xticks(x)
     ax.set_xticklabels(datasets)
 
-    style_plot(ax, 'Adaptive Latency: Simple → Fast, Complex → Slow',
-               ylabel='Latency (seconds)')
-
-    # Add annotation
-    ax.annotate('Simple lookups', xy=(0, avg_latencies[0]), xytext=(0, avg_latencies[0] - 3),
-                ha='center', fontsize=10, color=COLORS['text'], style='italic')
-    ax.annotate('Extended reasoning', xy=(1, avg_latencies[1]), xytext=(1, avg_latencies[1] + 2),
-                ha='center', fontsize=10, color=COLORS['text'], style='italic')
+    style_plot(ax, ylabel='Latency (seconds)')
 
     plt.tight_layout()
     plt.savefig(output_dir / 'adaptive_latency.png', dpi=300, bbox_inches='tight', facecolor='white')
@@ -167,7 +168,7 @@ def plot_completeness_issue(data, output_dir):
     ax1.invert_yaxis()
     ax1.axvline(x=5.0, color=COLORS['text'], linestyle='--', linewidth=1, alpha=0.3)
 
-    style_plot(ax1, 'Completeness Score: Scientific Dataset', xlabel='Score (out of 5.0)')
+    style_plot(ax1, xlabel='Completeness Score')
     ax1.set_xlim(4.0, 5.2)
 
     # Plot 2: Average answer length
@@ -182,7 +183,7 @@ def plot_completeness_issue(data, output_dir):
     ax2.set_yticklabels(names)
     ax2.invert_yaxis()
 
-    style_plot(ax2, 'Average Answer Length: Scientific Dataset', xlabel='Tokens')
+    style_plot(ax2, xlabel='Average Tokens')
 
     plt.tight_layout()
     plt.savefig(output_dir / 'completeness_issue.png', dpi=300, bbox_inches='tight', facecolor='white')
@@ -223,19 +224,8 @@ def plot_head_to_head_gpt51(data, output_dir):
     ax.set_xticks(x)
     ax.set_xticklabels(datasets)
 
-    style_plot(ax, 'Opus 4.6 vs GPT-5.1: The Paradox', ylabel='Number of Judgments')
-    ax.legend(loc='upper right', frameon=True, framealpha=0.95, edgecolor=COLORS['grid'])
-
-    # Add annotation
-    ax.annotate('Opus dominates\nfactual tasks', xy=(0, 15), xytext=(0, 22),
-                ha='center', fontsize=9, color=COLORS['text'],
-                bbox=dict(boxstyle='round,pad=0.4', facecolor='white',
-                         edgecolor=COLORS['grid'], alpha=0.9))
-
-    ax.annotate('GPT-5.1 wins\nsynthesis', xy=(1, 20), xytext=(1, 27),
-                ha='center', fontsize=9, color=COLORS['text'],
-                bbox=dict(boxstyle='round,pad=0.4', facecolor='white',
-                         edgecolor=COLORS['grid'], alpha=0.9))
+    style_plot(ax, ylabel='Number of Judgments')
+    ax.legend(loc='upper right', frameon=True, framealpha=1.0, edgecolor='#e0e0e0', shadow=False)
 
     plt.tight_layout()
     plt.savefig(output_dir / 'opus_vs_gpt51.png', dpi=300, bbox_inches='tight', facecolor='white')
@@ -267,7 +257,7 @@ def plot_overall_elo_simple(data, output_dir):
     ax.set_yticklabels(names)
     ax.invert_yaxis()
 
-    style_plot(ax, 'Overall RAG Performance: Opus 4.6 Takes the Lead', xlabel='ELO Rating')
+    style_plot(ax, xlabel='ELO Rating')
     ax.set_xlim(1400, 1850)
 
     plt.tight_layout()

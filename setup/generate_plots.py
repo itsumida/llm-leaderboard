@@ -24,15 +24,17 @@ COLORS = {
     'grid': '#ecf0f1'           # Light grid
 }
 
-# Font settings for professional look
+# Ultra high quality font settings
 plt.rcParams['font.family'] = 'sans-serif'
-plt.rcParams['font.sans-serif'] = ['Inter', 'Arial', 'Helvetica']
-plt.rcParams['font.size'] = 11
-plt.rcParams['axes.labelsize'] = 12
-plt.rcParams['axes.titlesize'] = 14
-plt.rcParams['xtick.labelsize'] = 10
-plt.rcParams['ytick.labelsize'] = 10
-plt.rcParams['legend.fontsize'] = 10
+plt.rcParams['font.sans-serif'] = ['SF Pro Display', 'Inter', 'Helvetica Neue', 'Arial']
+plt.rcParams['font.size'] = 12
+plt.rcParams['axes.labelsize'] = 13
+plt.rcParams['xtick.labelsize'] = 11
+plt.rcParams['ytick.labelsize'] = 11
+plt.rcParams['legend.fontsize'] = 11
+plt.rcParams['legend.framealpha'] = 1.0
+plt.rcParams['axes.linewidth'] = 1.5
+plt.rcParams['figure.dpi'] = 150
 
 def load_data():
     """Load benchmark data."""
@@ -40,23 +42,23 @@ def load_data():
     with open(data_path) as f:
         return json.load(f)
 
-def style_plot(ax, title, xlabel=None, ylabel=None):
-    """Apply consistent styling to plots."""
-    ax.set_facecolor(COLORS['background'])
+def style_plot(ax, title=None, xlabel=None, ylabel=None):
+    """Apply consistent styling - ultra clean, professional."""
+    ax.set_facecolor('white')
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
-    ax.spines['left'].set_color(COLORS['grid'])
-    ax.spines['bottom'].set_color(COLORS['grid'])
-    ax.tick_params(colors=COLORS['text'])
-    ax.grid(True, alpha=0.3, linestyle='-', linewidth=0.5, color=COLORS['grid'])
+    ax.spines['left'].set_color('#e0e0e0')
+    ax.spines['bottom'].set_color('#e0e0e0')
+    ax.spines['left'].set_linewidth(1.5)
+    ax.spines['bottom'].set_linewidth(1.5)
+    ax.tick_params(colors=COLORS['text'], length=6, width=1.5)
+    ax.grid(True, alpha=0.2, linestyle='-', linewidth=1, color='#e8e8e8', axis='x')
     ax.set_axisbelow(True)
-
-    if title:
-        ax.set_title(title, fontsize=14, fontweight='600', color=COLORS['text'], pad=15)
+    # No title - user requested removal
     if xlabel:
-        ax.set_xlabel(xlabel, fontsize=11, color=COLORS['text'])
+        ax.set_xlabel(xlabel, fontsize=12, color=COLORS['text'], fontweight='500', labelpad=10)
     if ylabel:
-        ax.set_ylabel(ylabel, fontsize=11, color=COLORS['text'])
+        ax.set_ylabel(ylabel, fontsize=12, color=COLORS['text'], fontweight='500', labelpad=10)
 
 def plot_overall_elo_rankings(data, output_dir):
     """Plot 1: Overall ELO Rankings (Top 5)."""
@@ -372,8 +374,8 @@ def plot_dataset_wins_breakdown(data, output_dir):
     ax.set_xticks(x)
     ax.set_xticklabels(['Factual', 'Synthesis', 'Scientific'])
 
-    style_plot(ax, 'Claude Opus 4.6: Win/Loss/Tie Breakdown', ylabel='Number of Judgments')
-    ax.legend(loc='upper right', frameon=True, framealpha=0.95, edgecolor=COLORS['grid'])
+    style_plot(ax, ylabel='Number of Judgments')
+    ax.legend(loc='upper right', frameon=True, framealpha=1.0, edgecolor='#e0e0e0', shadow=False)
 
     plt.tight_layout()
     plt.savefig(output_dir / 'dataset_breakdown.png', dpi=300, bbox_inches='tight', facecolor='white')

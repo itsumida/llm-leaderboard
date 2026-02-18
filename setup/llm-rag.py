@@ -72,7 +72,7 @@ Simply answer as if the information is naturally known to you.
     max_tokens = 3000
 
     # Reasoning models need even more tokens
-    reasoning_models = ["gemini-3", "gemini-2.5", "gpt-oss", "gpt-5", "qwen3-30b-a3b-thinking", "grok-code", "glm-4", "deepseek", "z-ai"]
+    reasoning_models = ["gemini-3", "gemini-2.5", "gpt-oss", "gpt-5", "qwen3-30b-a3b-thinking", "grok-code", "glm-4", "deepseek", "z-ai", "claude-sonnet-4.6"]
     if any(x in model_id.lower() for x in reasoning_models):
         max_tokens = 5000
 
