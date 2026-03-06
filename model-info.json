@@ -140,17 +140,39 @@
     "cost_per_1m_output_tokens": 15.00,
     "release_date": "2026-02-17",
     "context_window": 200000,
-    "about_model": "Latest Sonnet model with extended reasoning capabilities. Features reasoning mode for deeper analysis of retrieved documents before responding. Balanced performance and cost for RAG applications with strong grounding and faithfulness."
+    "about_model": "Approaches Opus-level performance at Sonnet pricing. Strong coding, creative writing, and instruction-following capabilities. Default model on claude.ai. Balanced performance and cost for RAG applications with strong grounding and faithfulness."
   },
   {
     "name": "claude-sonnet-4.5",
     "display_name": "Claude Sonnet 4.5",
     "provider": "Anthropic",
     "license": "Proprietary",
-    "cost_per_1m_input_tokens": 1.00,
-    "cost_per_1m_output_tokens": 5.00,
-    "release_date": "2025-10-22",
+    "cost_per_1m_input_tokens": 3.00,
+    "cost_per_1m_output_tokens": 15.00,
+    "release_date": "2025-09-29",
     "context_window": 200000,
-    "about_model": "Previous generation Sonnet (Claude 3.5) with strong coding and analysis capabilities. 200K context window with prompt caching for efficient RAG workflows. Balanced performance for production applications."
+    "about_model": "Strong coding and analysis capabilities with 200K context window and prompt caching for efficient RAG workflows. Balanced performance for production applications."
+  },
+  {
+    "name": "gpt-5.4",
+    "display_name": "GPT-5.4",
+    "provider": "OpenAI",
+    "license": "Proprietary",
+    "cost_per_1m_input_tokens": 2.50,
+    "cost_per_1m_output_tokens": 15.00,
+    "release_date": "2026-03-05",
+    "context_window": 1050000,
+    "about_model": "1M+ context window frontier model for complex professional work. Supports native computer-use, web search, file search, code interpreter, and MCP integration. Adjustable reasoning effort levels (none to xhigh). 33% reduction in hallucinations vs GPT-5.2."
+  },
+  {
+    "name": "gpt-5.4-pro",
+    "display_name": "GPT-5.4 Pro",
+    "provider": "OpenAI",
+    "license": "Proprietary",
+    "cost_per_1m_input_tokens": 30.00,
+    "cost_per_1m_output_tokens": 180.00,
+    "release_date": "2026-03-05",
+    "context_window": 1050000,
+    "about_model": "Deep reasoning model that uses more compute to think harder. Produces smarter and more precise responses for complex tasks. Operates via Responses API with multi-turn reasoning - some requests may take several minutes. Does not support structured outputs or fine-tuning."
   }
 ]

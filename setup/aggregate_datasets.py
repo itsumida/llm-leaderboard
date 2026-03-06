@@ -2,12 +2,18 @@
 """
 Aggregate results from MS MARCO, Paul Graham, and SciFact datasets
 Output: Single JSON with overall and per-dataset stats + visualization
+
+IMPORTANT: All model names in output use exact names from model-info2.json.
+No provider prefixes (anthropic-, google-, openai-, etc.).
+Comparison keys also use canonical names.
 """
 
 import json
 import numpy as np
 from pathlib import Path
 from collections import defaultdict
+
+from model_names import normalize_model_name, normalize_comparisons
 
 DATASETS = {
     "msmarco": {
@@ -24,6 +30,57 @@ DATASETS = {
     }
 }
 
+def load_latencies(dataset_path: Path):
+    """Load latency data from RAG answer files"""
+    rag_dir = dataset_path.parent / "llm-rag"
+    if not rag_dir.exists():
+        return {}
+
+    model_latencies = defaultdict(list)
+    for answer_file in rag_dir.glob("*_answers.jsonl"):
+        model_name = answer_file.stem.replace("_answers", "")
+        with open(answer_file) as f:
+            for line in f:
+                try:
+                    d = json.loads(line)
+                    if 'latency_ms' in d and d['latency_ms']:
+                        model_latencies[model_name].append(d['latency_ms'])
+                except Exception:
+                    continue
+    return {
+        model: {
+            'avg': round(np.mean(vals), 2),
+            'min': round(min(vals), 2),
+            'max': round(max(vals), 2)
+        }
+        for model, vals in model_latencies.items() if vals
+    }
+
+def load_metrics(dataset_path: Path):
+    """Load metrics.jsonl and aggregate per model"""
+    metrics_file = dataset_path.parent / "llm-judge" / "metrics.jsonl"
+    if not metrics_file.exists():
+        return {}
+
+    model_metrics = defaultdict(lambda: {'correctness': [], 'faithfulness': [], 'grounding': [], 'relevance': [], 'completeness': []})
+    with open(metrics_file) as f:
+        for line in f:
+            m = json.loads(line)
+            model = m['model']
+            for key in ['correctness', 'faithfulness', 'grounding', 'relevance', 'completeness']:
+                model_metrics[model][key].append(m[key])
+
+    # Average the metrics
+    result = {}
+    for model, metrics in model_metrics.items():
+        result[model] = {
+            key: round(np.mean(vals), 2) if vals else 0
+            for key, vals in metrics.items()
+        }
+        result[model]['overall'] = round(np.mean([result[model][k] for k in ['correctness', 'faithfulness', 'grounding', 'relevance', 'completeness']]), 2)
+    return result
+
+
 def load_dataset_results(dataset_path: Path):
     """Load leaderboard.json for a dataset"""
     leaderboard_file = dataset_path / "leaderboard.json"
@@ -34,7 +91,39 @@ def load_dataset_results(dataset_path: Path):
     with open(leaderboard_file) as f:
         data = json.load(f)
 
-    return data['models']
+    # Load metrics and latencies if available
+    metrics_data = load_metrics(dataset_path)
+    latency_data = load_latencies(dataset_path)
+
+    # Handle both old format (with 'models' key) and new format (with 'ratings' key)
+    if 'models' in data:
+        return data['models']
+
+    # Convert new format to expected structure
+    # Normalize all model names to canonical format from model-info2.json
+    models = []
+    for raw_model_name, elo in data['ratings'].items():
+        # Normalize model name (removes provider prefixes)
+        model_name = normalize_model_name(raw_model_name)
+
+        wlt = data.get('win_loss_tie', {}).get(raw_model_name, {'wins': 0, 'losses': 0, 'ties': 0})
+        model_metrics = metrics_data.get(raw_model_name, {
+            'correctness': 0, 'faithfulness': 0, 'grounding': 0,
+            'relevance': 0, 'completeness': 0, 'overall': 0
+        })
+        models.append({
+            'name': model_name,  # Use canonical name
+            'elo': elo,
+            'win_loss_tie': wlt,
+            'metrics': model_metrics,
+            'performance': {
+                'avg_latency_ms': latency_data.get(raw_model_name, {}).get('avg', 0),
+                'min_latency_ms': latency_data.get(raw_model_name, {}).get('min', 0),
+                'max_latency_ms': latency_data.get(raw_model_name, {}).get('max', 0)
+            },
+            'comparisons': {}
+        })
+    return models
 
 def aggregate_results():
     """Aggregate results from all datasets"""
@@ -62,11 +151,13 @@ def aggregate_results():
     # Aggregate for each model
     aggregated = []
 
-    for model_name in sorted(all_models):
-        print(f"\n🔄 Processing: {model_name}")
+    for raw_model_name in sorted(all_models):
+        # Normalize model name to canonical format
+        model_name = normalize_model_name(raw_model_name)
+        print(f"\n🔄 Processing: {raw_model_name} -> {model_name}")
 
         model_data = {
-            "name": model_name,
+            "name": model_name,  # Use canonical name
             "overall": {},
             "by_dataset": {},
             "comparisons": {}
@@ -84,11 +175,11 @@ def aggregate_results():
         for dataset_key, dataset_info in DATASETS.items():
             dataset_name = dataset_info['name']
 
-            if model_name not in dataset_results[dataset_key]:
+            if raw_model_name not in dataset_results[dataset_key]:
                 print(f"  ⚠️  Missing from {dataset_name}")
                 continue
 
-            data = dataset_results[dataset_key][model_name]
+            data = dataset_results[dataset_key][raw_model_name]
 
             # Collect for overall
             all_elos.append(data['elo'])
@@ -121,8 +212,9 @@ def aggregate_results():
                 }
             }
 
-            # Aggregate comparisons
-            for opponent, comp_data in data['comparisons'].items():
+            # Aggregate comparisons (normalize opponent names)
+            for raw_opponent, comp_data in data['comparisons'].items():
+                opponent = normalize_model_name(raw_opponent)
                 all_comparisons[opponent]['wins'] += comp_data['wins']
                 all_comparisons[opponent]['losses'] += comp_data['losses']
                 all_comparisons[opponent]['ties'] += comp_data['ties']
