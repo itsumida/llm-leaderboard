@@ -9,8 +9,8 @@
       "ties": 131,
       "win_rate": 0.8304,
       "total_judgments": 1350,
-      "avg_latency_ms": 11547.17,
-      "avg_metric_overall": 4.93
+      "avg_latency_ms": 11546.67,
+      "avg_metric_overall": 4.82
     },
     "by_dataset": {
       "MSMARCO": {
@@ -20,12 +20,12 @@
         "ties": 31,
         "win_rate": 0.8933,
         "metrics": {
-          "correctness": 4.93,
+          "correctness": 4.9,
           "faithfulness": 4.9,
           "grounding": 4.9,
-          "relevance": 5.0,
-          "completeness": 4.97,
-          "overall": 4.94
+          "relevance": 4.93,
+          "completeness": 4.9,
+          "overall": 4.91
         },
         "latency": {
           "mean_ms": 7669,
@@ -40,12 +40,12 @@
         "ties": 19,
         "win_rate": 0.8511,
         "metrics": {
-          "correctness": 5.0,
-          "faithfulness": 5.0,
-          "grounding": 5.0,
-          "relevance": 5.0,
-          "completeness": 5.0,
-          "overall": 5.0
+          "correctness": 4.87,
+          "faithfulness": 4.87,
+          "grounding": 4.87,
+          "relevance": 4.87,
+          "completeness": 4.87,
+          "overall": 4.87
         },
         "latency": {
           "mean_ms": 16812,
@@ -60,12 +60,12 @@
         "ties": 81,
         "win_rate": 0.7467,
         "metrics": {
-          "correctness": 4.83,
-          "faithfulness": 4.83,
-          "grounding": 4.83,
-          "relevance": 5.0,
-          "completeness": 4.73,
-          "overall": 4.84
+          "correctness": 4.67,
+          "faithfulness": 4.7,
+          "grounding": 4.7,
+          "relevance": 4.83,
+          "completeness": 4.53,
+          "overall": 4.69
         },
         "latency": {
           "mean_ms": 10159,
@@ -75,110 +75,96 @@
       }
     },
     "comparisons": {
-      "claude-sonnet-4.5": {
-        "wins": 74,
-        "losses": 4,
-        "ties": 12,
-        "total": 90,
-        "win_rate": 0.8222
-      },
-      "claude-sonnet-4.6": {
+      "claude-opus-4-5-20251101": {
         "wins": 54,
-        "losses": 12,
-        "ties": 24,
+        "losses": 5,
+        "ties": 31,
         "total": 90,
         "win_rate": 0.6
       },
+      "claude-sonnet-4.5": {
+        "wins": 64,
+        "losses": 9,
+        "ties": 17,
+        "total": 90,
+        "win_rate": 0.7111
+      },
+      "claude-sonnet-4.6": {
+        "wins": 45,
+        "losses": 13,
+        "ties": 32,
+        "total": 90,
+        "win_rate": 0.5
+      },
       "deepseek-r1": {
-        "wins": 85,
-        "losses": 4,
-        "ties": 1,
-        "total": 90,
-        "win_rate": 0.9444
-      },
-      "gpt-5.4": {
-        "wins": 84,
-        "losses": 3,
-        "ties": 3,
-        "total": 90,
-        "win_rate": 0.9333
-      },
-      "gpt-5.4-pro": {
-        "wins": 83,
-        "losses": 4,
-        "ties": 3,
-        "total": 90,
-        "win_rate": 0.9222
-      },
-      "gpt-5.1": {
-        "wins": 48,
-        "losses": 21,
-        "ties": 21,
-        "total": 90,
-        "win_rate": 0.5333
-      },
-      "gpt-5.2": {
         "wins": 73,
-        "losses": 10,
-        "ties": 7,
+        "losses": 4,
+        "ties": 13,
         "total": 90,
         "win_rate": 0.8111
       },
-      "qwen3-30b-a3b-thinking-2507": {
-        "wins": 83,
-        "losses": 2,
-        "ties": 5,
-        "total": 90,
-        "win_rate": 0.9222
-      },
-      "grok-4-fast": {
-        "wins": 74,
-        "losses": 7,
-        "ties": 9,
-        "total": 90,
-        "win_rate": 0.8222
-      },
-      "claude-opus-4-5-20251101": {
-        "wins": 68,
-        "losses": 2,
-        "ties": 20,
-        "total": 90,
-        "win_rate": 0.7556
-      },
       "gemini-2.5-pro": {
-        "wins": 85,
+        "wins": 78,
         "losses": 2,
-        "ties": 3,
+        "ties": 10,
         "total": 90,
-        "win_rate": 0.9444
+        "win_rate": 0.8667
       },
       "gemini-3-flash-preview": {
+        "wins": 61,
+        "losses": 13,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.6778
+      },
+      "gemini-3-pro-preview": {
         "wins": 70,
-        "losses": 11,
-        "ties": 9,
+        "losses": 8,
+        "ties": 12,
         "total": 90,
         "win_rate": 0.7778
       },
-      "gemini-3-pro-preview": {
-        "wins": 75,
-        "losses": 8,
-        "ties": 7,
+      "gpt-5.1": {
+        "wins": 38,
+        "losses": 27,
+        "ties": 25,
         "total": 90,
-        "win_rate": 0.8333
+        "win_rate": 0.4222
+      },
+      "gpt-5.2": {
+        "wins": 63,
+        "losses": 12,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.7
       },
       "gpt-oss-120b": {
-        "wins": 85,
+        "wins": 83,
         "losses": 3,
-        "ties": 2,
+        "ties": 4,
         "total": 90,
-        "win_rate": 0.9444
+        "win_rate": 0.9222
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 78,
+        "losses": 2,
+        "ties": 10,
+        "total": 90,
+        "win_rate": 0.8667
+      },
+      "grok-4-fast": {
+        "wins": 65,
+        "losses": 13,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.7222
       },
       "glm-4.6": {
-        "wins": 80,
-        "losses": 5,
-        "ties": 5,
+        "wins": 77,
+        "losses": 4,
+        "ties": 9,
         "total": 90,
-        "win_rate": 0.8889
+        "win_rate": 0.8556
       }
     }
   },
@@ -192,8 +178,8 @@
       "ties": 193,
       "win_rate": 0.6763,
       "total_judgments": 1350,
-      "avg_latency_ms": 9498.49,
-      "avg_metric_overall": 4.96
+      "avg_latency_ms": 9498.0,
+      "avg_metric_overall": 4.95
     },
     "by_dataset": {
       "MSMARCO": {
@@ -204,10 +190,10 @@
         "win_rate": 0.78,
         "metrics": {
           "correctness": 4.97,
-          "faithfulness": 4.97,
-          "grounding": 4.97,
+          "faithfulness": 5.0,
+          "grounding": 5.0,
           "relevance": 5.0,
-          "completeness": 4.97,
+          "completeness": 4.93,
           "overall": 4.98
         },
         "latency": {
@@ -243,12 +229,12 @@
         "ties": 104,
         "win_rate": 0.6333,
         "metrics": {
-          "correctness": 4.87,
+          "correctness": 4.83,
           "faithfulness": 4.87,
           "grounding": 4.87,
           "relevance": 5.0,
-          "completeness": 4.83,
-          "overall": 4.89
+          "completeness": 4.77,
+          "overall": 4.87
         },
         "latency": {
           "mean_ms": 9969,
@@ -259,109 +245,95 @@
     },
     "comparisons": {
       "claude-opus-4-6": {
-        "wins": 12,
-        "losses": 54,
-        "ties": 24,
+        "wins": 13,
+        "losses": 45,
+        "ties": 32,
         "total": 90,
-        "win_rate": 0.1333
+        "win_rate": 0.1444
       },
       "claude-opus-4-5-20251101": {
-        "wins": 45,
-        "losses": 22,
-        "ties": 23,
-        "total": 90,
-        "win_rate": 0.5
-      },
-      "claude-sonnet-4.5": {
-        "wins": 54,
-        "losses": 14,
-        "ties": 22,
-        "total": 90,
-        "win_rate": 0.6
-      },
-      "deepseek-r1": {
-        "wins": 75,
-        "losses": 4,
-        "ties": 11,
-        "total": 90,
-        "win_rate": 0.8333
-      },
-      "gemini-2.5-pro": {
-        "wins": 70,
-        "losses": 10,
-        "ties": 10,
-        "total": 90,
-        "win_rate": 0.7778
-      },
-      "gemini-3-flash-preview": {
-        "wins": 49,
-        "losses": 21,
-        "ties": 20,
-        "total": 90,
-        "win_rate": 0.5444
-      },
-      "gemini-3-pro-preview": {
-        "wins": 69,
-        "losses": 16,
-        "ties": 5,
-        "total": 90,
-        "win_rate": 0.7667
-      },
-      "gpt-5.4": {
-        "wins": 71,
-        "losses": 9,
-        "ties": 10,
-        "total": 90,
-        "win_rate": 0.7889
-      },
-      "gpt-5.4-pro": {
-        "wins": 79,
-        "losses": 8,
-        "ties": 3,
-        "total": 90,
-        "win_rate": 0.8778
-      },
-      "gpt-5.2": {
-        "wins": 56,
-        "losses": 15,
-        "ties": 19,
-        "total": 90,
-        "win_rate": 0.6222
-      },
-      "gpt-oss-120b": {
-        "wins": 83,
-        "losses": 5,
-        "ties": 2,
-        "total": 90,
-        "win_rate": 0.9222
-      },
-      "qwen3-30b-a3b-thinking-2507": {
-        "wins": 78,
-        "losses": 3,
-        "ties": 9,
-        "total": 90,
-        "win_rate": 0.8667
-      },
-      "grok-4-fast": {
         "wins": 62,
-        "losses": 20,
-        "ties": 8,
+        "losses": 4,
+        "ties": 24,
         "total": 90,
         "win_rate": 0.6889
       },
-      "gpt-5.1": {
-        "wins": 30,
-        "losses": 37,
+      "claude-sonnet-4.5": {
+        "wins": 63,
+        "losses": 4,
         "ties": 23,
         "total": 90,
-        "win_rate": 0.3333
+        "win_rate": 0.7
+      },
+      "deepseek-r1": {
+        "wins": 68,
+        "losses": 9,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.7556
+      },
+      "gemini-2.5-pro": {
+        "wins": 57,
+        "losses": 21,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.6333
+      },
+      "gemini-3-flash-preview": {
+        "wins": 35,
+        "losses": 39,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.3889
+      },
+      "gemini-3-pro-preview": {
+        "wins": 53,
+        "losses": 23,
+        "ties": 14,
+        "total": 90,
+        "win_rate": 0.5889
+      },
+      "gpt-5.1": {
+        "wins": 24,
+        "losses": 39,
+        "ties": 27,
+        "total": 90,
+        "win_rate": 0.2667
+      },
+      "gpt-5.2": {
+        "wins": 47,
+        "losses": 23,
+        "ties": 20,
+        "total": 90,
+        "win_rate": 0.5222
+      },
+      "gpt-oss-120b": {
+        "wins": 74,
+        "losses": 8,
+        "ties": 8,
+        "total": 90,
+        "win_rate": 0.8222
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 73,
+        "losses": 4,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.8111
+      },
+      "grok-4-fast": {
+        "wins": 47,
+        "losses": 28,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.5222
       },
       "glm-4.6": {
-        "wins": 80,
-        "losses": 6,
-        "ties": 4,
+        "wins": 65,
+        "losses": 13,
+        "ties": 12,
         "total": 90,
-        "win_rate": 0.8889
+        "win_rate": 0.7222
       }
     }
   },
@@ -375,8 +347,8 @@
       "ties": 214,
       "win_rate": 0.6548,
       "total_judgments": 1350,
-      "avg_latency_ms": 16191.6,
-      "avg_metric_overall": 4.97
+      "avg_latency_ms": 16191.0,
+      "avg_metric_overall": 4.98
     },
     "by_dataset": {
       "MSMARCO": {
@@ -386,12 +358,12 @@
         "ties": 77,
         "win_rate": 0.5267,
         "metrics": {
-          "correctness": 4.97,
-          "faithfulness": 4.97,
-          "grounding": 4.97,
+          "correctness": 5.0,
+          "faithfulness": 5.0,
+          "grounding": 5.0,
           "relevance": 5.0,
           "completeness": 4.93,
-          "overall": 4.97
+          "overall": 4.99
         },
         "latency": {
           "mean_ms": 9111,
@@ -410,7 +382,7 @@
           "faithfulness": 5.0,
           "grounding": 5.0,
           "relevance": 5.0,
-          "completeness": 4.77,
+          "completeness": 4.73,
           "overall": 4.95
         },
         "latency": {
@@ -429,7 +401,7 @@
           "correctness": 5.0,
           "faithfulness": 5.0,
           "grounding": 5.0,
-          "relevance": 4.97,
+          "relevance": 5.0,
           "completeness": 4.97,
           "overall": 4.99
         },
@@ -442,109 +414,95 @@
     },
     "comparisons": {
       "claude-opus-4-6": {
-        "wins": 21,
-        "losses": 48,
-        "ties": 21,
+        "wins": 27,
+        "losses": 38,
+        "ties": 25,
         "total": 90,
-        "win_rate": 0.2333
+        "win_rate": 0.3
       },
       "claude-opus-4-5-20251101": {
+        "wins": 44,
+        "losses": 22,
+        "ties": 24,
+        "total": 90,
+        "win_rate": 0.4889
+      },
+      "claude-sonnet-4.5": {
+        "wins": 53,
+        "losses": 19,
+        "ties": 18,
+        "total": 90,
+        "win_rate": 0.5889
+      },
+      "claude-sonnet-4.6": {
         "wins": 39,
-        "losses": 34,
-        "ties": 17,
+        "losses": 24,
+        "ties": 27,
         "total": 90,
         "win_rate": 0.4333
       },
       "deepseek-r1": {
-        "wins": 67,
-        "losses": 8,
-        "ties": 15,
-        "total": 90,
-        "win_rate": 0.7444
-      },
-      "gemini-2.5-pro": {
-        "wins": 65,
-        "losses": 14,
-        "ties": 11,
-        "total": 90,
-        "win_rate": 0.7222
-      },
-      "gemini-3-flash-preview": {
-        "wins": 52,
-        "losses": 25,
-        "ties": 13,
-        "total": 90,
-        "win_rate": 0.5778
-      },
-      "gpt-5.4": {
-        "wins": 72,
-        "losses": 7,
-        "ties": 11,
-        "total": 90,
-        "win_rate": 0.8
-      },
-      "claude-sonnet-4.5": {
-        "wins": 54,
-        "losses": 20,
-        "ties": 16,
-        "total": 90,
-        "win_rate": 0.6
-      },
-      "claude-sonnet-4.6": {
-        "wins": 37,
-        "losses": 30,
-        "ties": 23,
-        "total": 90,
-        "win_rate": 0.4111
-      },
-      "gemini-3-pro-preview": {
-        "wins": 59,
-        "losses": 13,
-        "ties": 18,
-        "total": 90,
-        "win_rate": 0.6556
-      },
-      "gpt-5.4-pro": {
         "wins": 73,
         "losses": 5,
         "ties": 12,
         "total": 90,
         "win_rate": 0.8111
       },
-      "gpt-oss-120b": {
-        "wins": 82,
-        "losses": 2,
-        "ties": 6,
+      "gemini-2.5-pro": {
+        "wins": 75,
+        "losses": 10,
+        "ties": 5,
         "total": 90,
-        "win_rate": 0.9111
+        "win_rate": 0.8333
       },
-      "qwen3-30b-a3b-thinking-2507": {
-        "wins": 69,
-        "losses": 7,
-        "ties": 14,
-        "total": 90,
-        "win_rate": 0.7667
-      },
-      "grok-4-fast": {
+      "gemini-3-flash-preview": {
         "wins": 58,
-        "losses": 17,
-        "ties": 15,
+        "losses": 18,
+        "ties": 14,
         "total": 90,
         "win_rate": 0.6444
       },
-      "gpt-5.2": {
-        "wins": 65,
-        "losses": 12,
-        "ties": 13,
-        "total": 90,
-        "win_rate": 0.7222
-      },
-      "glm-4.6": {
+      "gemini-3-pro-preview": {
         "wins": 71,
-        "losses": 10,
-        "ties": 9,
+        "losses": 7,
+        "ties": 12,
         "total": 90,
         "win_rate": 0.7889
+      },
+      "gpt-5.2": {
+        "wins": 53,
+        "losses": 16,
+        "ties": 21,
+        "total": 90,
+        "win_rate": 0.5889
+      },
+      "gpt-oss-120b": {
+        "wins": 76,
+        "losses": 2,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.8444
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 63,
+        "losses": 12,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.7
+      },
+      "grok-4-fast": {
+        "wins": 48,
+        "losses": 24,
+        "ties": 18,
+        "total": 90,
+        "win_rate": 0.5333
+      },
+      "glm-4.6": {
+        "wins": 58,
+        "losses": 19,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.6444
       }
     }
   },
@@ -558,8 +516,8 @@
       "ties": 191,
       "win_rate": 0.5785,
       "total_judgments": 1350,
-      "avg_latency_ms": 8252.9,
-      "avg_metric_overall": 4.92
+      "avg_latency_ms": 8252.33,
+      "avg_metric_overall": 4.89
     },
     "by_dataset": {
       "MSMARCO": {
@@ -589,12 +547,12 @@
         "ties": 34,
         "win_rate": 0.4333,
         "metrics": {
-          "correctness": 5.0,
-          "faithfulness": 5.0,
-          "grounding": 5.0,
-          "relevance": 5.0,
-          "completeness": 4.93,
-          "overall": 4.99
+          "correctness": 4.93,
+          "faithfulness": 4.93,
+          "grounding": 4.93,
+          "relevance": 4.93,
+          "completeness": 4.8,
+          "overall": 4.9
         },
         "latency": {
           "mean_ms": 11489,
@@ -609,11 +567,11 @@
         "ties": 112,
         "win_rate": 0.5889,
         "metrics": {
-          "correctness": 4.77,
+          "correctness": 4.73,
           "faithfulness": 4.8,
           "grounding": 4.8,
           "relevance": 4.97,
-          "completeness": 4.67,
+          "completeness": 4.7,
           "overall": 4.8
         },
         "latency": {
@@ -625,109 +583,95 @@
     },
     "comparisons": {
       "claude-opus-4-6": {
-        "wins": 2,
-        "losses": 68,
-        "ties": 20,
+        "wins": 5,
+        "losses": 54,
+        "ties": 31,
         "total": 90,
-        "win_rate": 0.0222
+        "win_rate": 0.0556
+      },
+      "claude-sonnet-4.5": {
+        "wins": 27,
+        "losses": 34,
+        "ties": 29,
+        "total": 90,
+        "win_rate": 0.3
       },
       "claude-sonnet-4.6": {
+        "wins": 4,
+        "losses": 62,
+        "ties": 24,
+        "total": 90,
+        "win_rate": 0.0444
+      },
+      "deepseek-r1": {
+        "wins": 62,
+        "losses": 20,
+        "ties": 8,
+        "total": 90,
+        "win_rate": 0.6889
+      },
+      "gemini-2.5-pro": {
+        "wins": 44,
+        "losses": 31,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.4889
+      },
+      "gemini-3-flash-preview": {
+        "wins": 21,
+        "losses": 47,
+        "ties": 22,
+        "total": 90,
+        "win_rate": 0.2333
+      },
+      "gemini-3-pro-preview": {
+        "wins": 42,
+        "losses": 32,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.4667
+      },
+      "gpt-5.1": {
         "wins": 22,
-        "losses": 45,
-        "ties": 23,
+        "losses": 44,
+        "ties": 24,
         "total": 90,
         "win_rate": 0.2444
       },
-      "gemini-3-flash-preview": {
-        "wins": 28,
-        "losses": 41,
-        "ties": 21,
+      "gpt-5.2": {
+        "wins": 43,
+        "losses": 31,
+        "ties": 16,
         "total": 90,
-        "win_rate": 0.3111
-      },
-      "gpt-5.4-pro": {
-        "wins": 69,
-        "losses": 17,
-        "ties": 4,
-        "total": 90,
-        "win_rate": 0.7667
-      },
-      "gpt-5.1": {
-        "wins": 34,
-        "losses": 39,
-        "ties": 17,
-        "total": 90,
-        "win_rate": 0.3778
+        "win_rate": 0.4778
       },
       "gpt-oss-120b": {
-        "wins": 77,
-        "losses": 11,
-        "ties": 2,
-        "total": 90,
-        "win_rate": 0.8556
-      },
-      "qwen3-30b-a3b-thinking-2507": {
-        "wins": 78,
-        "losses": 4,
-        "ties": 8,
-        "total": 90,
-        "win_rate": 0.8667
-      },
-      "grok-4-fast": {
-        "wins": 49,
-        "losses": 29,
-        "ties": 12,
-        "total": 90,
-        "win_rate": 0.5444
-      },
-      "claude-sonnet-4.5": {
-        "wins": 50,
-        "losses": 15,
-        "ties": 25,
-        "total": 90,
-        "win_rate": 0.5556
-      },
-      "deepseek-r1": {
-        "wins": 71,
-        "losses": 12,
-        "ties": 7,
-        "total": 90,
-        "win_rate": 0.7889
-      },
-      "gemini-2.5-pro": {
-        "wins": 56,
-        "losses": 21,
-        "ties": 13,
-        "total": 90,
-        "win_rate": 0.6222
-      },
-      "gemini-3-pro-preview": {
-        "wins": 60,
-        "losses": 23,
-        "ties": 7,
-        "total": 90,
-        "win_rate": 0.6667
-      },
-      "gpt-5.4": {
-        "wins": 68,
-        "losses": 15,
-        "ties": 7,
-        "total": 90,
-        "win_rate": 0.7556
-      },
-      "gpt-5.2": {
-        "wins": 50,
-        "losses": 23,
-        "ties": 17,
-        "total": 90,
-        "win_rate": 0.5556
-      },
-      "glm-4.6": {
         "wins": 67,
-        "losses": 15,
-        "ties": 8,
+        "losses": 17,
+        "ties": 6,
         "total": 90,
         "win_rate": 0.7444
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 72,
+        "losses": 8,
+        "ties": 10,
+        "total": 90,
+        "win_rate": 0.8
+      },
+      "grok-4-fast": {
+        "wins": 42,
+        "losses": 36,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.4667
+      },
+      "glm-4.6": {
+        "wins": 60,
+        "losses": 24,
+        "ties": 6,
+        "total": 90,
+        "win_rate": 0.6667
       }
     }
   },
@@ -741,8 +685,8 @@
       "ties": 171,
       "win_rate": 0.5081,
       "total_judgments": 1350,
-      "avg_latency_ms": 9659.5,
-      "avg_metric_overall": 4.92
+      "avg_latency_ms": 9659.0,
+      "avg_metric_overall": 4.9
     },
     "by_dataset": {
       "MSMARCO": {
@@ -752,12 +696,12 @@
         "ties": 47,
         "win_rate": 0.6,
         "metrics": {
-          "correctness": 4.93,
-          "faithfulness": 4.97,
-          "grounding": 4.97,
-          "relevance": 5.0,
-          "completeness": 4.93,
-          "overall": 4.96
+          "correctness": 4.87,
+          "faithfulness": 4.87,
+          "grounding": 4.87,
+          "relevance": 4.93,
+          "completeness": 4.87,
+          "overall": 4.88
         },
         "latency": {
           "mean_ms": 9825,
@@ -793,11 +737,11 @@
         "win_rate": 0.5889,
         "metrics": {
           "correctness": 4.8,
-          "faithfulness": 4.83,
-          "grounding": 4.73,
+          "faithfulness": 4.87,
+          "grounding": 4.77,
           "relevance": 5.0,
-          "completeness": 4.7,
-          "overall": 4.81
+          "completeness": 4.73,
+          "overall": 4.83
         },
         "latency": {
           "mean_ms": 6830,
@@ -808,109 +752,95 @@
     },
     "comparisons": {
       "claude-opus-4-6": {
+        "wins": 9,
+        "losses": 64,
+        "ties": 17,
+        "total": 90,
+        "win_rate": 0.1
+      },
+      "claude-opus-4-5-20251101": {
+        "wins": 34,
+        "losses": 27,
+        "ties": 29,
+        "total": 90,
+        "win_rate": 0.3778
+      },
+      "claude-sonnet-4.6": {
         "wins": 4,
-        "losses": 74,
-        "ties": 12,
+        "losses": 63,
+        "ties": 23,
         "total": 90,
         "win_rate": 0.0444
       },
-      "claude-opus-4-5-20251101": {
-        "wins": 15,
-        "losses": 50,
-        "ties": 25,
+      "deepseek-r1": {
+        "wins": 57,
+        "losses": 25,
+        "ties": 8,
         "total": 90,
-        "win_rate": 0.1667
+        "win_rate": 0.6333
       },
-      "gpt-5.4": {
-        "wins": 55,
-        "losses": 24,
-        "ties": 11,
+      "gemini-2.5-pro": {
+        "wins": 34,
+        "losses": 41,
+        "ties": 15,
         "total": 90,
-        "win_rate": 0.6111
+        "win_rate": 0.3778
       },
-      "glm-4.6": {
-        "wins": 61,
-        "losses": 23,
-        "ties": 6,
-        "total": 90,
-        "win_rate": 0.6778
-      },
-      "claude-sonnet-4.6": {
+      "gemini-3-flash-preview": {
         "wins": 14,
-        "losses": 54,
-        "ties": 22,
+        "losses": 64,
+        "ties": 12,
         "total": 90,
         "win_rate": 0.1556
       },
-      "deepseek-r1": {
-        "wins": 69,
-        "losses": 15,
-        "ties": 6,
+      "gemini-3-pro-preview": {
+        "wins": 39,
+        "losses": 40,
+        "ties": 11,
         "total": 90,
-        "win_rate": 0.7667
+        "win_rate": 0.4333
       },
-      "gemini-2.5-pro": {
-        "wins": 52,
-        "losses": 28,
-        "ties": 10,
+      "gpt-5.1": {
+        "wins": 19,
+        "losses": 53,
+        "ties": 18,
         "total": 90,
-        "win_rate": 0.5778
+        "win_rate": 0.2111
       },
-      "gemini-3-flash-preview": {
+      "gpt-5.2": {
         "wins": 33,
-        "losses": 41,
-        "ties": 16,
+        "losses": 40,
+        "ties": 17,
         "total": 90,
         "win_rate": 0.3667
       },
-      "gemini-3-pro-preview": {
-        "wins": 54,
-        "losses": 27,
-        "ties": 9,
-        "total": 90,
-        "win_rate": 0.6
-      },
-      "gpt-5.4-pro": {
-        "wins": 69,
-        "losses": 16,
-        "ties": 5,
-        "total": 90,
-        "win_rate": 0.7667
-      },
-      "gpt-5.1": {
-        "wins": 20,
-        "losses": 54,
-        "ties": 16,
-        "total": 90,
-        "win_rate": 0.2222
-      },
-      "gpt-5.2": {
-        "wins": 51,
-        "losses": 30,
-        "ties": 9,
-        "total": 90,
-        "win_rate": 0.5667
-      },
       "gpt-oss-120b": {
-        "wins": 69,
-        "losses": 14,
-        "ties": 7,
+        "wins": 61,
+        "losses": 20,
+        "ties": 9,
         "total": 90,
-        "win_rate": 0.7667
+        "win_rate": 0.6778
       },
       "qwen3-30b-a3b-thinking-2507": {
-        "wins": 76,
-        "losses": 6,
-        "ties": 8,
+        "wins": 64,
+        "losses": 12,
+        "ties": 14,
         "total": 90,
-        "win_rate": 0.8444
+        "win_rate": 0.7111
       },
       "grok-4-fast": {
-        "wins": 44,
-        "losses": 37,
-        "ties": 9,
+        "wins": 34,
+        "losses": 48,
+        "ties": 8,
         "total": 90,
-        "win_rate": 0.4889
+        "win_rate": 0.3778
+      },
+      "glm-4.6": {
+        "wins": 54,
+        "losses": 28,
+        "ties": 8,
+        "total": 90,
+        "win_rate": 0.6
       }
     }
   },
@@ -924,7 +854,7 @@
       "ties": 180,
       "win_rate": 0.6059,
       "total_judgments": 1350,
-      "avg_latency_ms": 7802.17,
+      "avg_latency_ms": 7802.0,
       "avg_metric_overall": 4.95
     },
     "by_dataset": {
@@ -935,12 +865,12 @@
         "ties": 45,
         "win_rate": 0.6289,
         "metrics": {
-          "correctness": 4.8,
-          "faithfulness": 4.83,
-          "grounding": 4.83,
+          "correctness": 4.83,
+          "faithfulness": 4.87,
+          "grounding": 4.87,
           "relevance": 5.0,
-          "completeness": 4.87,
-          "overall": 4.87
+          "completeness": 4.9,
+          "overall": 4.89
         },
         "latency": {
           "mean_ms": 6852,
@@ -979,8 +909,8 @@
           "faithfulness": 5.0,
           "grounding": 5.0,
           "relevance": 4.97,
-          "completeness": 4.87,
-          "overall": 4.97
+          "completeness": 4.83,
+          "overall": 4.96
         },
         "latency": {
           "mean_ms": 7110,
@@ -990,110 +920,96 @@
       }
     },
     "comparisons": {
-      "claude-opus-4-5-20251101": {
-        "wins": 41,
-        "losses": 28,
-        "ties": 21,
-        "total": 90,
-        "win_rate": 0.4556
-      },
-      "claude-sonnet-4.6": {
-        "wins": 21,
-        "losses": 49,
-        "ties": 20,
-        "total": 90,
-        "win_rate": 0.2333
-      },
       "claude-opus-4-6": {
-        "wins": 11,
-        "losses": 70,
-        "ties": 9,
-        "total": 90,
-        "win_rate": 0.1222
-      },
-      "claude-sonnet-4.5": {
-        "wins": 41,
-        "losses": 33,
+        "wins": 13,
+        "losses": 61,
         "ties": 16,
         "total": 90,
-        "win_rate": 0.4556
+        "win_rate": 0.1444
+      },
+      "claude-opus-4-5-20251101": {
+        "wins": 47,
+        "losses": 21,
+        "ties": 22,
+        "total": 90,
+        "win_rate": 0.5222
+      },
+      "claude-sonnet-4.5": {
+        "wins": 64,
+        "losses": 14,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.7111
+      },
+      "claude-sonnet-4.6": {
+        "wins": 39,
+        "losses": 35,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.4333
       },
       "deepseek-r1": {
-        "wins": 73,
-        "losses": 11,
-        "ties": 6,
+        "wins": 77,
+        "losses": 6,
+        "ties": 7,
         "total": 90,
-        "win_rate": 0.8111
+        "win_rate": 0.8556
       },
       "gemini-2.5-pro": {
-        "wins": 62,
-        "losses": 14,
-        "ties": 14,
-        "total": 90,
-        "win_rate": 0.6889
-      },
-      "gemini-3-pro-preview": {
-        "wins": 62,
-        "losses": 14,
-        "ties": 14,
-        "total": 90,
-        "win_rate": 0.6889
-      },
-      "gpt-5.4-pro": {
-        "wins": 72,
-        "losses": 8,
-        "ties": 10,
-        "total": 90,
-        "win_rate": 0.8
-      },
-      "gpt-5.1": {
-        "wins": 25,
-        "losses": 52,
-        "ties": 13,
-        "total": 90,
-        "win_rate": 0.2778
-      },
-      "gpt-5.2": {
-        "wins": 53,
-        "losses": 24,
-        "ties": 13,
-        "total": 90,
-        "win_rate": 0.5889
-      },
-      "qwen3-30b-a3b-thinking-2507": {
-        "wins": 73,
-        "losses": 8,
+        "wins": 77,
+        "losses": 4,
         "ties": 9,
         "total": 90,
-        "win_rate": 0.8111
+        "win_rate": 0.8556
       },
-      "gpt-5.4": {
-        "wins": 76,
-        "losses": 10,
-        "ties": 4,
+      "gemini-3-pro-preview": {
+        "wins": 44,
+        "losses": 27,
+        "ties": 19,
         "total": 90,
-        "win_rate": 0.8444
+        "win_rate": 0.4889
       },
-      "gpt-oss-120b": {
-        "wins": 80,
-        "losses": 4,
-        "ties": 6,
-        "total": 90,
-        "win_rate": 0.8889
-      },
-      "grok-4-fast": {
-        "wins": 58,
-        "losses": 18,
+      "gpt-5.1": {
+        "wins": 18,
+        "losses": 58,
         "ties": 14,
         "total": 90,
-        "win_rate": 0.6444
+        "win_rate": 0.2
+      },
+      "gpt-5.2": {
+        "wins": 42,
+        "losses": 32,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.4667
+      },
+      "gpt-oss-120b": {
+        "wins": 75,
+        "losses": 8,
+        "ties": 7,
+        "total": 90,
+        "win_rate": 0.8333
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 63,
+        "losses": 13,
+        "ties": 14,
+        "total": 90,
+        "win_rate": 0.7
+      },
+      "grok-4-fast": {
+        "wins": 42,
+        "losses": 38,
+        "ties": 10,
+        "total": 90,
+        "win_rate": 0.4667
       },
       "glm-4.6": {
-        "wins": 70,
-        "losses": 9,
-        "ties": 11,
+        "wins": 64,
+        "losses": 16,
+        "ties": 10,
         "total": 90,
-        "win_rate": 0.7778
+        "win_rate": 0.7111
       }
     }
   },
@@ -1107,7 +1023,7 @@
       "ties": 173,
       "win_rate": 0.4415,
       "total_judgments": 1350,
-      "avg_latency_ms": 17903.51,
+      "avg_latency_ms": 17903.33,
       "avg_metric_overall": 4.9
     },
     "by_dataset": {
@@ -1118,12 +1034,12 @@
         "ties": 56,
         "win_rate": 0.4467,
         "metrics": {
-          "correctness": 4.83,
-          "faithfulness": 4.83,
-          "grounding": 4.83,
+          "correctness": 4.8,
+          "faithfulness": 4.8,
+          "grounding": 4.8,
           "relevance": 5.0,
-          "completeness": 4.9,
-          "overall": 4.88
+          "completeness": 4.87,
+          "overall": 4.85
         },
         "latency": {
           "mean_ms": 13990,
@@ -1138,12 +1054,12 @@
         "ties": 28,
         "win_rate": 0.4844,
         "metrics": {
-          "correctness": 4.9,
-          "faithfulness": 4.93,
-          "grounding": 4.93,
+          "correctness": 4.97,
+          "faithfulness": 4.97,
+          "grounding": 4.97,
           "relevance": 5.0,
-          "completeness": 4.73,
-          "overall": 4.9
+          "completeness": 4.8,
+          "overall": 4.94
         },
         "latency": {
           "mean_ms": 25137,
@@ -1160,10 +1076,10 @@
         "metrics": {
           "correctness": 4.93,
           "faithfulness": 4.97,
-          "grounding": 4.97,
-          "relevance": 4.97,
-          "completeness": 4.83,
-          "overall": 4.93
+          "grounding": 4.93,
+          "relevance": 4.93,
+          "completeness": 4.77,
+          "overall": 4.91
         },
         "latency": {
           "mean_ms": 14583,
@@ -1173,110 +1089,96 @@
       }
     },
     "comparisons": {
-      "claude-sonnet-4.6": {
-        "wins": 16,
-        "losses": 69,
-        "ties": 5,
-        "total": 90,
-        "win_rate": 0.1778
-      },
-      "deepseek-r1": {
-        "wins": 62,
-        "losses": 17,
-        "ties": 11,
-        "total": 90,
-        "win_rate": 0.6889
-      },
-      "gemini-2.5-pro": {
-        "wins": 47,
-        "losses": 23,
-        "ties": 20,
-        "total": 90,
-        "win_rate": 0.5222
-      },
-      "gemini-3-flash-preview": {
-        "wins": 14,
-        "losses": 62,
-        "ties": 14,
-        "total": 90,
-        "win_rate": 0.1556
-      },
       "claude-opus-4-6": {
         "wins": 8,
-        "losses": 75,
-        "ties": 7,
+        "losses": 70,
+        "ties": 12,
         "total": 90,
         "win_rate": 0.0889
       },
       "claude-opus-4-5-20251101": {
+        "wins": 32,
+        "losses": 42,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.3556
+      },
+      "claude-sonnet-4.5": {
+        "wins": 40,
+        "losses": 39,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.4444
+      },
+      "claude-sonnet-4.6": {
         "wins": 23,
-        "losses": 60,
-        "ties": 7,
+        "losses": 53,
+        "ties": 14,
         "total": 90,
         "win_rate": 0.2556
       },
-      "claude-sonnet-4.5": {
+      "deepseek-r1": {
+        "wins": 65,
+        "losses": 12,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.7222
+      },
+      "gemini-2.5-pro": {
+        "wins": 59,
+        "losses": 18,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.6556
+      },
+      "gemini-3-flash-preview": {
         "wins": 27,
-        "losses": 54,
-        "ties": 9,
+        "losses": 44,
+        "ties": 19,
         "total": 90,
         "win_rate": 0.3
       },
-      "gpt-5.4": {
-        "wins": 48,
-        "losses": 26,
-        "ties": 16,
+      "gpt-5.1": {
+        "wins": 7,
+        "losses": 71,
+        "ties": 12,
         "total": 90,
-        "win_rate": 0.5333
+        "win_rate": 0.0778
       },
-      "gpt-5.4-pro": {
-        "wins": 62,
-        "losses": 14,
-        "ties": 14,
+      "gpt-5.2": {
+        "wins": 27,
+        "losses": 45,
+        "ties": 18,
         "total": 90,
-        "win_rate": 0.6889
+        "win_rate": 0.3
       },
       "gpt-oss-120b": {
-        "wins": 77,
-        "losses": 6,
-        "ties": 7,
-        "total": 90,
-        "win_rate": 0.8556
-      },
-      "qwen3-30b-a3b-thinking-2507": {
         "wins": 60,
-        "losses": 22,
-        "ties": 8,
+        "losses": 17,
+        "ties": 13,
         "total": 90,
         "win_rate": 0.6667
       },
-      "grok-4-fast": {
-        "wins": 39,
-        "losses": 39,
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 46,
+        "losses": 32,
         "ties": 12,
         "total": 90,
-        "win_rate": 0.4333
+        "win_rate": 0.5111
       },
-      "gpt-5.1": {
-        "wins": 13,
-        "losses": 59,
-        "ties": 18,
+      "grok-4-fast": {
+        "wins": 27,
+        "losses": 50,
+        "ties": 13,
         "total": 90,
-        "win_rate": 0.1444
-      },
-      "gpt-5.2": {
-        "wins": 45,
-        "losses": 31,
-        "ties": 14,
-        "total": 90,
-        "win_rate": 0.5
+        "win_rate": 0.3
       },
       "glm-4.6": {
-        "wins": 55,
-        "losses": 24,
-        "ties": 11,
+        "wins": 41,
+        "losses": 30,
+        "ties": 19,
         "total": 90,
-        "win_rate": 0.6111
+        "win_rate": 0.4556
       }
     }
   },
@@ -1290,7 +1192,7 @@
       "ties": 187,
       "win_rate": 0.4489,
       "total_judgments": 1350,
-      "avg_latency_ms": 5851.09,
+      "avg_latency_ms": 5850.67,
       "avg_metric_overall": 4.96
     },
     "by_dataset": {
@@ -1325,7 +1227,7 @@
           "faithfulness": 5.0,
           "grounding": 5.0,
           "relevance": 5.0,
-          "completeness": 4.97,
+          "completeness": 4.93,
           "overall": 4.99
         },
         "latency": {
@@ -1344,8 +1246,8 @@
           "correctness": 5.0,
           "faithfulness": 5.0,
           "grounding": 5.0,
-          "relevance": 4.97,
-          "completeness": 4.9,
+          "relevance": 5.0,
+          "completeness": 4.83,
           "overall": 4.97
         },
         "latency": {
@@ -1357,109 +1259,95 @@
     },
     "comparisons": {
       "claude-opus-4-6": {
-        "wins": 7,
-        "losses": 74,
-        "ties": 9,
+        "wins": 13,
+        "losses": 65,
+        "ties": 12,
         "total": 90,
-        "win_rate": 0.0778
+        "win_rate": 0.1444
       },
       "claude-opus-4-5-20251101": {
-        "wins": 29,
-        "losses": 49,
+        "wins": 36,
+        "losses": 42,
         "ties": 12,
         "total": 90,
-        "win_rate": 0.3222
-      },
-      "claude-sonnet-4.6": {
-        "wins": 20,
-        "losses": 62,
-        "ties": 8,
-        "total": 90,
-        "win_rate": 0.2222
-      },
-      "gemini-2.5-pro": {
-        "wins": 49,
-        "losses": 26,
-        "ties": 15,
-        "total": 90,
-        "win_rate": 0.5444
-      },
-      "gemini-3-pro-preview": {
-        "wins": 39,
-        "losses": 39,
-        "ties": 12,
-        "total": 90,
-        "win_rate": 0.4333
-      },
-      "gpt-5.1": {
-        "wins": 17,
-        "losses": 58,
-        "ties": 15,
-        "total": 90,
-        "win_rate": 0.1889
+        "win_rate": 0.4
       },
       "claude-sonnet-4.5": {
-        "wins": 37,
-        "losses": 44,
-        "ties": 9,
+        "wins": 48,
+        "losses": 34,
+        "ties": 8,
         "total": 90,
-        "win_rate": 0.4111
+        "win_rate": 0.5333
+      },
+      "claude-sonnet-4.6": {
+        "wins": 28,
+        "losses": 47,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.3111
       },
       "deepseek-r1": {
-        "wins": 62,
-        "losses": 18,
-        "ties": 10,
+        "wins": 72,
+        "losses": 11,
+        "ties": 7,
         "total": 90,
-        "win_rate": 0.6889
+        "win_rate": 0.8
+      },
+      "gemini-2.5-pro": {
+        "wins": 60,
+        "losses": 19,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.6667
       },
       "gemini-3-flash-preview": {
-        "wins": 18,
-        "losses": 58,
-        "ties": 14,
+        "wins": 38,
+        "losses": 42,
+        "ties": 10,
         "total": 90,
-        "win_rate": 0.2
+        "win_rate": 0.4222
       },
-      "gpt-5.4": {
+      "gemini-3-pro-preview": {
+        "wins": 50,
+        "losses": 27,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.5556
+      },
+      "gpt-5.1": {
+        "wins": 24,
+        "losses": 48,
+        "ties": 18,
+        "total": 90,
+        "win_rate": 0.2667
+      },
+      "gpt-5.2": {
         "wins": 52,
-        "losses": 24,
-        "ties": 14,
+        "losses": 22,
+        "ties": 16,
         "total": 90,
         "win_rate": 0.5778
       },
-      "gpt-5.4-pro": {
-        "wins": 55,
-        "losses": 22,
-        "ties": 13,
-        "total": 90,
-        "win_rate": 0.6111
-      },
-      "gpt-5.2": {
-        "wins": 42,
-        "losses": 32,
-        "ties": 16,
-        "total": 90,
-        "win_rate": 0.4667
-      },
       "gpt-oss-120b": {
-        "wins": 68,
-        "losses": 7,
-        "ties": 15,
+        "wins": 79,
+        "losses": 3,
+        "ties": 8,
         "total": 90,
-        "win_rate": 0.7556
+        "win_rate": 0.8778
       },
       "qwen3-30b-a3b-thinking-2507": {
-        "wins": 53,
-        "losses": 24,
-        "ties": 13,
+        "wins": 69,
+        "losses": 11,
+        "ties": 10,
         "total": 90,
-        "win_rate": 0.5889
+        "win_rate": 0.7667
       },
       "glm-4.6": {
-        "wins": 58,
-        "losses": 20,
-        "ties": 12,
+        "wins": 45,
+        "losses": 27,
+        "ties": 18,
         "total": 90,
-        "win_rate": 0.6444
+        "win_rate": 0.5
       }
     }
   },
@@ -1473,8 +1361,8 @@
       "ties": 226,
       "win_rate": 0.4007,
       "total_judgments": 1350,
-      "avg_latency_ms": 5380.1,
-      "avg_metric_overall": 4.97
+      "avg_latency_ms": 5379.67,
+      "avg_metric_overall": 4.96
     },
     "by_dataset": {
       "MSMARCO": {
@@ -1488,8 +1376,8 @@
           "faithfulness": 5.0,
           "grounding": 5.0,
           "relevance": 4.97,
-          "completeness": 4.83,
-          "overall": 4.96
+          "completeness": 4.87,
+          "overall": 4.97
         },
         "latency": {
           "mean_ms": 2652,
@@ -1507,7 +1395,7 @@
           "correctness": 5.0,
           "faithfulness": 5.0,
           "grounding": 5.0,
-          "relevance": 4.97,
+          "relevance": 5.0,
           "completeness": 4.97,
           "overall": 4.99
         },
@@ -1524,12 +1412,12 @@
         "ties": 141,
         "win_rate": 0.3467,
         "metrics": {
-          "correctness": 4.93,
+          "correctness": 4.87,
           "faithfulness": 5.0,
-          "grounding": 5.0,
-          "relevance": 5.0,
-          "completeness": 4.8,
-          "overall": 4.95
+          "grounding": 4.97,
+          "relevance": 4.97,
+          "completeness": 4.73,
+          "overall": 4.91
         },
         "latency": {
           "mean_ms": 4785,
@@ -1540,109 +1428,95 @@
     },
     "comparisons": {
       "claude-opus-4-6": {
-        "wins": 10,
-        "losses": 73,
-        "ties": 7,
+        "wins": 12,
+        "losses": 63,
+        "ties": 15,
         "total": 90,
-        "win_rate": 0.1111
+        "win_rate": 0.1333
+      },
+      "claude-opus-4-5-20251101": {
+        "wins": 31,
+        "losses": 43,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.3444
+      },
+      "claude-sonnet-4.5": {
+        "wins": 40,
+        "losses": 33,
+        "ties": 17,
+        "total": 90,
+        "win_rate": 0.4444
       },
       "claude-sonnet-4.6": {
-        "wins": 15,
-        "losses": 56,
-        "ties": 19,
+        "wins": 23,
+        "losses": 47,
+        "ties": 20,
         "total": 90,
-        "win_rate": 0.1667
+        "win_rate": 0.2556
+      },
+      "deepseek-r1": {
+        "wins": 64,
+        "losses": 13,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.7111
       },
       "gemini-2.5-pro": {
+        "wins": 51,
+        "losses": 20,
+        "ties": 19,
+        "total": 90,
+        "win_rate": 0.5667
+      },
+      "gemini-3-flash-preview": {
+        "wins": 32,
+        "losses": 42,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.3556
+      },
+      "gemini-3-pro-preview": {
+        "wins": 45,
+        "losses": 27,
+        "ties": 18,
+        "total": 90,
+        "win_rate": 0.5
+      },
+      "gpt-5.1": {
+        "wins": 16,
+        "losses": 53,
+        "ties": 21,
+        "total": 90,
+        "win_rate": 0.1778
+      },
+      "gpt-oss-120b": {
+        "wins": 63,
+        "losses": 12,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.7
+      },
+      "qwen3-30b-a3b-thinking-2507": {
         "wins": 43,
         "losses": 28,
         "ties": 19,
         "total": 90,
         "win_rate": 0.4778
       },
-      "gemini-3-flash-preview": {
-        "wins": 24,
-        "losses": 53,
-        "ties": 13,
-        "total": 90,
-        "win_rate": 0.2667
-      },
-      "gpt-5.4": {
-        "wins": 40,
-        "losses": 26,
-        "ties": 24,
-        "total": 90,
-        "win_rate": 0.4444
-      },
-      "gpt-5.4-pro": {
-        "wins": 57,
-        "losses": 16,
-        "ties": 17,
-        "total": 90,
-        "win_rate": 0.6333
-      },
-      "claude-opus-4-5-20251101": {
-        "wins": 23,
-        "losses": 50,
-        "ties": 17,
-        "total": 90,
-        "win_rate": 0.2556
-      },
-      "claude-sonnet-4.5": {
-        "wins": 30,
-        "losses": 51,
-        "ties": 9,
-        "total": 90,
-        "win_rate": 0.3333
-      },
-      "deepseek-r1": {
-        "wins": 47,
-        "losses": 24,
-        "ties": 19,
-        "total": 90,
-        "win_rate": 0.5222
-      },
-      "gemini-3-pro-preview": {
-        "wins": 31,
-        "losses": 45,
-        "ties": 14,
-        "total": 90,
-        "win_rate": 0.3444
-      },
-      "gpt-5.1": {
-        "wins": 12,
-        "losses": 65,
-        "ties": 13,
-        "total": 90,
-        "win_rate": 0.1333
-      },
-      "qwen3-30b-a3b-thinking-2507": {
-        "wins": 53,
-        "losses": 21,
+      "grok-4-fast": {
+        "wins": 22,
+        "losses": 52,
         "ties": 16,
         "total": 90,
-        "win_rate": 0.5889
+        "win_rate": 0.2444
       },
       "glm-4.6": {
-        "wins": 52,
-        "losses": 24,
-        "ties": 14,
+        "wins": 35,
+        "losses": 34,
+        "ties": 21,
         "total": 90,
-        "win_rate": 0.5778
-      },
-      "gpt-oss-120b": {
-        "wins": 72,
-        "losses": 9,
-        "ties": 9,
-        "total": 90,
-        "win_rate": 0.8
-      },
-      "grok-4-fast": {
-        "wins": 32,
-        "losses": 42,
-        "ties": 16,
-        "total": 90,
-        "win_rate": 0.3556
+        "win_rate": 0.3889
       }
     }
   },
@@ -1656,8 +1530,8 @@
       "ties": 198,
       "win_rate": 0.3193,
       "total_judgments": 1350,
-      "avg_latency_ms": 3107.78,
-      "avg_metric_overall": 4.93
+      "avg_latency_ms": 0,
+      "avg_metric_overall": 0
     },
     "by_dataset": {
       "MSMARCO": {
@@ -1666,18 +1540,11 @@
         "losses": 291,
         "ties": 53,
         "win_rate": 0.2356,
-        "metrics": {
-          "correctness": 4.97,
-          "faithfulness": 4.97,
-          "grounding": 4.97,
-          "relevance": 4.93,
-          "completeness": 4.8,
-          "overall": 4.93
-        },
+        "metrics": {},
         "latency": {
-          "mean_ms": 1861,
-          "min_ms": 888,
-          "max_ms": 3548
+          "mean_ms": 0,
+          "min_ms": 0,
+          "max_ms": 0
         }
       },
       "PG": {
@@ -1686,18 +1553,11 @@
         "losses": 226,
         "ties": 38,
         "win_rate": 0.4133,
-        "metrics": {
-          "correctness": 5.0,
-          "faithfulness": 5.0,
-          "grounding": 5.0,
-          "relevance": 5.0,
-          "completeness": 5.0,
-          "overall": 5.0
-        },
+        "metrics": {},
         "latency": {
-          "mean_ms": 5296,
-          "min_ms": 2948,
-          "max_ms": 17651
+          "mean_ms": 0,
+          "min_ms": 0,
+          "max_ms": 0
         }
       },
       "SciFact": {
@@ -1706,128 +1566,15 @@
         "losses": 204,
         "ties": 107,
         "win_rate": 0.3089,
-        "metrics": {
-          "correctness": 4.87,
-          "faithfulness": 4.87,
-          "grounding": 4.87,
-          "relevance": 4.93,
-          "completeness": 4.8,
-          "overall": 4.87
-        },
+        "metrics": {},
         "latency": {
-          "mean_ms": 2165,
-          "min_ms": 1207,
-          "max_ms": 4297
+          "mean_ms": 0,
+          "min_ms": 0,
+          "max_ms": 0
         }
       }
     },
-    "comparisons": {
-      "claude-opus-4-6": {
-        "wins": 3,
-        "losses": 84,
-        "ties": 3,
-        "total": 90,
-        "win_rate": 0.0333
-      },
-      "claude-sonnet-4.5": {
-        "wins": 24,
-        "losses": 55,
-        "ties": 11,
-        "total": 90,
-        "win_rate": 0.2667
-      },
-      "claude-sonnet-4.6": {
-        "wins": 9,
-        "losses": 71,
-        "ties": 10,
-        "total": 90,
-        "win_rate": 0.1
-      },
-      "gemini-2.5-pro": {
-        "wins": 34,
-        "losses": 42,
-        "ties": 14,
-        "total": 90,
-        "win_rate": 0.3778
-      },
-      "gemini-3-pro-preview": {
-        "wins": 26,
-        "losses": 48,
-        "ties": 16,
-        "total": 90,
-        "win_rate": 0.2889
-      },
-      "claude-opus-4-5-20251101": {
-        "wins": 15,
-        "losses": 68,
-        "ties": 7,
-        "total": 90,
-        "win_rate": 0.1667
-      },
-      "deepseek-r1": {
-        "wins": 54,
-        "losses": 25,
-        "ties": 11,
-        "total": 90,
-        "win_rate": 0.6
-      },
-      "gemini-3-flash-preview": {
-        "wins": 10,
-        "losses": 76,
-        "ties": 4,
-        "total": 90,
-        "win_rate": 0.1111
-      },
-      "gpt-5.1": {
-        "wins": 7,
-        "losses": 72,
-        "ties": 11,
-        "total": 90,
-        "win_rate": 0.0778
-      },
-      "gpt-5.2": {
-        "wins": 26,
-        "losses": 40,
-        "ties": 24,
-        "total": 90,
-        "win_rate": 0.2889
-      },
-      "gpt-oss-120b": {
-        "wins": 65,
-        "losses": 11,
-        "ties": 14,
-        "total": 90,
-        "win_rate": 0.7222
-      },
-      "gpt-5.4-pro": {
-        "wins": 42,
-        "losses": 17,
-        "ties": 31,
-        "total": 90,
-        "win_rate": 0.4667
-      },
-      "qwen3-30b-a3b-thinking-2507": {
-        "wins": 48,
-        "losses": 30,
-        "ties": 12,
-        "total": 90,
-        "win_rate": 0.5333
-      },
-      "grok-4-fast": {
-        "wins": 24,
-        "losses": 52,
-        "ties": 14,
-        "total": 90,
-        "win_rate": 0.2667
-      },
-      "glm-4.6": {
-        "wins": 44,
-        "losses": 30,
-        "ties": 16,
-        "total": 90,
-        "win_rate": 0.4889
-      }
-    }
+    "comparisons": {}
   },
   {
     "name": "gemini-2.5-pro",
@@ -1839,8 +1586,8 @@
       "ties": 181,
       "win_rate": 0.3541,
       "total_judgments": 1350,
-      "avg_latency_ms": 15199.34,
-      "avg_metric_overall": 4.88
+      "avg_latency_ms": 15199.0,
+      "avg_metric_overall": 4.89
     },
     "by_dataset": {
       "MSMARCO": {
@@ -1890,12 +1637,12 @@
         "ties": 90,
         "win_rate": 0.2111,
         "metrics": {
-          "correctness": 4.7,
+          "correctness": 4.73,
           "faithfulness": 4.8,
           "grounding": 4.8,
-          "relevance": 4.7,
-          "completeness": 4.5,
-          "overall": 4.7
+          "relevance": 4.73,
+          "completeness": 4.57,
+          "overall": 4.73
         },
         "latency": {
           "mean_ms": 15314,
@@ -1905,110 +1652,96 @@
       }
     },
     "comparisons": {
-      "claude-sonnet-4.6": {
-        "wins": 10,
-        "losses": 70,
-        "ties": 10,
-        "total": 90,
-        "win_rate": 0.1111
-      },
       "claude-opus-4-6": {
         "wins": 2,
-        "losses": 85,
-        "ties": 3,
+        "losses": 78,
+        "ties": 10,
         "total": 90,
         "win_rate": 0.0222
       },
       "claude-opus-4-5-20251101": {
+        "wins": 31,
+        "losses": 44,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.3444
+      },
+      "claude-sonnet-4.5": {
+        "wins": 41,
+        "losses": 34,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.4556
+      },
+      "claude-sonnet-4.6": {
         "wins": 21,
-        "losses": 56,
-        "ties": 13,
+        "losses": 57,
+        "ties": 12,
         "total": 90,
         "win_rate": 0.2333
       },
-      "claude-sonnet-4.5": {
-        "wins": 28,
-        "losses": 52,
-        "ties": 10,
-        "total": 90,
-        "win_rate": 0.3111
-      },
       "deepseek-r1": {
-        "wins": 51,
-        "losses": 28,
-        "ties": 11,
-        "total": 90,
-        "win_rate": 0.5667
-      },
-      "gemini-3-pro-preview": {
-        "wins": 23,
-        "losses": 47,
-        "ties": 20,
-        "total": 90,
-        "win_rate": 0.2556
-      },
-      "gpt-5.4": {
-        "wins": 42,
-        "losses": 34,
+        "wins": 60,
+        "losses": 16,
         "ties": 14,
         "total": 90,
-        "win_rate": 0.4667
-      },
-      "gpt-5.4-pro": {
-        "wins": 50,
-        "losses": 32,
-        "ties": 8,
-        "total": 90,
-        "win_rate": 0.5556
-      },
-      "gpt-5.1": {
-        "wins": 14,
-        "losses": 65,
-        "ties": 11,
-        "total": 90,
-        "win_rate": 0.1556
-      },
-      "gpt-5.2": {
-        "wins": 28,
-        "losses": 43,
-        "ties": 19,
-        "total": 90,
-        "win_rate": 0.3111
-      },
-      "grok-4-fast": {
-        "wins": 26,
-        "losses": 49,
-        "ties": 15,
-        "total": 90,
-        "win_rate": 0.2889
+        "win_rate": 0.6667
       },
       "gemini-3-flash-preview": {
-        "wins": 14,
-        "losses": 62,
-        "ties": 14,
+        "wins": 4,
+        "losses": 77,
+        "ties": 9,
         "total": 90,
-        "win_rate": 0.1556
+        "win_rate": 0.0444
+      },
+      "gemini-3-pro-preview": {
+        "wins": 18,
+        "losses": 59,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.2
+      },
+      "gpt-5.1": {
+        "wins": 10,
+        "losses": 75,
+        "ties": 5,
+        "total": 90,
+        "win_rate": 0.1111
+      },
+      "gpt-5.2": {
+        "wins": 20,
+        "losses": 51,
+        "ties": 19,
+        "total": 90,
+        "win_rate": 0.2222
       },
       "gpt-oss-120b": {
-        "wins": 66,
-        "losses": 17,
-        "ties": 7,
-        "total": 90,
-        "win_rate": 0.7333
-      },
-      "qwen3-30b-a3b-thinking-2507": {
-        "wins": 55,
-        "losses": 23,
+        "wins": 49,
+        "losses": 29,
         "ties": 12,
         "total": 90,
-        "win_rate": 0.6111
+        "win_rate": 0.5444
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 45,
+        "losses": 32,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.5
+      },
+      "grok-4-fast": {
+        "wins": 19,
+        "losses": 60,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.2111
       },
       "glm-4.6": {
-        "wins": 48,
-        "losses": 28,
-        "ties": 14,
+        "wins": 35,
+        "losses": 36,
+        "ties": 19,
         "total": 90,
-        "win_rate": 0.5333
+        "win_rate": 0.3889
       }
     }
   },
@@ -2022,8 +1755,8 @@
       "ties": 156,
       "win_rate": 0.2852,
       "total_judgments": 1350,
-      "avg_latency_ms": 33116.43,
-      "avg_metric_overall": 4.8
+      "avg_latency_ms": 33116.0,
+      "avg_metric_overall": 4.78
     },
     "by_dataset": {
       "MSMARCO": {
@@ -2033,12 +1766,12 @@
         "ties": 50,
         "win_rate": 0.3222,
         "metrics": {
-          "correctness": 4.83,
-          "faithfulness": 4.8,
-          "grounding": 4.8,
-          "relevance": 4.93,
-          "completeness": 4.73,
-          "overall": 4.82
+          "correctness": 4.8,
+          "faithfulness": 4.77,
+          "grounding": 4.77,
+          "relevance": 4.83,
+          "completeness": 4.7,
+          "overall": 4.77
         },
         "latency": {
           "mean_ms": 34694,
@@ -2054,11 +1787,11 @@
         "win_rate": 0.3533,
         "metrics": {
           "correctness": 4.87,
-          "faithfulness": 4.9,
-          "grounding": 4.9,
-          "relevance": 4.97,
-          "completeness": 4.6,
-          "overall": 4.85
+          "faithfulness": 4.87,
+          "grounding": 4.83,
+          "relevance": 4.9,
+          "completeness": 4.57,
+          "overall": 4.81
         },
         "latency": {
           "mean_ms": 36774,
@@ -2073,12 +1806,12 @@
         "ties": 84,
         "win_rate": 0.18,
         "metrics": {
-          "correctness": 4.6,
-          "faithfulness": 4.83,
-          "grounding": 4.83,
-          "relevance": 4.87,
-          "completeness": 4.53,
-          "overall": 4.73
+          "correctness": 4.63,
+          "faithfulness": 4.87,
+          "grounding": 4.87,
+          "relevance": 4.9,
+          "completeness": 4.57,
+          "overall": 4.77
         },
         "latency": {
           "mean_ms": 27880,
@@ -2088,110 +1821,96 @@
       }
     },
     "comparisons": {
-      "claude-sonnet-4.5": {
-        "wins": 23,
-        "losses": 61,
-        "ties": 6,
+      "claude-opus-4-6": {
+        "wins": 4,
+        "losses": 77,
+        "ties": 9,
         "total": 90,
-        "win_rate": 0.2556
+        "win_rate": 0.0444
       },
-      "gpt-5.4-pro": {
-        "wins": 45,
-        "losses": 32,
-        "ties": 13,
-        "total": 90,
-        "win_rate": 0.5
-      },
-      "gpt-5.2": {
+      "claude-opus-4-5-20251101": {
         "wins": 24,
-        "losses": 52,
-        "ties": 14,
+        "losses": 60,
+        "ties": 6,
         "total": 90,
         "win_rate": 0.2667
       },
-      "gpt-oss-120b": {
-        "wins": 56,
-        "losses": 22,
-        "ties": 12,
-        "total": 90,
-        "win_rate": 0.6222
-      },
-      "grok-4-fast": {
-        "wins": 20,
-        "losses": 58,
-        "ties": 12,
-        "total": 90,
-        "win_rate": 0.2222
-      },
-      "claude-opus-4-6": {
-        "wins": 5,
-        "losses": 80,
-        "ties": 5,
-        "total": 90,
-        "win_rate": 0.0556
-      },
-      "claude-opus-4-5-20251101": {
-        "wins": 15,
-        "losses": 67,
-        "ties": 8,
-        "total": 90,
-        "win_rate": 0.1667
-      },
-      "claude-sonnet-4.6": {
-        "wins": 6,
-        "losses": 80,
-        "ties": 4,
-        "total": 90,
-        "win_rate": 0.0667
-      },
-      "deepseek-r1": {
-        "wins": 48,
-        "losses": 30,
-        "ties": 12,
-        "total": 90,
-        "win_rate": 0.5333
-      },
-      "gemini-2.5-pro": {
+      "claude-sonnet-4.5": {
         "wins": 28,
-        "losses": 48,
-        "ties": 14,
+        "losses": 54,
+        "ties": 8,
         "total": 90,
         "win_rate": 0.3111
       },
-      "gemini-3-flash-preview": {
-        "wins": 9,
-        "losses": 70,
-        "ties": 11,
+      "claude-sonnet-4.6": {
+        "wins": 13,
+        "losses": 65,
+        "ties": 12,
         "total": 90,
-        "win_rate": 0.1
+        "win_rate": 0.1444
+      },
+      "deepseek-r1": {
+        "wins": 54,
+        "losses": 24,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.6
+      },
+      "gemini-2.5-pro": {
+        "wins": 36,
+        "losses": 35,
+        "ties": 19,
+        "total": 90,
+        "win_rate": 0.4
+      },
+      "gemini-3-flash-preview": {
+        "wins": 16,
+        "losses": 64,
+        "ties": 10,
+        "total": 90,
+        "win_rate": 0.1778
       },
       "gemini-3-pro-preview": {
-        "wins": 24,
-        "losses": 55,
-        "ties": 11,
-        "total": 90,
-        "win_rate": 0.2667
-      },
-      "gpt-5.4": {
         "wins": 30,
-        "losses": 44,
-        "ties": 16,
+        "losses": 41,
+        "ties": 19,
         "total": 90,
         "win_rate": 0.3333
       },
       "gpt-5.1": {
-        "wins": 10,
-        "losses": 71,
-        "ties": 9,
+        "wins": 19,
+        "losses": 58,
+        "ties": 13,
         "total": 90,
-        "win_rate": 0.1111
+        "win_rate": 0.2111
+      },
+      "gpt-5.2": {
+        "wins": 34,
+        "losses": 35,
+        "ties": 21,
+        "total": 90,
+        "win_rate": 0.3778
+      },
+      "gpt-oss-120b": {
+        "wins": 64,
+        "losses": 15,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.7111
       },
       "qwen3-30b-a3b-thinking-2507": {
-        "wins": 42,
-        "losses": 39,
-        "ties": 9,
+        "wins": 58,
+        "losses": 24,
+        "ties": 8,
         "total": 90,
-        "win_rate": 0.4667
+        "win_rate": 0.6444
+      },
+      "grok-4-fast": {
+        "wins": 27,
+        "losses": 45,
+        "ties": 18,
+        "total": 90,
+        "win_rate": 0.3
       }
     }
   },
@@ -2205,8 +1924,8 @@
       "ties": 172,
       "win_rate": 0.2459,
       "total_judgments": 1350,
-      "avg_latency_ms": 75662.91,
-      "avg_metric_overall": 4.94
+      "avg_latency_ms": 0,
+      "avg_metric_overall": 0
     },
     "by_dataset": {
       "MSMARCO": {
@@ -2215,18 +1934,11 @@
         "losses": 327,
         "ties": 51,
         "win_rate": 0.16,
-        "metrics": {
-          "correctness": 4.97,
-          "faithfulness": 5.0,
-          "grounding": 5.0,
-          "relevance": 4.93,
-          "completeness": 4.73,
-          "overall": 4.93
-        },
+        "metrics": {},
         "latency": {
-          "mean_ms": 68388,
-          "min_ms": 8911,
-          "max_ms": 165229
+          "mean_ms": 0,
+          "min_ms": 0,
+          "max_ms": 0
         }
       },
       "PG": {
@@ -2235,18 +1947,11 @@
         "losses": 289,
         "ties": 25,
         "win_rate": 0.3022,
-        "metrics": {
-          "correctness": 5.0,
-          "faithfulness": 5.0,
-          "grounding": 5.0,
-          "relevance": 5.0,
-          "completeness": 4.97,
-          "overall": 4.99
-        },
+        "metrics": {},
         "latency": {
-          "mean_ms": 156451,
-          "min_ms": 57901,
-          "max_ms": 250411
+          "mean_ms": 0,
+          "min_ms": 0,
+          "max_ms": 0
         }
       },
       "SciFact": {
@@ -2255,128 +1960,15 @@
         "losses": 230,
         "ties": 96,
         "win_rate": 0.2756,
-        "metrics": {
-          "correctness": 4.87,
-          "faithfulness": 4.9,
-          "grounding": 4.87,
-          "relevance": 4.93,
-          "completeness": 4.87,
-          "overall": 4.89
-        },
+        "metrics": {},
         "latency": {
-          "mean_ms": 2148,
-          "min_ms": 1111,
-          "max_ms": 3838
+          "mean_ms": 0,
+          "min_ms": 0,
+          "max_ms": 0
         }
       }
     },
-    "comparisons": {
-      "claude-opus-4-6": {
-        "wins": 4,
-        "losses": 83,
-        "ties": 3,
-        "total": 90,
-        "win_rate": 0.0444
-      },
-      "claude-opus-4-5-20251101": {
-        "wins": 17,
-        "losses": 69,
-        "ties": 4,
-        "total": 90,
-        "win_rate": 0.1889
-      },
-      "claude-sonnet-4.6": {
-        "wins": 8,
-        "losses": 79,
-        "ties": 3,
-        "total": 90,
-        "win_rate": 0.0889
-      },
-      "deepseek-r1": {
-        "wins": 49,
-        "losses": 33,
-        "ties": 8,
-        "total": 90,
-        "win_rate": 0.5444
-      },
-      "gemini-2.5-pro": {
-        "wins": 32,
-        "losses": 50,
-        "ties": 8,
-        "total": 90,
-        "win_rate": 0.3556
-      },
-      "gemini-3-flash-preview": {
-        "wins": 8,
-        "losses": 72,
-        "ties": 10,
-        "total": 90,
-        "win_rate": 0.0889
-      },
-      "gemini-3-pro-preview": {
-        "wins": 14,
-        "losses": 62,
-        "ties": 14,
-        "total": 90,
-        "win_rate": 0.1556
-      },
-      "claude-sonnet-4.5": {
-        "wins": 16,
-        "losses": 69,
-        "ties": 5,
-        "total": 90,
-        "win_rate": 0.1778
-      },
-      "gpt-5.4": {
-        "wins": 17,
-        "losses": 42,
-        "ties": 31,
-        "total": 90,
-        "win_rate": 0.1889
-      },
-      "gpt-5.2": {
-        "wins": 16,
-        "losses": 57,
-        "ties": 17,
-        "total": 90,
-        "win_rate": 0.1778
-      },
-      "glm-4.6": {
-        "wins": 32,
-        "losses": 45,
-        "ties": 13,
-        "total": 90,
-        "win_rate": 0.3556
-      },
-      "gpt-5.1": {
-        "wins": 5,
-        "losses": 73,
-        "ties": 12,
-        "total": 90,
-        "win_rate": 0.0556
-      },
-      "gpt-oss-120b": {
-        "wins": 52,
-        "losses": 23,
-        "ties": 15,
-        "total": 90,
-        "win_rate": 0.5778
-      },
-      "qwen3-30b-a3b-thinking-2507": {
-        "wins": 40,
-        "losses": 34,
-        "ties": 16,
-        "total": 90,
-        "win_rate": 0.4444
-      },
-      "grok-4-fast": {
-        "wins": 22,
-        "losses": 55,
-        "ties": 13,
-        "total": 90,
-        "win_rate": 0.2444
-      }
-    }
+    "comparisons": {}
   },
   {
     "name": "deepseek-r1",
@@ -2388,8 +1980,8 @@
       "ties": 161,
       "win_rate": 0.2252,
       "total_judgments": 1350,
-      "avg_latency_ms": 18271.8,
-      "avg_metric_overall": 4.82
+      "avg_latency_ms": 18271.33,
+      "avg_metric_overall": 4.83
     },
     "by_dataset": {
       "MSMARCO": {
@@ -2399,12 +1991,12 @@
         "ties": 48,
         "win_rate": 0.1733,
         "metrics": {
-          "correctness": 4.67,
-          "faithfulness": 4.7,
-          "grounding": 4.67,
-          "relevance": 4.83,
-          "completeness": 4.57,
-          "overall": 4.69
+          "correctness": 4.73,
+          "faithfulness": 4.77,
+          "grounding": 4.77,
+          "relevance": 4.87,
+          "completeness": 4.37,
+          "overall": 4.7
         },
         "latency": {
           "mean_ms": 16654,
@@ -2419,12 +2011,12 @@
         "ties": 21,
         "win_rate": 0.2422,
         "metrics": {
-          "correctness": 4.87,
-          "faithfulness": 4.87,
-          "grounding": 4.87,
-          "relevance": 4.93,
+          "correctness": 4.93,
+          "faithfulness": 4.93,
+          "grounding": 4.9,
+          "relevance": 4.97,
           "completeness": 4.6,
-          "overall": 4.83
+          "overall": 4.87
         },
         "latency": {
           "mean_ms": 23334,
@@ -2439,12 +2031,12 @@
         "ties": 92,
         "win_rate": 0.26,
         "metrics": {
-          "correctness": 4.97,
+          "correctness": 4.93,
           "faithfulness": 4.97,
-          "grounding": 4.97,
+          "grounding": 4.93,
           "relevance": 5.0,
-          "completeness": 4.8,
-          "overall": 4.94
+          "completeness": 4.83,
+          "overall": 4.93
         },
         "latency": {
           "mean_ms": 14826,
@@ -2456,108 +2048,94 @@
     "comparisons": {
       "claude-opus-4-6": {
         "wins": 4,
-        "losses": 85,
-        "ties": 1,
-        "total": 90,
-        "win_rate": 0.0444
-      },
-      "claude-sonnet-4.6": {
-        "wins": 4,
-        "losses": 75,
-        "ties": 11,
+        "losses": 73,
+        "ties": 13,
         "total": 90,
         "win_rate": 0.0444
       },
       "claude-opus-4-5-20251101": {
-        "wins": 12,
-        "losses": 71,
-        "ties": 7,
-        "total": 90,
-        "win_rate": 0.1333
-      },
-      "claude-sonnet-4.5": {
-        "wins": 15,
-        "losses": 69,
-        "ties": 6,
-        "total": 90,
-        "win_rate": 0.1667
-      },
-      "gemini-3-pro-preview": {
-        "wins": 17,
+        "wins": 20,
         "losses": 62,
-        "ties": 11,
-        "total": 90,
-        "win_rate": 0.1889
-      },
-      "gpt-5.4-pro": {
-        "wins": 33,
-        "losses": 49,
         "ties": 8,
         "total": 90,
-        "win_rate": 0.3667
+        "win_rate": 0.2222
       },
-      "gpt-5.1": {
-        "wins": 8,
-        "losses": 67,
-        "ties": 15,
-        "total": 90,
-        "win_rate": 0.0889
-      },
-      "gemini-2.5-pro": {
-        "wins": 28,
-        "losses": 51,
-        "ties": 11,
-        "total": 90,
-        "win_rate": 0.3111
-      },
-      "gemini-3-flash-preview": {
-        "wins": 11,
-        "losses": 73,
-        "ties": 6,
-        "total": 90,
-        "win_rate": 0.1222
-      },
-      "gpt-5.4": {
+      "claude-sonnet-4.5": {
         "wins": 25,
-        "losses": 54,
-        "ties": 11,
+        "losses": 57,
+        "ties": 8,
         "total": 90,
         "win_rate": 0.2778
       },
-      "gpt-5.2": {
-        "wins": 24,
-        "losses": 47,
-        "ties": 19,
+      "claude-sonnet-4.6": {
+        "wins": 9,
+        "losses": 68,
+        "ties": 13,
         "total": 90,
-        "win_rate": 0.2667
+        "win_rate": 0.1
       },
-      "gpt-oss-120b": {
-        "wins": 43,
-        "losses": 28,
-        "ties": 19,
-        "total": 90,
-        "win_rate": 0.4778
-      },
-      "qwen3-30b-a3b-thinking-2507": {
-        "wins": 32,
-        "losses": 44,
+      "gemini-2.5-pro": {
+        "wins": 16,
+        "losses": 60,
         "ties": 14,
         "total": 90,
-        "win_rate": 0.3556
+        "win_rate": 0.1778
       },
-      "grok-4-fast": {
-        "wins": 18,
-        "losses": 62,
-        "ties": 10,
+      "gemini-3-flash-preview": {
+        "wins": 6,
+        "losses": 77,
+        "ties": 7,
         "total": 90,
-        "win_rate": 0.2
+        "win_rate": 0.0667
       },
-      "glm-4.6": {
-        "wins": 30,
-        "losses": 48,
+      "gemini-3-pro-preview": {
+        "wins": 12,
+        "losses": 65,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.1333
+      },
+      "gpt-5.1": {
+        "wins": 5,
+        "losses": 73,
         "ties": 12,
         "total": 90,
-        "win_rate": 0.3333
+        "win_rate": 0.0556
+      },
+      "gpt-5.2": {
+        "wins": 13,
+        "losses": 64,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.1444
+      },
+      "gpt-oss-120b": {
+        "wins": 36,
+        "losses": 38,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.4
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 27,
+        "losses": 52,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.3
+      },
+      "grok-4-fast": {
+        "wins": 11,
+        "losses": 72,
+        "ties": 7,
+        "total": 90,
+        "win_rate": 0.1222
+      },
+      "glm-4.6": {
+        "wins": 24,
+        "losses": 54,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.2667
       }
     }
   },
@@ -2571,8 +2149,8 @@
       "ties": 159,
       "win_rate": 0.2378,
       "total_judgments": 1350,
-      "avg_latency_ms": 12312.66,
-      "avg_metric_overall": 4.89
+      "avg_latency_ms": 12312.0,
+      "avg_metric_overall": 4.9
     },
     "by_dataset": {
       "MSMARCO": {
@@ -2584,10 +2162,10 @@
         "metrics": {
           "correctness": 4.9,
           "faithfulness": 4.9,
-          "grounding": 4.87,
+          "grounding": 4.9,
           "relevance": 5.0,
           "completeness": 4.8,
-          "overall": 4.89
+          "overall": 4.9
         },
         "latency": {
           "mean_ms": 12522,
@@ -2604,10 +2182,10 @@
         "metrics": {
           "correctness": 4.9,
           "faithfulness": 4.87,
-          "grounding": 4.83,
-          "relevance": 4.9,
-          "completeness": 4.67,
-          "overall": 4.83
+          "grounding": 4.87,
+          "relevance": 4.93,
+          "completeness": 4.77,
+          "overall": 4.87
         },
         "latency": {
           "mean_ms": 16030,
@@ -2626,8 +2204,8 @@
           "faithfulness": 4.97,
           "grounding": 4.93,
           "relevance": 5.0,
-          "completeness": 4.87,
-          "overall": 4.95
+          "completeness": 4.83,
+          "overall": 4.94
         },
         "latency": {
           "mean_ms": 8384,
@@ -2639,108 +2217,94 @@
     "comparisons": {
       "claude-opus-4-6": {
         "wins": 2,
-        "losses": 83,
-        "ties": 5,
+        "losses": 78,
+        "ties": 10,
         "total": 90,
         "win_rate": 0.0222
       },
       "claude-opus-4-5-20251101": {
-        "wins": 4,
-        "losses": 78,
-        "ties": 8,
-        "total": 90,
-        "win_rate": 0.0444
-      },
-      "claude-sonnet-4.6": {
-        "wins": 3,
-        "losses": 78,
-        "ties": 9,
-        "total": 90,
-        "win_rate": 0.0333
-      },
-      "gemini-3-flash-preview": {
         "wins": 8,
-        "losses": 73,
-        "ties": 9,
+        "losses": 72,
+        "ties": 10,
         "total": 90,
         "win_rate": 0.0889
       },
-      "gemini-3-pro-preview": {
-        "wins": 22,
-        "losses": 60,
-        "ties": 8,
-        "total": 90,
-        "win_rate": 0.2444
-      },
-      "gpt-5.1": {
-        "wins": 7,
-        "losses": 69,
-        "ties": 14,
-        "total": 90,
-        "win_rate": 0.0778
-      },
-      "gpt-5.2": {
-        "wins": 21,
-        "losses": 53,
-        "ties": 16,
-        "total": 90,
-        "win_rate": 0.2333
-      },
       "claude-sonnet-4.5": {
-        "wins": 6,
-        "losses": 76,
-        "ties": 8,
-        "total": 90,
-        "win_rate": 0.0667
-      },
-      "deepseek-r1": {
-        "wins": 44,
-        "losses": 32,
+        "wins": 12,
+        "losses": 64,
         "ties": 14,
         "total": 90,
-        "win_rate": 0.4889
+        "win_rate": 0.1333
       },
-      "gemini-2.5-pro": {
-        "wins": 23,
-        "losses": 55,
-        "ties": 12,
-        "total": 90,
-        "win_rate": 0.2556
-      },
-      "gpt-5.4": {
-        "wins": 30,
-        "losses": 48,
-        "ties": 12,
-        "total": 90,
-        "win_rate": 0.3333
-      },
-      "gpt-5.4-pro": {
-        "wins": 34,
-        "losses": 40,
-        "ties": 16,
-        "total": 90,
-        "win_rate": 0.3778
-      },
-      "gpt-oss-120b": {
-        "wins": 54,
-        "losses": 30,
-        "ties": 6,
-        "total": 90,
-        "win_rate": 0.6
-      },
-      "grok-4-fast": {
-        "wins": 24,
-        "losses": 53,
+      "claude-sonnet-4.6": {
+        "wins": 4,
+        "losses": 73,
         "ties": 13,
         "total": 90,
-        "win_rate": 0.2667
+        "win_rate": 0.0444
+      },
+      "deepseek-r1": {
+        "wins": 52,
+        "losses": 27,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.5778
+      },
+      "gemini-2.5-pro": {
+        "wins": 32,
+        "losses": 45,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.3556
+      },
+      "gemini-3-flash-preview": {
+        "wins": 13,
+        "losses": 63,
+        "ties": 14,
+        "total": 90,
+        "win_rate": 0.1444
+      },
+      "gemini-3-pro-preview": {
+        "wins": 32,
+        "losses": 46,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.3556
+      },
+      "gpt-5.1": {
+        "wins": 12,
+        "losses": 63,
+        "ties": 15,
+        "total": 90,
+        "win_rate": 0.1333
+      },
+      "gpt-5.2": {
+        "wins": 28,
+        "losses": 43,
+        "ties": 19,
+        "total": 90,
+        "win_rate": 0.3111
+      },
+      "gpt-oss-120b": {
+        "wins": 59,
+        "losses": 20,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.6556
+      },
+      "grok-4-fast": {
+        "wins": 11,
+        "losses": 69,
+        "ties": 10,
+        "total": 90,
+        "win_rate": 0.1222
       },
       "glm-4.6": {
-        "wins": 39,
-        "losses": 42,
-        "ties": 9,
+        "wins": 24,
+        "losses": 58,
+        "ties": 8,
         "total": 90,
-        "win_rate": 0.4333
+        "win_rate": 0.2667
       }
     }
   },
@@ -2754,8 +2318,8 @@
       "ties": 129,
       "win_rate": 0.1422,
       "total_judgments": 1350,
-      "avg_latency_ms": 11301.64,
-      "avg_metric_overall": 4.83
+      "avg_latency_ms": 11301.33,
+      "avg_metric_overall": 4.84
     },
     "by_dataset": {
       "MSMARCO": {
@@ -2766,10 +2330,10 @@
         "win_rate": 0.1333,
         "metrics": {
           "correctness": 4.93,
-          "faithfulness": 4.93,
-          "grounding": 4.93,
+          "faithfulness": 4.9,
+          "grounding": 4.9,
           "relevance": 4.97,
-          "completeness": 4.8,
+          "completeness": 4.87,
           "overall": 4.91
         },
         "latency": {
@@ -2785,12 +2349,12 @@
         "ties": 11,
         "win_rate": 0.2378,
         "metrics": {
-          "correctness": 4.87,
-          "faithfulness": 4.87,
-          "grounding": 4.87,
-          "relevance": 4.9,
-          "completeness": 4.83,
-          "overall": 4.87
+          "correctness": 4.8,
+          "faithfulness": 4.8,
+          "grounding": 4.8,
+          "relevance": 4.83,
+          "completeness": 4.73,
+          "overall": 4.79
         },
         "latency": {
           "mean_ms": 19128,
@@ -2805,12 +2369,12 @@
         "ties": 68,
         "win_rate": 0.0556,
         "metrics": {
-          "correctness": 4.7,
-          "faithfulness": 4.8,
-          "grounding": 4.8,
-          "relevance": 4.73,
-          "completeness": 4.57,
-          "overall": 4.72
+          "correctness": 4.87,
+          "faithfulness": 4.87,
+          "grounding": 4.87,
+          "relevance": 4.8,
+          "completeness": 4.7,
+          "overall": 4.82
         },
         "latency": {
           "mean_ms": 9160,
@@ -2820,110 +2384,96 @@
       }
     },
     "comparisons": {
-      "claude-opus-4-5-20251101": {
-        "wins": 11,
-        "losses": 77,
-        "ties": 2,
-        "total": 90,
-        "win_rate": 0.1222
-      },
-      "claude-sonnet-4.6": {
-        "wins": 5,
-        "losses": 83,
-        "ties": 2,
-        "total": 90,
-        "win_rate": 0.0556
-      },
-      "gemini-3-pro-preview": {
-        "wins": 6,
-        "losses": 77,
-        "ties": 7,
-        "total": 90,
-        "win_rate": 0.0667
-      },
-      "gpt-5.4": {
-        "wins": 11,
-        "losses": 65,
-        "ties": 14,
-        "total": 90,
-        "win_rate": 0.1222
-      },
-      "gpt-5.1": {
-        "wins": 2,
-        "losses": 82,
-        "ties": 6,
-        "total": 90,
-        "win_rate": 0.0222
-      },
       "claude-opus-4-6": {
         "wins": 3,
-        "losses": 85,
-        "ties": 2,
+        "losses": 83,
+        "ties": 4,
         "total": 90,
         "win_rate": 0.0333
       },
-      "claude-sonnet-4.5": {
-        "wins": 14,
-        "losses": 69,
-        "ties": 7,
-        "total": 90,
-        "win_rate": 0.1556
-      },
-      "deepseek-r1": {
-        "wins": 28,
-        "losses": 43,
-        "ties": 19,
-        "total": 90,
-        "win_rate": 0.3111
-      },
-      "gemini-2.5-pro": {
+      "claude-opus-4-5-20251101": {
         "wins": 17,
-        "losses": 66,
-        "ties": 7,
+        "losses": 67,
+        "ties": 6,
         "total": 90,
         "win_rate": 0.1889
       },
-      "gemini-3-flash-preview": {
-        "wins": 4,
-        "losses": 80,
-        "ties": 6,
-        "total": 90,
-        "win_rate": 0.0444
-      },
-      "gpt-5.4-pro": {
-        "wins": 23,
-        "losses": 52,
-        "ties": 15,
-        "total": 90,
-        "win_rate": 0.2556
-      },
-      "gpt-5.2": {
-        "wins": 9,
-        "losses": 72,
+      "claude-sonnet-4.5": {
+        "wins": 20,
+        "losses": 61,
         "ties": 9,
         "total": 90,
-        "win_rate": 0.1
+        "win_rate": 0.2222
       },
-      "glm-4.6": {
-        "wins": 22,
-        "losses": 56,
+      "claude-sonnet-4.6": {
+        "wins": 8,
+        "losses": 74,
+        "ties": 8,
+        "total": 90,
+        "win_rate": 0.0889
+      },
+      "deepseek-r1": {
+        "wins": 38,
+        "losses": 36,
+        "ties": 16,
+        "total": 90,
+        "win_rate": 0.4222
+      },
+      "gemini-2.5-pro": {
+        "wins": 29,
+        "losses": 49,
         "ties": 12,
         "total": 90,
-        "win_rate": 0.2444
+        "win_rate": 0.3222
       },
-      "qwen3-30b-a3b-thinking-2507": {
-        "wins": 30,
-        "losses": 54,
-        "ties": 6,
+      "gemini-3-flash-preview": {
+        "wins": 8,
+        "losses": 75,
+        "ties": 7,
         "total": 90,
-        "win_rate": 0.3333
+        "win_rate": 0.0889
       },
-      "grok-4-fast": {
-        "wins": 7,
-        "losses": 68,
+      "gemini-3-pro-preview": {
+        "wins": 17,
+        "losses": 60,
+        "ties": 13,
+        "total": 90,
+        "win_rate": 0.1889
+      },
+      "gpt-5.1": {
+        "wins": 2,
+        "losses": 76,
+        "ties": 12,
+        "total": 90,
+        "win_rate": 0.0222
+      },
+      "gpt-5.2": {
+        "wins": 12,
+        "losses": 63,
         "ties": 15,
         "total": 90,
-        "win_rate": 0.0778
+        "win_rate": 0.1333
+      },
+      "qwen3-30b-a3b-thinking-2507": {
+        "wins": 20,
+        "losses": 59,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.2222
+      },
+      "grok-4-fast": {
+        "wins": 3,
+        "losses": 79,
+        "ties": 8,
+        "total": 90,
+        "win_rate": 0.0333
+      },
+      "glm-4.6": {
+        "wins": 15,
+        "losses": 64,
+        "ties": 11,
+        "total": 90,
+        "win_rate": 0.1667
       }
     }
   }

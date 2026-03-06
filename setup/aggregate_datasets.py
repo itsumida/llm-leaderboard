@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
-Aggregate results from MS MARCO, Paul Graham, and SciFact datasets
-Output: Single JSON with overall and per-dataset stats + visualization
+Aggregate results from all datasets into final benchmarks.json
 
-IMPORTANT: All model names in output use exact names from model-info2.json.
-No provider prefixes (anthropic-, google-, openai-, etc.).
-Comparison keys also use canonical names.
+Combines:
+- ELO ratings and win/loss/tie stats from each dataset
+- Pairwise comparisons from judgments
+- Model name normalization to match model-info.json
+
+Output: ../benchmarks.json (ready to use, no additional processing needed)
 """
 
 import json
@@ -13,284 +15,260 @@ import numpy as np
 from pathlib import Path
 from collections import defaultdict
 
-from model_names import normalize_model_name, normalize_comparisons
+# =============================================================================
+# MODEL NAME NORMALIZATION
+# =============================================================================
 
-DATASETS = {
-    "msmarco": {
-        "name": "MSMARCO",
-        "path": Path("../msmarco-outputs/llm-elo")
-    },
-    "pg": {
-        "name": "PG",
-        "path": Path("../pg-outputs/llm-elo")
-    },
-    "scifact": {
-        "name": "SciFact",
-        "path": Path("../scifact-outputs/llm-elo")
-    }
+CANONICAL_NAMES = [
+    "claude-opus-4-5-20251101", "deepseek-r1", "gemini-2.5-pro",
+    "gemini-3-flash-preview", "gemini-3-pro-preview", "gpt-5.1", "gpt-5.2",
+    "gpt-oss-120b", "qwen3-30b-a3b-thinking-2507", "grok-4-fast", "glm-4.6",
+    "claude-opus-4-6", "claude-sonnet-4.6", "claude-sonnet-4.5",
+    "gpt-5.4", "gpt-5.4-pro",
+]
+
+NAME_MAPPING = {
+    "anthropic-claude-opus-4-6": "claude-opus-4-6",
+    "anthropic-claude-opus-4.5": "claude-opus-4-5-20251101",
+    "anthropic-claude-sonnet-4.6": "claude-sonnet-4.6",
+    "anthropic-claude-sonnet-4.5": "claude-sonnet-4.5",
+    "google-gemini-2.5-pro": "gemini-2.5-pro",
+    "google-gemini-3-flash-preview": "gemini-3-flash-preview",
+    "google-gemini-3-pro-preview": "gemini-3-pro-preview",
+    "openai-gpt-5.1": "gpt-5.1",
+    "openai-gpt-5.2": "gpt-5.2",
+    "openai-gpt-oss-120b": "gpt-oss-120b",
+    "x-ai-grok-4-fast": "grok-4-fast",
+    "z-ai-glm-4.6": "glm-4.6",
+    "deepseek-deepseek-r1": "deepseek-r1",
+    "qwen-qwen3-30b-a3b-thinking-2507": "qwen3-30b-a3b-thinking-2507",
 }
 
-def load_latencies(dataset_path: Path):
-    """Load latency data from RAG answer files"""
-    rag_dir = dataset_path.parent / "llm-rag"
-    if not rag_dir.exists():
-        return {}
 
-    model_latencies = defaultdict(list)
-    for answer_file in rag_dir.glob("*_answers.jsonl"):
-        model_name = answer_file.stem.replace("_answers", "")
-        with open(answer_file) as f:
-            for line in f:
-                try:
-                    d = json.loads(line)
-                    if 'latency_ms' in d and d['latency_ms']:
-                        model_latencies[model_name].append(d['latency_ms'])
-                except Exception:
-                    continue
-    return {
-        model: {
-            'avg': round(np.mean(vals), 2),
-            'min': round(min(vals), 2),
-            'max': round(max(vals), 2)
-        }
-        for model, vals in model_latencies.items() if vals
-    }
+def normalize_name(name: str) -> str:
+    """Convert any model name to canonical format from model-info.json"""
+    if name in NAME_MAPPING:
+        return NAME_MAPPING[name]
+    if name in CANONICAL_NAMES:
+        return name
+    # Try removing common prefixes
+    for prefix in ["anthropic-", "google-", "openai-", "x-ai-", "z-ai-", "deepseek-", "qwen-"]:
+        if name.startswith(prefix):
+            stripped = name[len(prefix):]
+            if stripped in CANONICAL_NAMES:
+                return stripped
+    print(f"  WARNING: Unknown model '{name}'")
+    return name
 
-def load_metrics(dataset_path: Path):
-    """Load metrics.jsonl and aggregate per model"""
-    metrics_file = dataset_path.parent / "llm-judge" / "metrics.jsonl"
+
+# =============================================================================
+# DATA LOADING
+# =============================================================================
+
+DATASETS = {
+    "msmarco": {"name": "MSMARCO", "path": Path("../msmarco-outputs")},
+    "pg": {"name": "PG", "path": Path("../pg-outputs")},
+    "scifact": {"name": "SciFact", "path": Path("../scifact-outputs")},
+}
+
+
+def load_elo_ratings(dataset_path: Path) -> dict:
+    """Load ELO ratings and win/loss/tie from leaderboard.json"""
+    leaderboard_file = dataset_path / "llm-elo" / "leaderboard.json"
+    with open(leaderboard_file) as f:
+        data = json.load(f)
+    return data.get("ratings", {}), data.get("win_loss_tie", {})
+
+
+def load_metrics(dataset_path: Path) -> dict:
+    """Load and average metrics per model"""
+    metrics_file = dataset_path / "llm-judge" / "metrics.jsonl"
     if not metrics_file.exists():
         return {}
 
-    model_metrics = defaultdict(lambda: {'correctness': [], 'faithfulness': [], 'grounding': [], 'relevance': [], 'completeness': []})
+    model_metrics = defaultdict(lambda: {k: [] for k in
+        ["correctness", "faithfulness", "grounding", "relevance", "completeness"]})
+
     with open(metrics_file) as f:
         for line in f:
             m = json.loads(line)
-            model = m['model']
-            for key in ['correctness', 'faithfulness', 'grounding', 'relevance', 'completeness']:
-                model_metrics[model][key].append(m[key])
+            for key in model_metrics[m["model"]]:
+                model_metrics[m["model"]][key].append(m[key])
 
-    # Average the metrics
     result = {}
     for model, metrics in model_metrics.items():
-        result[model] = {
-            key: round(np.mean(vals), 2) if vals else 0
-            for key, vals in metrics.items()
-        }
-        result[model]['overall'] = round(np.mean([result[model][k] for k in ['correctness', 'faithfulness', 'grounding', 'relevance', 'completeness']]), 2)
+        result[model] = {k: round(np.mean(v), 2) for k, v in metrics.items() if v}
+        result[model]["overall"] = round(np.mean(list(result[model].values())), 2)
     return result
 
 
-def load_dataset_results(dataset_path: Path):
-    """Load leaderboard.json for a dataset"""
-    leaderboard_file = dataset_path / "leaderboard.json"
+def load_latencies(dataset_path: Path) -> dict:
+    """Load latency stats from answer files"""
+    rag_dir = dataset_path / "llm-rag"
+    if not rag_dir.exists():
+        return {}
 
-    if not leaderboard_file.exists():
-        raise FileNotFoundError(f"Leaderboard not found: {leaderboard_file}")
+    latencies = {}
+    for f in rag_dir.glob("*_answers.jsonl"):
+        model = f.stem.replace("_answers", "")
+        vals = []
+        with open(f) as file:
+            for line in file:
+                d = json.loads(line)
+                if d.get("latency_ms"):
+                    vals.append(d["latency_ms"])
+        if vals:
+            latencies[model] = {"mean": int(np.mean(vals)), "min": min(vals), "max": max(vals)}
+    return latencies
 
-    with open(leaderboard_file) as f:
-        data = json.load(f)
 
-    # Load metrics and latencies if available
-    metrics_data = load_metrics(dataset_path)
-    latency_data = load_latencies(dataset_path)
+def load_comparisons(dataset_path: Path) -> dict:
+    """Load pairwise comparisons from judgments.jsonl"""
+    judgments_file = dataset_path / "llm-judge" / "judgments.jsonl"
+    if not judgments_file.exists():
+        return {}
 
-    # Handle both old format (with 'models' key) and new format (with 'ratings' key)
-    if 'models' in data:
-        return data['models']
+    comps = defaultdict(lambda: defaultdict(lambda: {"wins": 0, "losses": 0, "ties": 0}))
 
-    # Convert new format to expected structure
-    # Normalize all model names to canonical format from model-info2.json
-    models = []
-    for raw_model_name, elo in data['ratings'].items():
-        # Normalize model name (removes provider prefixes)
-        model_name = normalize_model_name(raw_model_name)
+    with open(judgments_file) as f:
+        for line in f:
+            j = json.loads(line)
+            a, b = normalize_name(j["model_x"]), normalize_name(j["model_y"])
+            verdict = j["judgment"]
 
-        wlt = data.get('win_loss_tie', {}).get(raw_model_name, {'wins': 0, 'losses': 0, 'ties': 0})
-        model_metrics = metrics_data.get(raw_model_name, {
-            'correctness': 0, 'faithfulness': 0, 'grounding': 0,
-            'relevance': 0, 'completeness': 0, 'overall': 0
-        })
-        models.append({
-            'name': model_name,  # Use canonical name
-            'elo': elo,
-            'win_loss_tie': wlt,
-            'metrics': model_metrics,
-            'performance': {
-                'avg_latency_ms': latency_data.get(raw_model_name, {}).get('avg', 0),
-                'min_latency_ms': latency_data.get(raw_model_name, {}).get('min', 0),
-                'max_latency_ms': latency_data.get(raw_model_name, {}).get('max', 0)
-            },
-            'comparisons': {}
-        })
-    return models
+            if verdict == "A":
+                comps[a][b]["wins"] += 1
+                comps[b][a]["losses"] += 1
+            elif verdict == "B":
+                comps[a][b]["losses"] += 1
+                comps[b][a]["wins"] += 1
+            else:
+                comps[a][b]["ties"] += 1
+                comps[b][a]["ties"] += 1
 
-def aggregate_results():
-    """Aggregate results from all datasets"""
+    return comps
 
-    print("=" * 70)
-    print("AGGREGATING RESULTS FROM 3 DATASETS")
-    print("=" * 70)
 
-    # Load all dataset results
-    dataset_results = {}
+# =============================================================================
+# AGGREGATION
+# =============================================================================
+
+def aggregate():
+    """Aggregate all datasets into final benchmarks.json"""
+    print("=" * 60)
+    print("GENERATING BENCHMARKS")
+    print("=" * 60)
+
+    # Collect data from all datasets
+    all_data = defaultdict(lambda: {
+        "elos": [], "wins": [], "losses": [], "ties": [],
+        "latencies": [], "metrics": [], "by_dataset": {},
+        "comparisons": defaultdict(lambda: {"wins": 0, "losses": 0, "ties": 0})
+    })
+
     for key, info in DATASETS.items():
         print(f"\nLoading {info['name']}...")
-        models = load_dataset_results(info['path'])
-        dataset_results[key] = {model['name']: model for model in models}
-        print(f"  ✅ Loaded {len(models)} models")
+        path = info["path"]
 
-    # Get all model names (should be same 9 across all datasets)
-    all_models = set()
-    for models_dict in dataset_results.values():
-        all_models.update(models_dict.keys())
+        ratings, wlt = load_elo_ratings(path)
+        metrics = load_metrics(path)
+        latencies = load_latencies(path)
+        comparisons = load_comparisons(path)
 
-    print(f"\n📊 Total models: {len(all_models)}")
-    print(f"   Models: {', '.join(sorted(all_models))}")
+        for raw_name, elo in ratings.items():
+            name = normalize_name(raw_name)
+            model_wlt = wlt.get(raw_name, {"wins": 0, "losses": 0, "ties": 0})
+            model_metrics = metrics.get(raw_name, {})
+            model_latency = latencies.get(raw_name, {})
 
-    # Aggregate for each model
-    aggregated = []
+            # Aggregate
+            all_data[name]["elos"].append(elo)
+            all_data[name]["wins"].append(model_wlt["wins"])
+            all_data[name]["losses"].append(model_wlt["losses"])
+            all_data[name]["ties"].append(model_wlt["ties"])
+            if model_latency.get("mean"):
+                all_data[name]["latencies"].append(model_latency["mean"])
+            if model_metrics.get("overall"):
+                all_data[name]["metrics"].append(model_metrics["overall"])
 
-    for raw_model_name in sorted(all_models):
-        # Normalize model name to canonical format
-        model_name = normalize_model_name(raw_model_name)
-        print(f"\n🔄 Processing: {raw_model_name} -> {model_name}")
-
-        model_data = {
-            "name": model_name,  # Use canonical name
-            "overall": {},
-            "by_dataset": {},
-            "comparisons": {}
-        }
-
-        # Collect stats across datasets
-        all_elos = []
-        all_wins = []
-        all_losses = []
-        all_ties = []
-        all_latencies = []
-        all_metrics = []
-        all_comparisons = defaultdict(lambda: {"wins": 0, "losses": 0, "ties": 0})
-
-        for dataset_key, dataset_info in DATASETS.items():
-            dataset_name = dataset_info['name']
-
-            if raw_model_name not in dataset_results[dataset_key]:
-                print(f"  ⚠️  Missing from {dataset_name}")
-                continue
-
-            data = dataset_results[dataset_key][raw_model_name]
-
-            # Collect for overall
-            all_elos.append(data['elo'])
-            all_wins.append(data['win_loss_tie']['wins'])
-            all_losses.append(data['win_loss_tie']['losses'])
-            all_ties.append(data['win_loss_tie']['ties'])
-            all_latencies.append(data['performance']['avg_latency_ms'])
-            all_metrics.append(data['metrics']['overall'])
-
-            # Per-dataset stats
-            model_data['by_dataset'][dataset_name] = {
-                "elo": round(data['elo'], 2),
-                "wins": data['win_loss_tie']['wins'],
-                "losses": data['win_loss_tie']['losses'],
-                "ties": data['win_loss_tie']['ties'],
-                "win_rate": round(data['win_loss_tie']['wins'] /
-                                (data['win_loss_tie']['wins'] + data['win_loss_tie']['losses'] + data['win_loss_tie']['ties']), 4),
-                "metrics": {
-                    "correctness": round(data['metrics']['correctness'], 2),
-                    "faithfulness": round(data['metrics']['faithfulness'], 2),
-                    "grounding": round(data['metrics']['grounding'], 2),
-                    "relevance": round(data['metrics']['relevance'], 2),
-                    "completeness": round(data['metrics']['completeness'], 2),
-                    "overall": round(data['metrics']['overall'], 2)
-                },
-                "latency": {
-                    "mean_ms": int(data['performance']['avg_latency_ms']),
-                    "min_ms": int(data['performance']['min_latency_ms']),
-                    "max_ms": int(data['performance']['max_latency_ms'])
-                }
+            # Per-dataset
+            total = model_wlt["wins"] + model_wlt["losses"] + model_wlt["ties"]
+            all_data[name]["by_dataset"][info["name"]] = {
+                "elo": round(elo, 2),
+                "wins": model_wlt["wins"],
+                "losses": model_wlt["losses"],
+                "ties": model_wlt["ties"],
+                "win_rate": round(model_wlt["wins"] / total, 4) if total else 0,
+                "metrics": model_metrics,
+                "latency": {"mean_ms": model_latency.get("mean", 0),
+                           "min_ms": model_latency.get("min", 0),
+                           "max_ms": model_latency.get("max", 0)}
             }
 
-            # Aggregate comparisons (normalize opponent names)
-            for raw_opponent, comp_data in data['comparisons'].items():
-                opponent = normalize_model_name(raw_opponent)
-                all_comparisons[opponent]['wins'] += comp_data['wins']
-                all_comparisons[opponent]['losses'] += comp_data['losses']
-                all_comparisons[opponent]['ties'] += comp_data['ties']
+            # Comparisons
+            for opponent, stats in comparisons.get(name, {}).items():
+                all_data[name]["comparisons"][opponent]["wins"] += stats["wins"]
+                all_data[name]["comparisons"][opponent]["losses"] += stats["losses"]
+                all_data[name]["comparisons"][opponent]["ties"] += stats["ties"]
 
-        # Calculate overall stats
-        if all_elos:
-            model_data['overall'] = {
-                "elo": round(np.mean(all_elos), 2),
-                "elo_std": round(np.std(all_elos), 2),
-                "wins": sum(all_wins),
-                "losses": sum(all_losses),
-                "ties": sum(all_ties),
-                "win_rate": round(sum(all_wins) / (sum(all_wins) + sum(all_losses) + sum(all_ties)), 4),
-                "total_judgments": sum(all_wins) + sum(all_losses) + sum(all_ties),
-                "avg_latency_ms": round(np.mean(all_latencies), 2),
-                "avg_metric_overall": round(np.mean(all_metrics), 2)
+        print(f"  Loaded {len(ratings)} models")
+
+    # Build final output
+    benchmarks = []
+    for name, data in all_data.items():
+        total = sum(data["wins"]) + sum(data["losses"]) + sum(data["ties"])
+
+        # Build comparisons with win_rate
+        comparisons = {}
+        for opp, stats in data["comparisons"].items():
+            t = stats["wins"] + stats["losses"] + stats["ties"]
+            comparisons[opp] = {
+                "wins": stats["wins"],
+                "losses": stats["losses"],
+                "ties": stats["ties"],
+                "total": t,
+                "win_rate": round(stats["wins"] / t, 4) if t else 0
             }
 
-            # Add comparisons
-            for opponent, comp_stats in all_comparisons.items():
-                total = comp_stats['wins'] + comp_stats['losses'] + comp_stats['ties']
-                model_data['comparisons'][opponent] = {
-                    "wins": comp_stats['wins'],
-                    "losses": comp_stats['losses'],
-                    "ties": comp_stats['ties'],
-                    "total": total,
-                    "win_rate": round(comp_stats['wins'] / total, 4) if total > 0 else 0
-                }
+        benchmarks.append({
+            "name": name,
+            "overall": {
+                "elo": round(np.mean(data["elos"]), 2),
+                "elo_std": round(np.std(data["elos"]), 2),
+                "wins": sum(data["wins"]),
+                "losses": sum(data["losses"]),
+                "ties": sum(data["ties"]),
+                "win_rate": round(sum(data["wins"]) / total, 4) if total else 0,
+                "total_judgments": total,
+                "avg_latency_ms": round(np.mean(data["latencies"]), 2) if data["latencies"] else 0,
+                "avg_metric_overall": round(np.mean(data["metrics"]), 2) if data["metrics"] else 0,
+            },
+            "by_dataset": data["by_dataset"],
+            "comparisons": comparisons,
+        })
 
-            aggregated.append(model_data)
-            print(f"  ✅ Overall ELO: {model_data['overall']['elo']:.2f} (±{model_data['overall']['elo_std']:.2f})")
+    # Sort by ELO
+    benchmarks.sort(key=lambda x: x["overall"]["elo"], reverse=True)
 
-    # Sort by overall ELO
-    aggregated.sort(key=lambda x: x['overall']['elo'], reverse=True)
+    # Save
+    output = Path("../benchmarks.json")
+    with open(output, "w") as f:
+        json.dump(benchmarks, f, indent=2)
 
-    return aggregated
-
-def save_results(aggregated_data, output_file: Path):
-    """Save aggregated results to JSON"""
-    with open(output_file, 'w') as f:
-        json.dump(aggregated_data, f, indent=2)
-    print(f"\n✅ Saved aggregated results: {output_file}")
-
-def print_summary(aggregated_data):
-    """Print summary of aggregated results"""
-    print("\n" + "=" * 70)
-    print("AGGREGATED LEADERBOARD (Overall ELO)")
-    print("=" * 70)
-
-    for i, model in enumerate(aggregated_data, 1):
-        elo = model['overall']['elo']
-        elo_std = model['overall']['elo_std']
-        win_rate = model['overall']['win_rate']
-        metric = model['overall']['avg_metric_overall']
-
-        print(f"{i:2}. {model['name']:<40} "
-              f"ELO: {elo:7.2f} (±{elo_std:5.2f})  "
-              f"Win Rate: {win_rate:.3f}  "
-              f"Metric: {metric:.2f}")
-
-def main():
-    # Aggregate results
-    aggregated_data = aggregate_results()
+    # Also save as aggregated_leaderboard.json for compatibility
+    with open(Path("../aggregated_leaderboard.json"), "w") as f:
+        json.dump(benchmarks, f, indent=2)
 
     # Print summary
-    print_summary(aggregated_data)
+    print("\n" + "=" * 60)
+    print("LEADERBOARD")
+    print("=" * 60)
+    for i, m in enumerate(benchmarks, 1):
+        print(f"{i:2}. {m['name']:35} ELO: {m['overall']['elo']:7.2f}  WR: {m['overall']['win_rate']:.1%}")
 
-    # Save to file
-    output_file = Path("../aggregated_leaderboard.json")
-    save_results(aggregated_data, output_file)
+    print(f"\n Saved: {output}")
+    print(f" Saved: ../aggregated_leaderboard.json")
 
-    print("\n" + "=" * 70)
-    print("✅ AGGREGATION COMPLETE!")
-    print("=" * 70)
-    print(f"\nNext step: Create visualization")
-    print(f"  python3 visualize_aggregated.py --input {output_file} --output ../aggregated_leaderboard.png")
 
 if __name__ == "__main__":
-    main()
+    aggregate()
