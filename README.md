@@ -2,21 +2,6 @@
 
 Benchmark framework comparing LLM performance on RAG tasks across 3 datasets.
 
-## Leaderboard
-
-| Rank | Model | ELO | Win Rate |
-|------|-------|-----|----------|
-| 1 | claude-opus-4-6 | 1916 | 83.0% |
-| 2 | claude-sonnet-4.6 | 1738 | 67.6% |
-| 3 | gpt-5.1 | 1689 | 65.5% |
-| 4 | claude-opus-4-5-20251101 | 1666 | 57.9% |
-| 5 | claude-sonnet-4.5 | 1613 | 50.8% |
-| 6 | gemini-3-flash-preview | 1571 | 60.6% |
-| 7 | gemini-3-pro-preview | 1509 | 44.2% |
-| 8 | grok-4-fast | 1492 | 44.9% |
-| 9 | gpt-5.2 | 1491 | 40.1% |
-| 10 | gpt-5.4 | 1418 | 31.9% |
-
 *Full results in `benchmarks.json`*
 
 ## Datasets
