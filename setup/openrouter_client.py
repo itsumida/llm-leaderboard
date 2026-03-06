@@ -22,7 +22,8 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 OPENAI_BASE_URL = "https://api.openai.com/v1/chat/completions"
 
 # Models that should use OpenAI API directly (not available on OpenRouter yet)
-DIRECT_OPENAI_MODELS = ["gpt-5.3-codex"]
+# Note: "gpt-5.4-thinking" is the ChatGPT name; in API it's just "gpt-5.4"
+DIRECT_OPENAI_MODELS = ["gpt-5.3-codex", "gpt-5.4", "gpt-5.4-pro"]
 
 
 def call_openai_direct(
@@ -52,8 +53,13 @@ def call_openai_direct(
         "model": model,
         "messages": messages,
         "temperature": temperature,
-        "max_tokens": max_tokens,
     }
+
+    # GPT-5.4+ uses max_completion_tokens instead of max_tokens
+    if "gpt-5.4" in model or "gpt-5.5" in model:
+        payload["max_completion_tokens"] = max_tokens
+    else:
+        payload["max_tokens"] = max_tokens
 
     try:
         response = requests.post(
