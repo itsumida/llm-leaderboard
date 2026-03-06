@@ -12,6 +12,7 @@ import os
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import itertools
+import random
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -377,7 +378,10 @@ def main():
     for query_id in common_query_ids:
         query_text = answers_data[model_names[0]][query_id]['question']
 
-        for model_x, model_y in pairs:
+        for pair in pairs:
+            # Randomize A/B position for each query to avoid position bias
+            model_x, model_y = (pair[0], pair[1]) if random.random() < 0.5 else (pair[1], pair[0])
+
             # Check if judgment exists
             key = (query_id, frozenset([model_x, model_y]))
 
